@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9626AAF2-9C38-47D3-99C0-BDCE445EE388}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>CodeEditor.My.MyApplication</StartupObject>
+    <RootNamespace>CodeEditor</RootNamespace>
+    <AssemblyName>Code Editor</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\projectVB\CppIDE\cppWorking\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>C and C++ IDE</ProductName>
+    <PublisherName>Jitendra Kumar</PublisherName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Code Editor.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Code Editor.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>Off</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>Code Editor.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>Code Editor.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>3122C1B2E5EBB1BCCE279E96BE32056FAB3098ED</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutSoftwareBox.Designer.vb">
+      <DependentUpon>AboutSoftwareBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AboutSoftwareBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="CodeExecuters.vb" />
+    <Compile Include="EditMenu.vb" />
+    <Compile Include="Editor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor.Designer.vb">
+      <DependentUpon>Editor.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fileManipulation.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="MyUtilities.vb" />
+    <Compile Include="SplashScreen1.Designer.vb">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Theme.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AboutSoftwareBox.resx">
+      <DependentUpon>AboutSoftwareBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor.resx">
+      <DependentUpon>Editor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\MinGW\bin\aclocal" />
+    <None Include="bin\Release\MinGW\bin\aclocal-1.10" />
+    <None Include="bin\Release\MinGW\bin\aclocal-1.11" />
+    <None Include="bin\Release\MinGW\bin\aclocal-1.4" />
+    <None Include="bin\Release\MinGW\bin\aclocal-1.5" />
+    <None Include="bin\Release\MinGW\bin\aclocal-1.6" />
+    <None Include="bin\Release\MinGW\bin\aclocal-1.7" />
+    <None Include="bin\Release\MinGW\bin\aclocal-1.8" />
+    <None Include="bin\Release\MinGW\bin\aclocal-1.9" />
+    <None Include="bin\Release\MinGW\bin\autoconf" />
+    <None Include="bin\Release\MinGW\bin\autoconf-2.13" />
+    <None Include="bin\Release\MinGW\bin\autoconf-2.68" />
+    <None Include="bin\Release\MinGW\bin\autoheader" />
+    <None Include="bin\Release\MinGW\bin\autoheader-2.13" />
+    <None Include="bin\Release\MinGW\bin\autoheader-2.68" />
+    <None Include="bin\Release\MinGW\bin\autom4te" />
+    <None Include="bin\Release\MinGW\bin\autom4te-2.68" />
+    <None Include="bin\Release\MinGW\bin\automake" />
+    <None Include="bin\Release\MinGW\bin\automake-1.10" />
+    <None Include="bin\Release\MinGW\bin\automake-1.11" />
+    <None Include="bin\Release\MinGW\bin\automake-1.4" />
+    <None Include="bin\Release\MinGW\bin\automake-1.5" />
+    <None Include="bin\Release\MinGW\bin\automake-1.6" />
+    <None Include="bin\Release\MinGW\bin\automake-1.7" />
+    <None Include="bin\Release\MinGW\bin\automake-1.8" />
+    <None Include="bin\Release\MinGW\bin\automake-1.9" />
+    <None Include="bin\Release\MinGW\bin\autopoint" />
+    <None Include="bin\Release\MinGW\bin\autoreconf" />
+    <None Include="bin\Release\MinGW\bin\autoreconf-2.13" />
+    <None Include="bin\Release\MinGW\bin\autoreconf-2.68" />
+    <None Include="bin\Release\MinGW\bin\autoscan" />
+    <None Include="bin\Release\MinGW\bin\autoscan-2.13" />
+    <None Include="bin\Release\MinGW\bin\autoscan-2.68" />
+    <None Include="bin\Release\MinGW\bin\autoupdate" />
+    <None Include="bin\Release\MinGW\bin\autoupdate-2.13" />
+    <None Include="bin\Release\MinGW\bin\autoupdate-2.68" />
+    <None Include="bin\Release\MinGW\bin\gettext.sh" />
+    <None Include="bin\Release\MinGW\bin\gettextize" />
+    <None Include="bin\Release\MinGW\bin\ifnames" />
+    <None Include="bin\Release\MinGW\bin\ifnames-2.13" />
+    <None Include="bin\Release\MinGW\bin\ifnames-2.68" />
+    <None Include="bin\Release\MinGW\bin\libtool" />
+    <None Include="bin\Release\MinGW\bin\libtoolize" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\MinGW\bin\addr2line.exe" />
+    <None Include="bin\Release\MinGW\bin\ar.exe" />
+    <None Include="bin\Release\MinGW\bin\as.exe" />
+    <None Include="bin\Release\MinGW\bin\c++.exe" />
+    <None Include="bin\Release\MinGW\bin\c++filt.exe" />
+    <None Include="bin\Release\MinGW\bin\cpp.exe" />
+    <None Include="bin\Release\MinGW\bin\dlltool.exe" />
+    <None Include="bin\Release\MinGW\bin\dllwrap.exe" />
+    <None Include="bin\Release\MinGW\bin\elfedit.exe" />
+    <None Include="bin\Release\MinGW\bin\envsubst.exe" />
+    <None Include="bin\Release\MinGW\bin\g++.exe" />
+    <None Include="bin\Release\MinGW\bin\gcc.exe" />
+    <None Include="bin\Release\MinGW\bin\gcc-ar.exe" />
+    <None Include="bin\Release\MinGW\bin\gcc-nm.exe" />
+    <None Include="bin\Release\MinGW\bin\gcc-ranlib.exe" />
+    <None Include="bin\Release\MinGW\bin\gcov.exe" />
+    <None Include="bin\Release\MinGW\bin\gcov-tool.exe" />
+    <None Include="bin\Release\MinGW\bin\gdb.exe" />
+    <None Include="bin\Release\MinGW\bin\gdbserver.exe" />
+    <None Include="bin\Release\MinGW\bin\gettext.exe" />
+    <None Include="bin\Release\MinGW\bin\gfortran.exe" />
+    <None Include="bin\Release\MinGW\bin\gnat.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatbind.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatchop.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatclean.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatdll.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatfind.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatkr.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatlink.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatls.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatmake.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatname.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatprep.exe" />
+    <None Include="bin\Release\MinGW\bin\gnatxref.exe" />
+    <None Include="bin\Release\MinGW\bin\gprof.exe" />
+    <None Include="bin\Release\MinGW\bin\he.cpp" />
+    <None Include="bin\Release\MinGW\bin\iconv.exe" />
+    <None Include="bin\Release\MinGW\bin\ld.bfd.exe" />
+    <None Include="bin\Release\MinGW\bin\ld.exe" />
+    <None Include="bin\Release\MinGW\bin\libatomic-1.dll" />
+    <None Include="bin\Release\MinGW\bin\libcharset-1.dll" />
+    <None Include="bin\Release\MinGW\bin\libexpat-1.dll" />
+    <None Include="bin\Release\MinGW\bin\libgcc_s_dw2-1.dll" />
+    <None Include="bin\Release\MinGW\bin\libgettextlib-0-18-3.dll" />
+    <None Include="bin\Release\MinGW\bin\libgettextpo-0.dll" />
+    <None Include="bin\Release\MinGW\bin\libgettextsrc-0-18-3.dll" />
+    <None Include="bin\Release\MinGW\bin\libgfortran-3.dll" />
+    <None Include="bin\Release\MinGW\bin\libgmp-10.dll" />
+    <None Include="bin\Release\MinGW\bin\libgomp-1.dll" />
+    <None Include="bin\Release\MinGW\bin\libiconv-2.dll" />
+    <None Include="bin\Release\MinGW\bin\libintl-8.dll" />
+    <None Include="bin\Release\MinGW\bin\libisl-15.dll" />
+    <None Include="bin\Release\MinGW\bin\libltdl-7.dll" />
+    <None Include="bin\Release\MinGW\bin\libmingwex-0.dll" />
+    <None Include="bin\Release\MinGW\bin\libmpc-3.dll" />
+    <None Include="bin\Release\MinGW\bin\libmpfr-4.dll" />
+    <None Include="bin\Release\MinGW\bin\libobjc-4.dll" />
+    <None Include="bin\Release\MinGW\bin\libquadmath-0.dll" />
+    <None Include="bin\Release\MinGW\bin\libssp-0.dll" />
+    <None Include="bin\Release\MinGW\bin\libstdc++-6.dll" />
+    <None Include="bin\Release\MinGW\bin\mingw32-c++.exe" />
+    <None Include="bin\Release\MinGW\bin\mingw32-g++.exe" />
+    <None Include="bin\Release\MinGW\bin\mingw32-gcc.exe" />
+    <None Include="bin\Release\MinGW\bin\mingw32-gcc-6.3.0.exe" />
+    <None Include="bin\Release\MinGW\bin\mingw32-gcc-ar.exe" />
+    <None Include="bin\Release\MinGW\bin\mingw32-gcc-nm.exe" />
+    <None Include="bin\Release\MinGW\bin\mingw32-gcc-ranlib.exe" />
+    <None Include="bin\Release\MinGW\bin\mingw32-gfortran.exe" />
+    <None Include="bin\Release\MinGW\bin\mingw32-make.exe" />
+    <None Include="bin\Release\MinGW\bin\mingw-get.exe" />
+    <None Include="bin\Release\MinGW\bin\mingwm10.dll" />
+    <None Include="bin\Release\MinGW\bin\msgattrib.exe" />
+    <None Include="bin\Release\MinGW\bin\msgcat.exe" />
+    <None Include="bin\Release\MinGW\bin\msgcmp.exe" />
+    <None Include="bin\Release\MinGW\bin\msgcomm.exe" />
+    <None Include="bin\Release\MinGW\bin\msgconv.exe" />
+    <None Include="bin\Release\MinGW\bin\msgen.exe" />
+    <None Include="bin\Release\MinGW\bin\msgexec.exe" />
+    <None Include="bin\Release\MinGW\bin\msgfilter.exe" />
+    <None Include="bin\Release\MinGW\bin\msgfmt.exe" />
+    <None Include="bin\Release\MinGW\bin\msggrep.exe" />
+    <None Include="bin\Release\MinGW\bin\msginit.exe" />
+    <None Include="bin\Release\MinGW\bin\msgmerge.exe" />
+    <None Include="bin\Release\MinGW\bin\msgunfmt.exe" />
+    <None Include="bin\Release\MinGW\bin\msguniq.exe" />
+    <None Include="bin\Release\MinGW\bin\ngettext.exe" />
+    <None Include="bin\Release\MinGW\bin\nm.exe" />
+    <None Include="bin\Release\MinGW\bin\objcopy.exe" />
+    <None Include="bin\Release\MinGW\bin\objdump.exe" />
+    <None Include="bin\Release\MinGW\bin\pthreadGC-3.dll" />
+    <None Include="bin\Release\MinGW\bin\ranlib.exe" />
+    <None Include="bin\Release\MinGW\bin\readelf.exe" />
+    <None Include="bin\Release\MinGW\bin\recode-sr-latin.exe" />
+    <None Include="bin\Release\MinGW\bin\size.exe" />
+    <None Include="bin\Release\MinGW\bin\strings.exe" />
+    <None Include="bin\Release\MinGW\bin\strip.exe" />
+    <None Include="bin\Release\MinGW\bin\windmc.exe" />
+    <None Include="bin\Release\MinGW\bin\windres.exe" />
+    <None Include="bin\Release\MinGW\bin\xgettext.exe" />
+    <None Include="bin\Release\MinGW\bin\zlib1.dll" />
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

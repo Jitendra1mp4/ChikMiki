@@ -1,0 +1,28 @@
+E:\projectVB\CppIDE\CppIDE\obj\x86\Release\CppIDE.vbproj.GenerateResource.Cache
+D:\projectVB\CppIDE\CppIDE\bin\Release\Code Editor.exe.manifest
+D:\projectVB\CppIDE\CppIDE\bin\Release\Code Editor.application
+D:\projectVB\CppIDE\CppIDE\bin\Release\Code Editor.exe
+D:\projectVB\CppIDE\CppIDE\bin\Release\Code Editor.pdb
+D:\projectVB\CppIDE\CppIDE\bin\Release\Code Editor.xml
+D:\projectVB\CppIDE\CppIDE\obj\x86\Release\CodeEditor.Resources.resources
+D:\projectVB\CppIDE\CppIDE\obj\x86\Release\CodeEditor.Editor.resources
+D:\projectVB\CppIDE\CppIDE\obj\x86\Release\CppIDE.vbproj.GenerateResource.Cache
+D:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.exe.manifest
+D:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.application
+D:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.exe
+D:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.xml
+D:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.pdb
+E:\projectVB\CppIDE\CppIDE\bin\Release\Code Editor.exe.manifest
+E:\projectVB\CppIDE\CppIDE\bin\Release\Code Editor.application
+E:\projectVB\CppIDE\CppIDE\bin\Release\Code Editor.exe
+E:\projectVB\CppIDE\CppIDE\bin\Release\Code Editor.pdb
+E:\projectVB\CppIDE\CppIDE\bin\Release\Code Editor.xml
+E:\projectVB\CppIDE\CppIDE\obj\x86\Release\CodeEditor.AboutSoftwareBox.resources
+E:\projectVB\CppIDE\CppIDE\obj\x86\Release\CodeEditor.Resources.resources
+E:\projectVB\CppIDE\CppIDE\obj\x86\Release\CodeEditor.Editor.resources
+E:\projectVB\CppIDE\CppIDE\obj\x86\Release\CodeEditor.SplashScreen1.resources
+E:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.exe.manifest
+E:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.application
+E:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.exe
+E:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.xml
+E:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.pdb
