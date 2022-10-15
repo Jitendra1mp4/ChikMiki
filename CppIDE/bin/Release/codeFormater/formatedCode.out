@@ -1,6 +1,7 @@
 ﻿#include <stdio.h>
 
-int main() {
-  printf("hello world\n");
+int main(int argc, char const *argv[]) {
+  // clrscr() ;
+  printf("Hello world");
   return 0;
 }

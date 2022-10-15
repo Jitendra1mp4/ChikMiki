@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Code Editor.exe" size="144384">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Code Editor.exe" size="146944">
       <assemblyIdentity name="Code Editor" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>PnTwOnU6HkqWvuLdV1aK0gRnWkE=</dsig:DigestValue>
+        <dsig:DigestValue>AlHijURFc+B8mAFA0xz37goC2pQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

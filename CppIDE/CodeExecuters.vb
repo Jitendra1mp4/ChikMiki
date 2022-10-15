@@ -3,7 +3,7 @@
     Const compilerLoaction As String = "MinGW\bin\"
     Const runnerCommand = "Executers\codeRunner.bat"
     Const compilerCommand = "Executers\codeCompiler.bat"
-
+    'Shared alreadyRemoved As Boolean = False
 
 
     Shared Sub codeRunner(ByVal inputPath As String, ByVal outputPath As String, ByVal compileOnly As Boolean)
@@ -20,8 +20,18 @@
     End Sub
 
     Shared Sub callCodeRunner(ByVal compileOnly As Boolean)
-        CodeEditor.fileManipulation.saveFile(CodeEditor.fileManipulation.tempFilePath)
 
+        'Testing 
+        MyUtilities.RunCommandCom("", "", False)
+
+        If ((Editor.CodeBox.Text.IndexOf("clrscr")) > -1 And (Editor.CodeBox.Text.IndexOf("// clrscr") = -1)) Then
+            Editor.CodeBox.Text = Editor.CodeBox.Text.Replace("clrscr", "// clrscr")
+            'alreadyRemoved = True
+        End If
+
+        'Editor.butifyCode() 'user may not able to undo code 
+
+        CodeEditor.fileManipulation.saveFile(CodeEditor.fileManipulation.tempFilePath)
         Dim inputPath As String
 
         'Setting input path

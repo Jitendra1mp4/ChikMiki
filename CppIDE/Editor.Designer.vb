@@ -28,20 +28,23 @@ Partial Class Editor
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.CodeBox = New System.Windows.Forms.RichTextBox()
         Me.ContextMenuOfCodeBox = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.CutOption = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CopyOption = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PastPast = New System.Windows.Forms.ToolStripMenuItem()
+        Me.contex_Cut = New System.Windows.Forms.ToolStripMenuItem()
+        Me.contex_Copy = New System.Windows.Forms.ToolStripMenuItem()
+        Me.contex_Past = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.CompileCodeOption = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RunCodeOption = New System.Windows.Forms.ToolStripMenuItem()
+        Me.contex_RunCode = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ButifyOption = New System.Windows.Forms.ToolStripMenuItem()
+        Me.contex_Butify = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.contex_Undo = New System.Windows.Forms.ToolStripMenuItem()
+        Me.contex_Redo = New System.Windows.Forms.ToolStripMenuItem()
         Me.lineNumberPanel = New System.Windows.Forms.Panel()
         Me.DownStatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.numberOfWords = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Status_NumberOfLine = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -54,6 +57,8 @@ Partial Class Editor
         Me.CopyMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PasteMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GoToMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Edit_Undo = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Edit_Redo = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WorkPendingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -129,44 +134,46 @@ Partial Class Editor
         Me.CodeBox.Name = "CodeBox"
         Me.CodeBox.Size = New System.Drawing.Size(733, 260)
         Me.CodeBox.TabIndex = 4
-        Me.CodeBox.Text = "#include <stdio.h>" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "int main(){" & Global.Microsoft.VisualBasic.ChrW(10) & "    printf(""hello world\n"") ;" & Global.Microsoft.VisualBasic.ChrW(10) & "    return 0 ;" & Global.Microsoft.VisualBasic.ChrW(10) & "}"
+        Me.CodeBox.Text = "#include <stdio.h>" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "int main(int argc, char const *argv[]) {" & Global.Microsoft.VisualBasic.ChrW(10) & "  printf(""Hello worl" & _
+            "d"");" & Global.Microsoft.VisualBasic.ChrW(10) & "  return 0;" & Global.Microsoft.VisualBasic.ChrW(10) & "}"
         Me.CodeBox.WordWrap = False
         '
         'ContextMenuOfCodeBox
         '
         Me.ContextMenuOfCodeBox.BackColor = System.Drawing.Color.DimGray
-        Me.ContextMenuOfCodeBox.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CutOption, Me.CopyOption, Me.PastPast, Me.ToolStripSeparator1, Me.CompileCodeOption, Me.RunCodeOption, Me.ToolStripSeparator2, Me.ButifyOption})
+        Me.ContextMenuOfCodeBox.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.contex_Cut, Me.contex_Copy, Me.contex_Past, Me.ToolStripSeparator1, Me.CompileCodeOption, Me.contex_RunCode, Me.ToolStripSeparator2, Me.contex_Butify, Me.ToolStripSeparator3, Me.contex_Undo, Me.contex_Redo})
         Me.ContextMenuOfCodeBox.Margin = New System.Windows.Forms.Padding(5)
         Me.ContextMenuOfCodeBox.Name = "ContextMenuStrip1"
-        Me.ContextMenuOfCodeBox.Size = New System.Drawing.Size(151, 148)
+        Me.ContextMenuOfCodeBox.Size = New System.Drawing.Size(151, 198)
         '
-        'CutOption
+        'contex_Cut
         '
-        Me.CutOption.BackColor = System.Drawing.Color.DimGray
-        Me.CutOption.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.CutOption.Name = "CutOption"
-        Me.CutOption.Size = New System.Drawing.Size(150, 22)
-        Me.CutOption.Text = "Cut"
+        Me.contex_Cut.BackColor = System.Drawing.Color.DimGray
+        Me.contex_Cut.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.contex_Cut.Name = "contex_Cut"
+        Me.contex_Cut.Size = New System.Drawing.Size(150, 22)
+        Me.contex_Cut.Text = "Cut"
         '
-        'CopyOption
+        'contex_Copy
         '
-        Me.CopyOption.BackColor = System.Drawing.Color.DimGray
-        Me.CopyOption.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.CopyOption.Name = "CopyOption"
-        Me.CopyOption.Size = New System.Drawing.Size(150, 22)
-        Me.CopyOption.Text = "Copy"
+        Me.contex_Copy.BackColor = System.Drawing.Color.DimGray
+        Me.contex_Copy.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.contex_Copy.Name = "contex_Copy"
+        Me.contex_Copy.Size = New System.Drawing.Size(150, 22)
+        Me.contex_Copy.Text = "Copy"
         '
-        'PastPast
+        'contex_Past
         '
-        Me.PastPast.BackColor = System.Drawing.Color.DimGray
-        Me.PastPast.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.PastPast.Name = "PastPast"
-        Me.PastPast.Size = New System.Drawing.Size(150, 22)
-        Me.PastPast.Text = "Past"
+        Me.contex_Past.BackColor = System.Drawing.Color.DimGray
+        Me.contex_Past.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.contex_Past.Name = "contex_Past"
+        Me.contex_Past.Size = New System.Drawing.Size(150, 22)
+        Me.contex_Past.Text = "Past"
         '
         'ToolStripSeparator1
         '
-        Me.ToolStripSeparator1.BackColor = System.Drawing.Color.DimGray
+        Me.ToolStripSeparator1.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStripSeparator1.ForeColor = System.Drawing.Color.Transparent
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(147, 6)
         '
@@ -178,27 +185,50 @@ Partial Class Editor
         Me.CompileCodeOption.Size = New System.Drawing.Size(150, 22)
         Me.CompileCodeOption.Text = "Compile Code"
         '
-        'RunCodeOption
+        'contex_RunCode
         '
-        Me.RunCodeOption.BackColor = System.Drawing.Color.DimGray
-        Me.RunCodeOption.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.RunCodeOption.Name = "RunCodeOption"
-        Me.RunCodeOption.Size = New System.Drawing.Size(150, 22)
-        Me.RunCodeOption.Text = "Run Code"
+        Me.contex_RunCode.BackColor = System.Drawing.Color.DimGray
+        Me.contex_RunCode.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.contex_RunCode.Name = "contex_RunCode"
+        Me.contex_RunCode.Size = New System.Drawing.Size(150, 22)
+        Me.contex_RunCode.Text = "Run Code"
         '
         'ToolStripSeparator2
         '
-        Me.ToolStripSeparator2.BackColor = System.Drawing.Color.DimGray
+        Me.ToolStripSeparator2.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStripSeparator2.ForeColor = System.Drawing.Color.Transparent
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(147, 6)
         '
-        'ButifyOption
+        'contex_Butify
         '
-        Me.ButifyOption.BackColor = System.Drawing.Color.DimGray
-        Me.ButifyOption.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ButifyOption.Name = "ButifyOption"
-        Me.ButifyOption.Size = New System.Drawing.Size(150, 22)
-        Me.ButifyOption.Text = "^Butify Code"
+        Me.contex_Butify.BackColor = System.Drawing.Color.DimGray
+        Me.contex_Butify.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.contex_Butify.Name = "contex_Butify"
+        Me.contex_Butify.Size = New System.Drawing.Size(150, 22)
+        Me.contex_Butify.Text = "^Butify Code"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(147, 6)
+        Me.ToolStripSeparator3.Visible = False
+        '
+        'contex_Undo
+        '
+        Me.contex_Undo.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.contex_Undo.Name = "contex_Undo"
+        Me.contex_Undo.Size = New System.Drawing.Size(150, 22)
+        Me.contex_Undo.Text = "Undo"
+        Me.contex_Undo.Visible = False
+        '
+        'contex_Redo
+        '
+        Me.contex_Redo.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.contex_Redo.Name = "contex_Redo"
+        Me.contex_Redo.Size = New System.Drawing.Size(150, 22)
+        Me.contex_Redo.Text = "Redo"
+        Me.contex_Redo.Visible = False
         '
         'lineNumberPanel
         '
@@ -215,7 +245,7 @@ Partial Class Editor
         'DownStatusStrip
         '
         Me.DownStatusStrip.BackColor = System.Drawing.Color.Gray
-        Me.DownStatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.numberOfWords, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4})
+        Me.DownStatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.numberOfWords, Me.ToolStripStatusLabel2, Me.Status_NumberOfLine, Me.ToolStripStatusLabel4})
         Me.DownStatusStrip.Location = New System.Drawing.Point(4, 295)
         Me.DownStatusStrip.Name = "DownStatusStrip"
         Me.DownStatusStrip.Padding = New System.Windows.Forms.Padding(1, 0, 10, 0)
@@ -243,11 +273,11 @@ Partial Class Editor
         Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(58, 17)
         Me.ToolStripStatusLabel2.Text = "        Lines"
         '
-        'ToolStripStatusLabel3
+        'Status_NumberOfLine
         '
-        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(13, 17)
-        Me.ToolStripStatusLabel3.Text = "0"
+        Me.Status_NumberOfLine.Name = "Status_NumberOfLine"
+        Me.Status_NumberOfLine.Size = New System.Drawing.Size(13, 17)
+        Me.Status_NumberOfLine.Text = "0"
         '
         'ToolStripStatusLabel4
         '
@@ -312,7 +342,7 @@ Partial Class Editor
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
-        Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CutMenuItem, Me.CopyMenuItem, Me.PasteMenuItem, Me.GoToMenuItem})
+        Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CutMenuItem, Me.CopyMenuItem, Me.PasteMenuItem, Me.GoToMenuItem, Me.Edit_Undo, Me.Edit_Redo})
         Me.EditToolStripMenuItem.Font = New System.Drawing.Font("Sitka Small", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EditToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
@@ -351,6 +381,20 @@ Partial Class Editor
         Me.GoToMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
         Me.GoToMenuItem.Size = New System.Drawing.Size(180, 28)
         Me.GoToMenuItem.Text = "Go to"
+        '
+        'Edit_Undo
+        '
+        Me.Edit_Undo.Name = "Edit_Undo"
+        Me.Edit_Undo.Size = New System.Drawing.Size(180, 28)
+        Me.Edit_Undo.Text = "Undo"
+        Me.Edit_Undo.Visible = False
+        '
+        'Edit_Redo
+        '
+        Me.Edit_Redo.Name = "Edit_Redo"
+        Me.Edit_Redo.Size = New System.Drawing.Size(180, 28)
+        Me.Edit_Redo.Text = "Redo"
+        Me.Edit_Redo.Visible = False
         '
         'SearchToolStripMenuItem
         '
@@ -587,10 +631,10 @@ Partial Class Editor
     Friend WithEvents SAVEToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents codeBoxFontDialog As System.Windows.Forms.FontDialog
     Friend WithEvents ContextMenuOfCodeBox As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents CutOption As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CopyOption As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents PastPast As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents RunCodeOption As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents contex_Cut As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents contex_Copy As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents contex_Past As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents contex_RunCode As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UseCTRLScrollToZoomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
@@ -601,12 +645,17 @@ Partial Class Editor
     Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents numberOfWords As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel2 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents ToolStripStatusLabel3 As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents Status_NumberOfLine As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel4 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents DayNightMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FormateCodeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ButifyOption As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents contex_Butify As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents contex_Undo As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents contex_Redo As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Edit_Undo As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Edit_Redo As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -16,17 +16,24 @@ Public Class Editor
         End If
     End Sub
 
-    Private Sub butifyCode()
+    Shared Sub butifyCode()
         fileManipulation.saveFile(tempFilePath) 'saving file to tempPath
         MyUtilities.formateCode(tempFilePath) 'formating code
         'adding formated code to codeBox
         Threading.Thread.Sleep(800) 'Wait for code to get formate / wait execution of external command
-        CodeBox.Text = My.Computer.FileSystem.ReadAllText(codeFormaterOutput)
+        Editor.CodeBox.Text = My.Computer.FileSystem.ReadAllText(codeFormaterOutput)
     End Sub
+
+
+
     '**************************Auto-created functions***********************************'
 
+
+
+
     Private Sub CodeBox_TextChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CodeBox.TextChanged
-        numberOfWords.Text = CodeBox.Text.Length
+        numberOfWords.Text = CStr(CodeBox.Text.Length)
+        Status_NumberOfLine.Text = CStr(CodeBox.Lines.Length)
         Saved = False
         codeChanged = True
         SAVEToolStripMenuItem1.Text = "^SAVE"
@@ -37,11 +44,11 @@ Public Class Editor
         Saved = saver()
     End Sub
 
-    Private Sub CutToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CutOption.Click
+    Private Sub CutToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Cut.Click
         cutText()
     End Sub
 
-    Private Sub RunCodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RunCodeOption.Click
+    Private Sub RunCodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_RunCode.Click
 
         callCodeRunner(False)
 
@@ -135,10 +142,11 @@ Public Class Editor
 
     Private Sub Editor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        numberOfWords.Text = CodeBox.Text.Length
+        numberOfWords.Text = CStr(CodeBox.Text.Length)
+        Status_NumberOfLine.Text = CStr(CodeBox.Lines.Length)
+
         Me.Text = appName + " - Untitled"
         manageTheme()
-        Threading.Thread.Sleep(800)
 
     End Sub
 
@@ -150,16 +158,16 @@ Public Class Editor
         butifyCode()
     End Sub
 
-    Private Sub ToolStripMenuItem6_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButifyOption.Click
+    Private Sub ToolStripMenuItem6_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Butify.Click
         butifyCode()
     End Sub
 
-    Private Sub CopyOption_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyOption.Click
+    Private Sub CopyOption_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Copy.Click
         copyText()
 
     End Sub
 
-    Private Sub PastPast_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PastPast.Click
+    Private Sub PastPast_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Past.Click
         pasteText()
 
     End Sub
@@ -174,5 +182,22 @@ Public Class Editor
 
     Private Sub AboutDeveloperToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutDeveloperToolStripMenuItem.Click
         AboutSoftwareBox.Show()
+    End Sub
+
+    Private Sub ToolStripStatusLabel3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Status_NumberOfLine.Click
+
+    End Sub
+
+    Private Sub Edit_Undo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Edit_Undo.Click
+        undoText()
+    End Sub
+
+    Private Sub Edit_Redo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Edit_Redo.Click
+        RedoText()
+
+    End Sub
+
+    Private Sub MenuStrip1_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
     End Sub
 End Class

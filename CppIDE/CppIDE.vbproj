@@ -154,7 +154,6 @@
     <Compile Include="AboutSoftwareBox.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="CodeExecuters.vb" />
     <Compile Include="EditMenu.vb" />
     <Compile Include="Editor.vb">

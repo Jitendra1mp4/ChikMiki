@@ -50,6 +50,7 @@
             For i = 0 To Editor.ContextMenuOfCodeBox.Items.Count - 1 Step 1
                 Editor.ContextMenuOfCodeBox.Items(i).ForeColor = Color.White
                 Editor.ContextMenuOfCodeBox.Items(i).BackColor = Color.DimGray
+
             Next
 
             For i = 0 To Editor.DownStatusStrip.Items.Count - 1 Step 1
