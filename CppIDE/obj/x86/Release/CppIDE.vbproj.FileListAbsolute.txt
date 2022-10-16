@@ -26,6 +26,7 @@ E:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.application
 E:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.exe
 E:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.xml
 E:\projectVB\CppIDE\CppIDE\obj\x86\Release\Code Editor.pdb
+E:\SoftProj\ideProject\CppIDE\bin\Release\Code Editor.exe.config
 E:\SoftProj\ideProject\CppIDE\bin\Release\Code Editor.exe.manifest
 E:\SoftProj\ideProject\CppIDE\bin\Release\Code Editor.application
 E:\SoftProj\ideProject\CppIDE\bin\Release\Code Editor.exe

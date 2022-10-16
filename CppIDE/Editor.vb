@@ -7,7 +7,6 @@ Imports CodeEditor.Theme
 Public Class Editor
     Public Const appName As String = "Code Editor Alpha"
     Public Shared programArgs As String = ""
-
     Private Sub WorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WorToolStripMenuItem.Click
         If CodeBox.WordWrap Then
             CodeBox.WordWrap = False
@@ -121,12 +120,12 @@ Public Class Editor
     End Sub
 
     Private Sub NewToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewToolStripMenuItem.Click
-        Dim nextForm As New Editor
-        nextForm.ShowDialog()
-
+        createNewForm()
+        
     End Sub
 
     Private Sub Editor_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        My.MySettings.Default.Save()
         If codeChanged = True Then
             Dim mr As Integer
             mr = MsgBox("Do you want to Save File..?", 3, "Editor")
@@ -140,14 +139,23 @@ Public Class Editor
         End If
     End Sub
 
-    Private Sub Editor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    Sub InitialSetups()
+        SetTheme(My.MySettings.Default.Theme)
+
+        If (Not (My.MySettings.Default.lastOpenedFileName.Contains("\0"))) Then
+            'CodeBox.Text = My.MySettings.Default.lastOpenedFileName
+            setCodeBoxText(My.MySettings.Default.lastOpenedFileName)
+        End If
 
         numberOfWords.Text = CStr(CodeBox.Text.Length)
         Status_NumberOfLine.Text = CStr(CodeBox.Lines.Length)
+    End Sub
 
+
+    Private Sub Editor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Text = appName + " - Untitled"
-        manageTheme()
-
+        InitialSetups()
     End Sub
 
     Private Sub ToolStripMenuItem6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DayNightMenuItem.Click
@@ -156,6 +164,7 @@ Public Class Editor
 
     Private Sub FormateCodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FormateCodeToolStripMenuItem.Click
         butifyCode()
+
     End Sub
 
     Private Sub ToolStripMenuItem6_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Butify.Click
@@ -184,10 +193,6 @@ Public Class Editor
         AboutSoftwareBox.Show()
     End Sub
 
-    Private Sub ToolStripStatusLabel3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Status_NumberOfLine.Click
-
-    End Sub
-
     Private Sub Edit_Undo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Edit_Undo.Click
         undoText()
     End Sub
@@ -200,4 +205,30 @@ Public Class Editor
     Private Sub MenuStrip1_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
 
     End Sub
+
+    Sub resetCodeEditor()
+        filePath = "\0"
+        My.MySettings.Default.lastOpenedFileName = filePath
+        Me.Text = appName + " - Untitled"
+        CodeBox.Text = My.MySettings.Default.preAvalibleCode
+        codeChanged = False
+        Saved = True
+    End Sub
+
+    Private Sub createNewForm()
+        If codeChanged = True Then
+            Dim mr As MsgBoxResult
+            mr = MsgBox("Do yo want to save file", MsgBoxStyle.YesNoCancel, appName)
+            If mr = MsgBoxResult.Yes Then
+                If saver() <> True Then
+                    MsgBox("Unable to save", , appName)
+                End If
+            ElseIf mr = MsgBoxResult.No Then
+                resetCodeEditor()
+            End If
+        Else
+            resetCodeEditor()
+        End If
+    End Sub
+
 End Class

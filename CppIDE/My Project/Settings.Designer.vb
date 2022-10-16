@@ -53,6 +53,67 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Executers\codeCompiler.bat")>  _
+        Public ReadOnly Property compilerCommand() As String
+            Get
+                Return CType(Me("compilerCommand"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Executers\codeRunner.bat")>  _
+        Public ReadOnly Property runnerCommand() As String
+            Get
+                Return CType(Me("runnerCommand"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("MinGW\bin\")>  _
+        Public ReadOnly Property compilerLoaction() As String
+            Get
+                Return CType(Me("compilerLoaction"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Theme() As Boolean
+            Get
+                Return CType(Me("Theme"),Boolean)
+            End Get
+            Set
+                Me("Theme") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("""\0""")>  _
+        Public Property lastOpenedFileName() As String
+            Get
+                Return CType(Me("lastOpenedFileName"),String)
+            End Get
+            Set
+                Me("lastOpenedFileName") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("#include <stdio.h>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"int main(int argc, char const *argv[]) {"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  printf(""Hello w"& _ 
+            "orld"");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  return 0;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"}")>  _
+        Public ReadOnly Property preAvalibleCode() As String
+            Get
+                Return CType(Me("preAvalibleCode"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

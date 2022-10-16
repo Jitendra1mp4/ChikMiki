@@ -22,7 +22,7 @@
     Shared Sub callCodeRunner(ByVal compileOnly As Boolean)
 
         'Testing 
-        MyUtilities.RunCommandCom("", "", False)
+        'MyUtilities.RunCommandCom("", "", False)
 
         If ((Editor.CodeBox.Text.IndexOf("clrscr")) > -1 And (Editor.CodeBox.Text.IndexOf("// clrscr") = -1)) Then
             Editor.CodeBox.Text = Editor.CodeBox.Text.Replace("clrscr", "// clrscr")

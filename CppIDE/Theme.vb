@@ -1,11 +1,14 @@
 ﻿Public Class Theme
-    Shared Sub manageTheme()
+
+    Shared Sub SetTheme(ByVal Theme As Boolean)
+
+        My.MySettings.Default.Theme = Theme
+
         Dim i As Integer = 0
+        If (Not Theme) Then
 
+            'Setting Appearence for Light Mode
 
-
-        If Editor.DayNightMenuItem.Text = "Light" Then
-            Editor.DayNightMenuItem.Text = "Night"
 
             Editor.CodeBox.BackColor = Color.WhiteSmoke
             Editor.CodeBox.ForeColor = Color.DarkCyan
@@ -32,9 +35,11 @@
             Editor.DayNightMenuItem.BackColor = Color.Black
             Editor.DayNightMenuItem.ForeColor = Color.Honeydew
 
+            Editor.DayNightMenuItem.Text = "Night"
 
         Else
-            Editor.DayNightMenuItem.Text = "Light"
+
+            'Setting Appearence for Night Mode
 
             Editor.CodeBox.BackColor = Color.DimGray
             Editor.CodeBox.ForeColor = Color.Aqua
@@ -59,10 +64,19 @@
 
             Editor.DayNightMenuItem.BackColor = Color.Honeydew
             Editor.DayNightMenuItem.ForeColor = Color.Black
+
+            Editor.DayNightMenuItem.Text = "Light"
+
         End If
 
         fileManipulation.saveFile(fileManipulation.tempFilePath)
         fileManipulation.codeChanged = False
 
+    End Sub
+
+    Shared currentTheme As Boolean
+    Shared Sub manageTheme()
+        SetTheme(currentTheme)
+        currentTheme = Not currentTheme
     End Sub
 End Class

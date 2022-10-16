@@ -2,7 +2,7 @@
 
     Public Shared Saved As Boolean = False
     Public Shared codeChanged As Boolean = False
-    Public Shared filePath As String = "\0"
+    Public Shared filePath As String = My.MySettings.Default.lastOpenedFileName
 
     Const configurationFile As String = "Configuration\configure.conf"
     Const tempFileLocation As String = "Executers\Helper\"
@@ -22,9 +22,10 @@
         Return fileName.Substring(0, fileName.LastIndexOf(".") + 1) & extension
     End Function
 
-    Shared Function saveFile(ByVal Path As String) As Boolean
+    Shared Function saveFile(ByVal savingPath As String) As Boolean
+
         My.Computer.FileSystem.WriteAllText _
-            (Path, Editor.CodeBox.Text, False)
+            (savingPath, Editor.CodeBox.Text, False)
         saveFile = True
     End Function
 
@@ -36,6 +37,7 @@
         End If
         saveFile(tempFilePath)
         Saved = saveFile(filePath)
+        My.MySettings.Default.lastOpenedFileName = filePath
         Editor.Text = Editor.appName + " - " + getFileName(filePath)
     End Sub
 
@@ -52,15 +54,32 @@
 
         saveFile(tempFilePath)
         Saved = saveFile(filePath)
-        codeChanged = False
-
         If (Saved) Then
+            codeChanged = False
             Editor.SAVEToolStripMenuItem1.Text = "SAVE"
             fileName = getFileName(filePath)
             Editor.Text = Editor.appName + " - " + fileName
+            My.MySettings.Default.lastOpenedFileName = filePath
+        End If
+        Return True
+    End Function
+
+    Shared Function setCodeBoxText(ByVal path As String) As Boolean
+
+        If (My.Computer.FileSystem.FileExists(path)) Then
+            Editor.CodeBox.Text = My.Computer.FileSystem.ReadAllText(path) 'copy text to codeBox
+            filePath = path
+            Saved = True                        'set saved = true
+            codeChanged = False
+            fileName = getFileName(path)    'set file name
+            Editor.Text = Editor.appName + " - " + fileName
+            My.MySettings.Default.lastOpenedFileName = path 'save file path for next time
+            setCodeBoxText = True
+        Else
+            filePath = "\0"
         End If
 
-        Return True
+        setCodeBoxText = False
     End Function
 
     Shared Function openFile() As Boolean
@@ -69,17 +88,11 @@
         If Editor.OpenFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK _
             Then
             filePath = Editor.OpenFileDialog1.FileName 'get file path
-            fileName = getFileName(filePath)    'set file name
-            Editor.CodeBox.Text = My.Computer.FileSystem.ReadAllText(filePath) 'copy text to codeBox
-            Saved = True                        'set saved = true
-            codeChanged = False
-            Editor.Text = Editor.appName + " - " + fileName
-            Return True
+            Return setCodeBoxText(filePath)
         Else
             Return False
         End If
 
     End Function
-
 
 End Class

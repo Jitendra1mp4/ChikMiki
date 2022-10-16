@@ -180,6 +180,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="MyUtilities.vb" />
+    <Compile Include="Settings.vb" />
     <Compile Include="SplashScreen1.Designer.vb">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
     </Compile>
@@ -206,6 +207,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="bin\Release\MinGW\bin\aclocal" />
     <None Include="bin\Release\MinGW\bin\aclocal-1.10" />
     <None Include="bin\Release\MinGW\bin\aclocal-1.11" />

@@ -19,3 +19,19 @@ D:\projectVB\CppIDE\CppIDE\obj\x86\Debug\CppIDE.vbproj.GenerateResource.Cache
 D:\projectVB\CppIDE\CppIDE\obj\x86\Debug\CppIDE.Form1.resources
 E:\projectVB\CppIDE\CppIDE\obj\x86\Debug\CodeEditor.Resources.resources
 E:\projectVB\CppIDE\CppIDE\obj\x86\Debug\CodeEditor.Editor.resources
+E:\SoftProj\ideProject\CppIDE\bin\Debug\Code Editor.exe.config
+E:\SoftProj\ideProject\CppIDE\bin\Debug\Code Editor.exe.manifest
+E:\SoftProj\ideProject\CppIDE\bin\Debug\Code Editor.application
+E:\SoftProj\ideProject\CppIDE\bin\Debug\Code Editor.exe
+E:\SoftProj\ideProject\CppIDE\bin\Debug\Code Editor.pdb
+E:\SoftProj\ideProject\CppIDE\bin\Debug\Code Editor.xml
+E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\CodeEditor.AboutSoftwareBox.resources
+E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\CodeEditor.Resources.resources
+E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\CodeEditor.Editor.resources
+E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\CodeEditor.SplashScreen1.resources
+E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\CppIDE.vbproj.GenerateResource.Cache
+E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\Code Editor.exe.manifest
+E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\Code Editor.application
+E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\Code Editor.exe
+E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\Code Editor.xml
+E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\Code Editor.pdb

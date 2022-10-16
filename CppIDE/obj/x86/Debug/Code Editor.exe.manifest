@@ -43,24 +43,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Code Editor.exe" size="148992">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Code Editor.exe" size="157184">
       <assemblyIdentity name="Code Editor" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>EVuT4yLs0H8cwNmbgojxSpXpPYA=</dsig:DigestValue>
+        <dsig:DigestValue>EkoiLc5G7uOCfbRaB1Bqz54ay8s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Code Editor.exe.config" size="2254">
+  <file name="Code Editor.exe.config" size="2021">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zL5TecC3BDjsPgLcUPZBqX5eNxs=</dsig:DigestValue>
+      <dsig:DigestValue>3R8DmGBuhpQ61NPeey+/KMgosZ4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon.ico" size="2550">
@@ -69,7 +69,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>ZnAbx+IxCZ/AA5WSQB8wYvqjIJ8=</dsig:DigestValue>
+      <dsig:DigestValue>nn2xA7Hc2Ktpngrj7UZGynOcIKI=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
