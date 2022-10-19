@@ -44,15 +44,17 @@
             'Setting Appearence for Night Mode
 
 
-            Editor.lineNumberBox.BackColor = Color.Gray
+            Editor.lineNumberBox.BackColor = Color.DimGray
             Editor.lineNumberBox.ForeColor = Color.PaleGreen
 
-            Editor.CodeBox.BackColor = Color.DimGray
+            'Editor.CodeBox.BackColor = Color.DimGray
+            Editor.CodeBox.BackColor = Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
             Editor.CodeBox.ForeColor = Color.Aqua
 
-            Editor.MainMenuStrip.BackColor = Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
+            Editor.mainMenuStrip.BackColor = Color.DimGray
+            'Editor.MainMenuStrip.BackColor = Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
             'Editor.LeftPanel.BackColor = Color.Gray
-            Editor.DownStatusStrip.BackColor = Color.Gray
+            Editor.DownStatusStrip.BackColor = Color.DimGray
             Editor.containerPanel.BackColor = Color.Gray
             For i = 0 To 5
                 Editor.MainMenuStrip.Items(i).ForeColor = Color.WhiteSmoke
