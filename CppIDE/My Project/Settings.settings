@@ -15,15 +15,21 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="lastOpenedFileName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">"\0"</Value>
+      <Value Profile="(Default)">\0</Value>
     </Setting>
     <Setting Name="preAvalibleCode" Type="System.String" Scope="Application">
       <Value Profile="(Default)">#include &lt;stdio.h&gt;
 
-int main(int argc, char const *argv[]) {
+int main() {
   printf("Hello world");
   return 0;
 }</Value>
+    </Setting>
+    <Setting Name="codeBoxFont" Type="System.Drawing.Font" Scope="Application">
+      <Value Profile="(Default)">Consolas, 14.25pt, style=Bold</Value>
+    </Setting>
+    <Setting Name="EditorFont" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

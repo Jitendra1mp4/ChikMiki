@@ -37,22 +37,23 @@
         'Setting input path
         If fileManipulation.filePath <> "\0" Then
             fileManipulation.saver()
-            inputPath = CodeEditor.fileManipulation.putInsideDoubleQuouts(CodeEditor.fileManipulation.filePath)
+            inputPath = CodeEditor.fileManipulation.filePath
         Else
-            inputPath = CodeEditor.fileManipulation.putInsideDoubleQuouts(CodeEditor.fileManipulation.tempFilePath)
+            inputPath = CodeEditor.fileManipulation.tempFilePath
         End If
-
         'setting output path
         If CodeEditor.fileManipulation.Saved Then
             outputPath = CodeEditor.fileManipulation.setFileExtension(CodeEditor.fileManipulation.filePath, "exe")
         Else
             outputPath = CodeEditor.fileManipulation.setFileExtension(CodeEditor.fileManipulation.tempFilePath, "exe")
         End If
+
+        inputPath = CodeEditor.fileManipulation.putInsideDoubleQuouts(inputPath)
         outputPath = CodeEditor.fileManipulation.putInsideDoubleQuouts(outputPath)
+
         'calling code runner function
         codeRunner(inputPath, outputPath, compileOnly)
-        'CodeBox.Text = inputPath & "   ***   " & outputPath
+        'Editor.CodeBox.Text = inputPath & Environment.NewLine & outputPath
     End Sub
-
 
 End Class

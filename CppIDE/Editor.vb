@@ -23,6 +23,24 @@ Public Class Editor
         Editor.CodeBox.Text = My.Computer.FileSystem.ReadAllText(codeFormaterOutput)
     End Sub
 
+    Private Sub CodeBox_FontChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CodeBox.FontChanged
+        '****************For line number
+        lineNumberBox.Font = CodeBox.Font
+        CodeBox.Select()
+        AddLineNumbers()
+    End Sub
+
+    Private Sub CodeBox_MouseWheel(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles CodeBox.MouseWheel
+        e = Nothing
+    End Sub
+
+    Private Sub CodeBox_SelectionChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CodeBox.SelectionChanged
+        Dim pt As Point = CodeBox.GetPositionFromCharIndex(CodeBox.SelectionStart)
+        If (pt.X = 1) Then
+            AddLineNumbers()
+        End If
+    End Sub
+
 
 
     '**************************Auto-created functions***********************************'
@@ -33,9 +51,13 @@ Public Class Editor
     Private Sub CodeBox_TextChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CodeBox.TextChanged
         numberOfWords.Text = CStr(CodeBox.Text.Length)
         Status_NumberOfLine.Text = CStr(CodeBox.Lines.Length)
+        SAVEToolStripMenuItem1.Text = "^SAVE"
+        If CodeBox.Text = "" Then
+            AddLineNumbers()
+        End If
         Saved = False
         codeChanged = True
-        SAVEToolStripMenuItem1.Text = "^SAVE"
+
     End Sub
 
 
@@ -116,12 +138,12 @@ Public Class Editor
 
     Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
         openFile()
-
+        AddLineNumbers()
     End Sub
 
     Private Sub NewToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewToolStripMenuItem.Click
         createNewForm()
-        
+        AddLineNumbers()
     End Sub
 
     Private Sub Editor_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
@@ -150,6 +172,12 @@ Public Class Editor
 
         numberOfWords.Text = CStr(CodeBox.Text.Length)
         Status_NumberOfLine.Text = CStr(CodeBox.Lines.Length)
+
+        '****************For line number
+        lineNumberBox.Font = CodeBox.Font
+        CodeBox.Select()
+        AddLineNumbers()
+
     End Sub
 
 
@@ -212,7 +240,7 @@ Public Class Editor
         Me.Text = appName + " - Untitled"
         CodeBox.Text = My.MySettings.Default.preAvalibleCode
         codeChanged = False
-        Saved = True
+        'Saved = True
     End Sub
 
     Private Sub createNewForm()
@@ -229,6 +257,73 @@ Public Class Editor
         Else
             resetCodeEditor()
         End If
+    End Sub
+
+
+
+    '*******************Adding line number*****************************
+
+
+    Private Sub Editor_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+        AddLineNumbers()
+    End Sub
+
+    Function getWidth() As Integer
+        Dim w As Integer = 0
+        Dim line As Integer
+        'Get total lines of CodeBox
+        line = CodeBox.Lines.Length
+        If (line <= 99) Then
+            w = 30 ' + CInt(CodeBox.Lines.Length)
+        ElseIf (line <= 999) Then
+            w = 40 ' + CInt(CodeBox.Lines.Length)
+        Else
+            w = 60 '+ CInt(CodeBox.Lines.Length)
+        End If
+        Return w
+    End Function
+
+    Sub AddLineNumbers()
+        'clear lineNumberBox 
+        lineNumberBox.Clear()
+        'Create and set pointer to (0,0)
+        Dim pt As Point = New Point(0, 0)
+        'Get first index and first line number form CodeBox
+        Dim firstIndex As Integer
+        Dim firstLine As Integer
+        Dim lastIndex As Integer
+        Dim lastLine As Integer
+        firstIndex = CodeBox.GetCharIndexFromPosition(pt)
+        firstLine = CodeBox.GetLineFromCharIndex(firstIndex)
+        'Set X and Y co-ordinate of point to clientRectangle Width & Height respactively
+        pt.X = ClientRectangle.Width
+        pt.Y = ClientRectangle.Height
+        'Get last index and last line number form CodeBox
+        lastIndex = CodeBox.GetCharIndexFromPosition(pt)
+        lastLine = CodeBox.GetLineFromCharIndex(lastIndex)
+        'Set center alignment to LineNumber textBox
+        lineNumberBox.SelectionAlignment = HorizontalAlignment.Center
+        'Set lineNumberTextBox to null & width to getWidth function
+        lineNumberBox.Text = ""
+        lineNumberBox.Width = getWidth()
+        'Now add each line number to lineNumber text box upto last line
+        For i As Integer = firstLine To (lastLine + 2) Step 1
+            lineNumberBox.Text += CStr(i + 1) + Environment.NewLine
+        Next
+    End Sub
+
+    Private Sub CodeBox_VScroll(ByVal sender As Object, ByVal e As System.EventArgs) Handles CodeBox.VScroll
+        lineNumberBox.Font = CodeBox.Font
+        CodeBox.Select()
+        AddLineNumbers()
+    End Sub
+
+    Private Sub lineNumberBox_FontChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lineNumberBox.FontChanged
+    End Sub
+
+    Private Sub lineNumberBox_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles lineNumberBox.MouseDown
+        CodeBox.Select()
+        lineNumberBox.DeselectAll()
     End Sub
 
 End Class

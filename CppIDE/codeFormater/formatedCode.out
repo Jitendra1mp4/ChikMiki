@@ -1,0 +1,3 @@
+﻿#include <stdio.h>
+
+int main(int argc, char const *argv[]) { jiten return 0; }

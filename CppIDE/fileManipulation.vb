@@ -8,7 +8,7 @@
     Const tempFileLocation As String = "Executers\Helper\"
     Const tempFileName As String = "tempCodeRunnerFile.cpp"
 
-    Public Const tempFilePath As String = tempFileLocation & tempFileName
+    Public Const tempFilePath As String = tempFileLocation + tempFileName
 
     Public Shared Function getFileName(ByVal filePath As String)
         Return filePath.Substring(filePath.LastIndexOf("\") + 1)

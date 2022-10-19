@@ -8,13 +8,15 @@
         If (Not Theme) Then
 
             'Setting Appearence for Light Mode
+            Editor.lineNumberBox.BackColor = Color.White
+            Editor.lineNumberBox.ForeColor = Color.Gray
 
 
             Editor.CodeBox.BackColor = Color.WhiteSmoke
             Editor.CodeBox.ForeColor = Color.DarkCyan
 
             Editor.MainMenuStrip.BackColor = Color.White
-            Editor.lineNumberPanel.BackColor = Color.White
+            'Editor.LeftPanel.BackColor = Color.White
             Editor.DownStatusStrip.BackColor = Color.White
             Editor.containerPanel.BackColor = Color.White
 
@@ -41,11 +43,15 @@
 
             'Setting Appearence for Night Mode
 
+
+            Editor.lineNumberBox.BackColor = Color.Gray
+            Editor.lineNumberBox.ForeColor = Color.PaleGreen
+
             Editor.CodeBox.BackColor = Color.DimGray
             Editor.CodeBox.ForeColor = Color.Aqua
 
             Editor.MainMenuStrip.BackColor = Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
-            Editor.lineNumberPanel.BackColor = Color.Gray
+            'Editor.LeftPanel.BackColor = Color.Gray
             Editor.DownStatusStrip.BackColor = Color.Gray
             Editor.containerPanel.BackColor = Color.Gray
             For i = 0 To 5
