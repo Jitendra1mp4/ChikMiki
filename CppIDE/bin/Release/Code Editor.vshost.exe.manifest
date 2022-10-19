@@ -55,7 +55,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>zb5Z0wk5dY3UpZci2KXM2M2PuO0=</dsig:DigestValue>
+        <dsig:DigestValue>eHjmUJPtb/i39jhQT7I41pbRDMg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -65,7 +65,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>vvuO9Yp2dATylhAs0fXIvAJPUIA=</dsig:DigestValue>
+      <dsig:DigestValue>HXN9dDmHiHLLVvhuBdW6TLoEqa0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="codeFormater\clang-format.exe" size="2519440">

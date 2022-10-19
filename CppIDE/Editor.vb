@@ -163,17 +163,21 @@ Public Class Editor
 
 
     Sub InitialSetups()
+
+        'Setting last theme
         SetTheme(My.MySettings.Default.Theme)
 
+        'opening last opened file (if any)
         If (Not (My.MySettings.Default.lastOpenedFileName.Contains("\0"))) Then
             'CodeBox.Text = My.MySettings.Default.lastOpenedFileName
             setCodeBoxText(My.MySettings.Default.lastOpenedFileName)
         End If
 
+        'Updating status strip
         numberOfWords.Text = CStr(CodeBox.Text.Length)
         Status_NumberOfLine.Text = CStr(CodeBox.Lines.Length)
 
-        '****************For line number
+        'Adding line number
         lineNumberBox.Font = CodeBox.Font
         CodeBox.Select()
         AddLineNumbers()
@@ -230,9 +234,6 @@ Public Class Editor
 
     End Sub
 
-    Private Sub MenuStrip1_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
-
-    End Sub
 
     Sub resetCodeEditor()
         filePath = "\0"
@@ -316,9 +317,6 @@ Public Class Editor
         lineNumberBox.Font = CodeBox.Font
         CodeBox.Select()
         AddLineNumbers()
-    End Sub
-
-    Private Sub lineNumberBox_FontChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lineNumberBox.FontChanged
     End Sub
 
     Private Sub lineNumberBox_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles lineNumberBox.MouseDown

@@ -25,7 +25,7 @@ int main() {
   return 0;
 }</Value>
     </Setting>
-    <Setting Name="codeBoxFont" Type="System.Drawing.Font" Scope="Application">
+    <Setting Name="codeBoxFont" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Consolas, 14.25pt, style=Bold</Value>
     </Setting>
     <Setting Name="EditorFont" Type="System.String" Scope="User">

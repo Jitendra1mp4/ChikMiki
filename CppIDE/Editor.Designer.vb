@@ -26,7 +26,6 @@ Partial Class Editor
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Editor))
         Me.containerPanel = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.CodeBox = New System.Windows.Forms.RichTextBox()
         Me.ContextMenuOfCodeBox = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.contex_Cut = New System.Windows.Forms.ToolStripMenuItem()
         Me.contex_Copy = New System.Windows.Forms.ToolStripMenuItem()
@@ -82,6 +81,7 @@ Partial Class Editor
         Me.SAVEToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.CodeBox = New System.Windows.Forms.RichTextBox()
         Me.codeBoxFontDialog = New System.Windows.Forms.FontDialog()
         Me.containerPanel.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -97,7 +97,7 @@ Partial Class Editor
         Me.containerPanel.Controls.Add(Me.DownStatusStrip)
         Me.containerPanel.Controls.Add(Me.MenuStrip1)
         Me.containerPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.containerPanel.Font = New System.Drawing.Font("Sitka Small", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.containerPanel.Font = New System.Drawing.Font("Bahnschrift SemiCondensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.containerPanel.Location = New System.Drawing.Point(0, 0)
         Me.containerPanel.Margin = New System.Windows.Forms.Padding(6)
         Me.containerPanel.Name = "containerPanel"
@@ -116,26 +116,6 @@ Partial Class Editor
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(905, 317)
         Me.Panel3.TabIndex = 6
-        '
-        'CodeBox
-        '
-        Me.CodeBox.AcceptsTab = True
-        Me.CodeBox.AutoWordSelection = True
-        Me.CodeBox.BackColor = System.Drawing.Color.DimGray
-        Me.CodeBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.CodeBox.ContextMenuStrip = Me.ContextMenuOfCodeBox
-        Me.CodeBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CodeBox.DetectUrls = False
-        Me.CodeBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CodeBox.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CodeBox.ForeColor = System.Drawing.Color.Aqua
-        Me.CodeBox.Location = New System.Drawing.Point(18, 0)
-        Me.CodeBox.Margin = New System.Windows.Forms.Padding(26, 35, 32, 43)
-        Me.CodeBox.Name = "CodeBox"
-        Me.CodeBox.Size = New System.Drawing.Size(887, 317)
-        Me.CodeBox.TabIndex = 4
-        Me.CodeBox.Text = "#include <stdio.h>" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "int main() {" & Global.Microsoft.VisualBasic.ChrW(10) & "  printf(""Hello world"");" & Global.Microsoft.VisualBasic.ChrW(10) & "  return 0;" & Global.Microsoft.VisualBasic.ChrW(10) & "}"
-        Me.CodeBox.WordWrap = False
         '
         'ContextMenuOfCodeBox
         '
@@ -429,6 +409,7 @@ Partial Class Editor
         'ZoomToolStripMenuItem
         '
         Me.ZoomToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UseCTRLScrollToZoomToolStripMenuItem})
+        Me.ZoomToolStripMenuItem.Enabled = False
         Me.ZoomToolStripMenuItem.Font = New System.Drawing.Font("Sitka Small", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ZoomToolStripMenuItem.Name = "ZoomToolStripMenuItem"
         Me.ZoomToolStripMenuItem.Size = New System.Drawing.Size(159, 28)
@@ -436,6 +417,7 @@ Partial Class Editor
         '
         'UseCTRLScrollToZoomToolStripMenuItem
         '
+        Me.UseCTRLScrollToZoomToolStripMenuItem.Enabled = False
         Me.UseCTRLScrollToZoomToolStripMenuItem.Name = "UseCTRLScrollToZoomToolStripMenuItem"
         Me.UseCTRLScrollToZoomToolStripMenuItem.Size = New System.Drawing.Size(329, 28)
         Me.UseCTRLScrollToZoomToolStripMenuItem.Text = "Use CTRL+Mouse Scroll to zoom"
@@ -575,9 +557,30 @@ Partial Class Editor
         Me.SAVEToolStripMenuItem1.Size = New System.Drawing.Size(60, 27)
         Me.SAVEToolStripMenuItem1.Text = "SAVE"
         '
+        'CodeBox
+        '
+        Me.CodeBox.AcceptsTab = True
+        Me.CodeBox.AutoWordSelection = True
+        Me.CodeBox.BackColor = System.Drawing.Color.DimGray
+        Me.CodeBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.CodeBox.ContextMenuStrip = Me.ContextMenuOfCodeBox
+        Me.CodeBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.CodeBox.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.CodeEditor.My.MySettings.Default, "codeBoxFont", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CodeBox.DetectUrls = False
+        Me.CodeBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CodeBox.Font = Global.CodeEditor.My.MySettings.Default.codeBoxFont
+        Me.CodeBox.ForeColor = System.Drawing.Color.Aqua
+        Me.CodeBox.Location = New System.Drawing.Point(18, 0)
+        Me.CodeBox.Margin = New System.Windows.Forms.Padding(26, 35, 32, 43)
+        Me.CodeBox.Name = "CodeBox"
+        Me.CodeBox.Size = New System.Drawing.Size(887, 317)
+        Me.CodeBox.TabIndex = 4
+        Me.CodeBox.Text = "#include <stdio.h>" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "int main() {" & Global.Microsoft.VisualBasic.ChrW(10) & "  printf(""Hello world"");" & Global.Microsoft.VisualBasic.ChrW(10) & "  return 0;" & Global.Microsoft.VisualBasic.ChrW(10) & "}"
+        Me.CodeBox.WordWrap = False
+        '
         'codeBoxFontDialog
         '
-        Me.codeBoxFontDialog.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.codeBoxFontDialog.Font = Global.CodeEditor.My.MySettings.Default.codeBoxFont
         '
         'Editor
         '
