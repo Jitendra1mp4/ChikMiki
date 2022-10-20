@@ -3,6 +3,11 @@
     Const compilerLoaction As String = "MinGW\bin\"
     Const runnerCommand = "Executers\codeRunner.bat"
     Const compilerCommand = "Executers\codeCompiler.bat"
+    Const codeFormater As String = "codeFormater\codeFormater.bat"
+    Public Const formatedOutputLocation As String = "codeFormater\"
+    Public Const formatedOutputFileName As String = "formatedCode.out"
+    Public Const FormatedOutputPath As String = formatedOutputLocation + formatedOutputFileName
+
     'Shared alreadyRemoved As Boolean = False
 
 
@@ -20,9 +25,7 @@
     End Sub
 
     Shared Sub callCodeRunner(ByVal compileOnly As Boolean)
-
-        'Testing 
-        'MyUtilities.RunCommandCom("", "", False)
+         Dim outputPath As String
 
         If ((Editor.CodeBox.Text.IndexOf("clrscr")) > -1 And (Editor.CodeBox.Text.IndexOf("// clrscr") = -1)) Then
             Editor.CodeBox.Text = Editor.CodeBox.Text.Replace("clrscr", "// clrscr")
@@ -54,6 +57,14 @@
         'calling code runner function
         codeRunner(inputPath, outputPath, compileOnly)
         'Editor.CodeBox.Text = inputPath & Environment.NewLine & outputPath
+    End Sub
+
+
+    Shared Sub formateCode(ByVal filePath As String)
+        Const comd As String = codeFormater
+        Dim arguments As String = filePath + " " + FormatedOutputPath
+        'Editor.CodeBox.Text = comd + arguments
+        MyUtilities.RunCommandCom(comd, arguments, False)
     End Sub
 
 End Class

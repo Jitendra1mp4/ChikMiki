@@ -17,21 +17,21 @@ Public Class Editor
 
     Shared Sub butifyCode()
         fileManipulation.saveFile(tempFilePath) 'saving file to tempPath
-        MyUtilities.formateCode(tempFilePath) 'formating code
+        CodeExecuters.formateCode(tempFilePath) 'formating code
         'adding formated code to codeBox
         Threading.Thread.Sleep(800) 'Wait for code to get formate / wait execution of external command
-        Editor.CodeBox.Text = My.Computer.FileSystem.ReadAllText(codeFormaterOutput)
+        Editor.CodeBox.Text = My.Computer.FileSystem.ReadAllText(FormatedOutputPath)
     End Sub
+
+    Private Sub CodeBox_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles CodeBox.DragDrop
+
+    End Sub
+
 
     Private Sub CodeBox_FontChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CodeBox.FontChanged
         '****************For line number
         lineNumberBox.Font = CodeBox.Font
-        CodeBox.Select()
-        AddLineNumbers()
-    End Sub
 
-    Private Sub CodeBox_MouseWheel(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles CodeBox.MouseWheel
-        e = Nothing
     End Sub
 
     Private Sub CodeBox_SelectionChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CodeBox.SelectionChanged
@@ -150,7 +150,7 @@ Public Class Editor
         My.MySettings.Default.Save()
         If codeChanged = True Then
             Dim mr As Integer
-            mr = MsgBox("Do you want to Save File..?", 3, "Editor")
+            mr = MsgBox("Do you want to Save File..?", CType(3, MsgBoxStyle), "Editor")
             If mr = DialogResult.Yes Then
                 If saver() <> True Then
                     e.Cancel = True
@@ -210,15 +210,6 @@ Public Class Editor
 
     Private Sub PastPast_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Past.Click
         pasteText()
-
-    End Sub
-
-    Private Sub StatusStrip_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles DownStatusStrip.ItemClicked
-
-    End Sub
-
-    Private Sub FileToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FileToolStripMenuItem.Click
-
     End Sub
 
     Private Sub AboutDeveloperToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutDeveloperToolStripMenuItem.Click
@@ -275,11 +266,13 @@ Public Class Editor
         'Get total lines of CodeBox
         line = CodeBox.Lines.Length
         If (line <= 99) Then
-            w = 30 ' + CInt(CodeBox.Lines.Length)
+            w = 60 ' + CInt(CodeBox.Lines.Length)
         ElseIf (line <= 999) Then
-            w = 40 ' + CInt(CodeBox.Lines.Length)
+            w = 80 ' + CInt(CodeBox.Lines.Length)
+        ElseIf (line <= 9999) Then
+            w = 100 '+ CInt(CodeBox.Lines.Length)
         Else
-            w = 60 '+ CInt(CodeBox.Lines.Length)
+            w = 120 '+ CInt(CodeBox.Lines.Length)
         End If
         Return w
     End Function
@@ -306,7 +299,7 @@ Public Class Editor
         lineNumberBox.SelectionAlignment = HorizontalAlignment.Center
         'Set lineNumberTextBox to null & width to getWidth function
         lineNumberBox.Text = ""
-        lineNumberBox.Width = getWidth()
+        lineNumberAndSepraterContainer.Width = getWidth()
         'Now add each line number to lineNumber text box upto last line
         For i As Integer = firstLine To (lastLine + 2) Step 1
             lineNumberBox.Text += CStr(i + 1) + Environment.NewLine
@@ -323,5 +316,33 @@ Public Class Editor
         CodeBox.Select()
         lineNumberBox.DeselectAll()
     End Sub
+
+    Private Sub Editor_Scroll(ByVal sender As Object, ByVal e As System.Windows.Forms.ScrollEventArgs) Handles Me.Scroll
+
+    End Sub
+
+    Private Sub containerPanel_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles containerPanel.Paint
+
+    End Sub
+
+    Private Sub ResetZoomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ResetZoomToolStripMenuItem.Click
+        CodeBox.ZoomFactor = 1
+        'lineNumberBox.ZoomFactor = 1
+        'CodeBox.Font = codeBoxFontDialog.Font
+        'lineNumberAndSepraterContainer.Width = lineNumberBox.ZoomFactor * getWidth()
+
+    End Sub
+
+
+    ' disable ctrl + mouse zoom 
+    Dim _isKeyDown As Boolean = False
+
+    'Private Sub CodeBox_MouseWheel(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles CodeBox.MouseWheel
+    '    If (_isKeyDown = True) Then
+    '        (()) = True
+    '    End If
+    'End Sub
+
+
 
 End Class

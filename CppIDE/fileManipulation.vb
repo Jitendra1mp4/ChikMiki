@@ -4,13 +4,13 @@
     Public Shared codeChanged As Boolean = False
     Public Shared filePath As String = My.MySettings.Default.lastOpenedFileName
 
-    Const configurationFile As String = "Configuration\configure.conf"
+    Public Shared fileName As String
     Const tempFileLocation As String = "Executers\Helper\"
     Const tempFileName As String = "tempCodeRunnerFile.cpp"
 
     Public Const tempFilePath As String = tempFileLocation + tempFileName
 
-    Public Shared Function getFileName(ByVal filePath As String)
+    Public Shared Function getFileName(ByVal filePath As String) As String
         Return filePath.Substring(filePath.LastIndexOf("\") + 1)
     End Function
 
@@ -38,7 +38,7 @@
         saveFile(tempFilePath)
         Saved = saveFile(filePath)
         My.MySettings.Default.lastOpenedFileName = filePath
-        Editor.Text = Editor.appName + " - " + getFileName(filePath)
+        Editor.Text = Editor.appName + " - " + CStr(getFileName(filePath))
     End Sub
 
     Shared Function saver() As Boolean
@@ -57,7 +57,7 @@
         If (Saved) Then
             codeChanged = False
             Editor.SAVEToolStripMenuItem1.Text = "SAVE"
-            fileName = getFileName(filePath)
+            fileName = CStr(getFileName(filePath))
             Editor.Text = Editor.appName + " - " + fileName
             My.MySettings.Default.lastOpenedFileName = filePath
         End If
@@ -71,7 +71,7 @@
             filePath = path
             Saved = True                        'set saved = true
             codeChanged = False
-            fileName = getFileName(path)    'set file name
+            fileName = CStr(getFileName(path))    'set file name
             Editor.Text = Editor.appName + " - " + fileName
             My.MySettings.Default.lastOpenedFileName = path 'save file path for next time
             setCodeBoxText = True

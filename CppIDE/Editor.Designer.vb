@@ -39,6 +39,9 @@ Partial Class Editor
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.contex_Undo = New System.Windows.Forms.ToolStripMenuItem()
         Me.contex_Redo = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResetZoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.lineNumberAndSepraterContainer = New System.Windows.Forms.Panel()
+        Me.CodeboxSepraterPanel = New System.Windows.Forms.Panel()
         Me.lineNumberBox = New System.Windows.Forms.RichTextBox()
         Me.DownStatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -86,6 +89,7 @@ Partial Class Editor
         Me.containerPanel.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.ContextMenuOfCodeBox.SuspendLayout()
+        Me.lineNumberAndSepraterContainer.SuspendLayout()
         Me.DownStatusStrip.SuspendLayout()
         Me.mainMenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -102,19 +106,19 @@ Partial Class Editor
         Me.containerPanel.Margin = New System.Windows.Forms.Padding(6)
         Me.containerPanel.Name = "containerPanel"
         Me.containerPanel.Padding = New System.Windows.Forms.Padding(4)
-        Me.containerPanel.Size = New System.Drawing.Size(913, 378)
+        Me.containerPanel.Size = New System.Drawing.Size(695, 378)
         Me.containerPanel.TabIndex = 0
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.Info
         Me.Panel3.Controls.Add(Me.CodeBox)
-        Me.Panel3.Controls.Add(Me.lineNumberBox)
+        Me.Panel3.Controls.Add(Me.lineNumberAndSepraterContainer)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(4, 35)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(905, 317)
+        Me.Panel3.Size = New System.Drawing.Size(687, 317)
         Me.Panel3.TabIndex = 6
         '
         'CodeBox
@@ -130,10 +134,10 @@ Partial Class Editor
         Me.CodeBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CodeBox.Font = Global.CodeEditor.My.MySettings.Default.codeBoxFont
         Me.CodeBox.ForeColor = System.Drawing.Color.Aqua
-        Me.CodeBox.Location = New System.Drawing.Point(18, 0)
-        Me.CodeBox.Margin = New System.Windows.Forms.Padding(26, 35, 32, 43)
+        Me.CodeBox.Location = New System.Drawing.Point(50, 0)
+        Me.CodeBox.Margin = New System.Windows.Forms.Padding(50, 35, 32, 43)
         Me.CodeBox.Name = "CodeBox"
-        Me.CodeBox.Size = New System.Drawing.Size(887, 317)
+        Me.CodeBox.Size = New System.Drawing.Size(637, 317)
         Me.CodeBox.TabIndex = 4
         Me.CodeBox.Text = "#include <stdio.h>" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "int main() {" & Global.Microsoft.VisualBasic.ChrW(10) & "  printf(""Hello world"");" & Global.Microsoft.VisualBasic.ChrW(10) & "  return 0;" & Global.Microsoft.VisualBasic.ChrW(10) & "}"
         Me.CodeBox.WordWrap = False
@@ -141,10 +145,10 @@ Partial Class Editor
         'ContextMenuOfCodeBox
         '
         Me.ContextMenuOfCodeBox.BackColor = System.Drawing.Color.DimGray
-        Me.ContextMenuOfCodeBox.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.contex_Cut, Me.contex_Copy, Me.contex_Past, Me.ToolStripSeparator1, Me.CompileCodeOption, Me.contex_RunCode, Me.ToolStripSeparator2, Me.contex_Butify, Me.ToolStripSeparator3, Me.contex_Undo, Me.contex_Redo})
+        Me.ContextMenuOfCodeBox.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.contex_Cut, Me.contex_Copy, Me.contex_Past, Me.ToolStripSeparator1, Me.CompileCodeOption, Me.contex_RunCode, Me.ToolStripSeparator2, Me.contex_Butify, Me.ToolStripSeparator3, Me.contex_Undo, Me.contex_Redo, Me.ResetZoomToolStripMenuItem})
         Me.ContextMenuOfCodeBox.Margin = New System.Windows.Forms.Padding(5)
         Me.ContextMenuOfCodeBox.Name = "ContextMenuStrip1"
-        Me.ContextMenuOfCodeBox.Size = New System.Drawing.Size(151, 198)
+        Me.ContextMenuOfCodeBox.Size = New System.Drawing.Size(151, 220)
         '
         'contex_Cut
         '
@@ -230,18 +234,44 @@ Partial Class Editor
         Me.contex_Redo.Text = "Redo"
         Me.contex_Redo.Visible = False
         '
+        'ResetZoomToolStripMenuItem
+        '
+        Me.ResetZoomToolStripMenuItem.Name = "ResetZoomToolStripMenuItem"
+        Me.ResetZoomToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.ResetZoomToolStripMenuItem.Text = "Reset Zoom"
+        '
+        'lineNumberAndSepraterContainer
+        '
+        Me.lineNumberAndSepraterContainer.BackColor = System.Drawing.Color.IndianRed
+        Me.lineNumberAndSepraterContainer.Controls.Add(Me.CodeboxSepraterPanel)
+        Me.lineNumberAndSepraterContainer.Controls.Add(Me.lineNumberBox)
+        Me.lineNumberAndSepraterContainer.Dock = System.Windows.Forms.DockStyle.Left
+        Me.lineNumberAndSepraterContainer.Location = New System.Drawing.Point(0, 0)
+        Me.lineNumberAndSepraterContainer.Name = "lineNumberAndSepraterContainer"
+        Me.lineNumberAndSepraterContainer.Size = New System.Drawing.Size(50, 317)
+        Me.lineNumberAndSepraterContainer.TabIndex = 7
+        '
+        'CodeboxSepraterPanel
+        '
+        Me.CodeboxSepraterPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.CodeboxSepraterPanel.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CodeboxSepraterPanel.Location = New System.Drawing.Point(37, 0)
+        Me.CodeboxSepraterPanel.Name = "CodeboxSepraterPanel"
+        Me.CodeboxSepraterPanel.Size = New System.Drawing.Size(13, 317)
+        Me.CodeboxSepraterPanel.TabIndex = 6
+        '
         'lineNumberBox
         '
         Me.lineNumberBox.BackColor = System.Drawing.Color.DimGray
         Me.lineNumberBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lineNumberBox.Cursor = System.Windows.Forms.Cursors.PanNE
-        Me.lineNumberBox.Dock = System.Windows.Forms.DockStyle.Left
+        Me.lineNumberBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lineNumberBox.ForeColor = System.Drawing.Color.PaleGreen
         Me.lineNumberBox.Location = New System.Drawing.Point(0, 0)
         Me.lineNumberBox.Name = "lineNumberBox"
         Me.lineNumberBox.ReadOnly = True
         Me.lineNumberBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
-        Me.lineNumberBox.Size = New System.Drawing.Size(18, 317)
+        Me.lineNumberBox.Size = New System.Drawing.Size(50, 317)
         Me.lineNumberBox.TabIndex = 5
         Me.lineNumberBox.Text = ""
         '
@@ -252,7 +282,7 @@ Partial Class Editor
         Me.DownStatusStrip.Location = New System.Drawing.Point(4, 352)
         Me.DownStatusStrip.Name = "DownStatusStrip"
         Me.DownStatusStrip.Padding = New System.Windows.Forms.Padding(1, 0, 10, 0)
-        Me.DownStatusStrip.Size = New System.Drawing.Size(905, 22)
+        Me.DownStatusStrip.Size = New System.Drawing.Size(687, 22)
         Me.DownStatusStrip.TabIndex = 4
         Me.DownStatusStrip.Text = "StatusStrip1"
         '
@@ -296,7 +326,7 @@ Partial Class Editor
         Me.mainMenuStrip.Location = New System.Drawing.Point(4, 4)
         Me.mainMenuStrip.Name = "mainMenuStrip"
         Me.mainMenuStrip.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
-        Me.mainMenuStrip.Size = New System.Drawing.Size(905, 31)
+        Me.mainMenuStrip.Size = New System.Drawing.Size(687, 31)
         Me.mainMenuStrip.TabIndex = 0
         '
         'FileToolStripMenuItem
@@ -464,7 +494,7 @@ Partial Class Editor
         Me.WorToolStripMenuItem.Font = New System.Drawing.Font("Sitka Small", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WorToolStripMenuItem.Name = "WorToolStripMenuItem"
         Me.WorToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
-        Me.WorToolStripMenuItem.Size = New System.Drawing.Size(284, 28)
+        Me.WorToolStripMenuItem.Size = New System.Drawing.Size(277, 28)
         Me.WorToolStripMenuItem.Text = "Word Wrap"
         '
         'FontToolStripMenuItem
@@ -473,15 +503,15 @@ Partial Class Editor
         Me.FontToolStripMenuItem.Name = "FontToolStripMenuItem"
         Me.FontToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
                     Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.FontToolStripMenuItem.Size = New System.Drawing.Size(284, 28)
+        Me.FontToolStripMenuItem.Size = New System.Drawing.Size(277, 28)
         Me.FontToolStripMenuItem.Text = "Font"
         '
         'FormateCodeToolStripMenuItem
         '
         Me.FormateCodeToolStripMenuItem.Name = "FormateCodeToolStripMenuItem"
-        Me.FormateCodeToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+        Me.FormateCodeToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Shift) _
                     Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.FormateCodeToolStripMenuItem.Size = New System.Drawing.Size(284, 28)
+        Me.FormateCodeToolStripMenuItem.Size = New System.Drawing.Size(277, 28)
         Me.FormateCodeToolStripMenuItem.Text = "^Butify Code"
         '
         'HelpToolStripMenuItem
@@ -587,17 +617,19 @@ Partial Class Editor
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DimGray
-        Me.ClientSize = New System.Drawing.Size(913, 378)
+        Me.ClientSize = New System.Drawing.Size(695, 378)
         Me.Controls.Add(Me.containerPanel)
         Me.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Editor"
         Me.Text = "Code Editor Alpha"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.containerPanel.ResumeLayout(False)
         Me.containerPanel.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.ContextMenuOfCodeBox.ResumeLayout(False)
+        Me.lineNumberAndSepraterContainer.ResumeLayout(False)
         Me.DownStatusStrip.ResumeLayout(False)
         Me.DownStatusStrip.PerformLayout()
         Me.mainMenuStrip.ResumeLayout(False)
@@ -663,6 +695,9 @@ Partial Class Editor
     Friend WithEvents contex_Redo As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Edit_Undo As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Edit_Redo As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CodeboxSepraterPanel As System.Windows.Forms.Panel
+    Friend WithEvents lineNumberAndSepraterContainer As System.Windows.Forms.Panel
     Friend WithEvents lineNumberBox As System.Windows.Forms.RichTextBox
+    Friend WithEvents ResetZoomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
