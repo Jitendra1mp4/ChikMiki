@@ -23,11 +23,6 @@ Public Class Editor
         Editor.CodeBox.Text = My.Computer.FileSystem.ReadAllText(FormatedOutputPath)
     End Sub
 
-    Private Sub CodeBox_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles CodeBox.DragDrop
-
-    End Sub
-
-
     Private Sub CodeBox_FontChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CodeBox.FontChanged
         '****************For line number
         lineNumberBox.Font = CodeBox.Font
