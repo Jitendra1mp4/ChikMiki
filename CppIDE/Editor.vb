@@ -141,6 +141,7 @@ Public Class Editor
         AddLineNumbers()
     End Sub
 
+
     Private Sub Editor_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         My.MySettings.Default.Save()
         If codeChanged = True Then
@@ -183,6 +184,10 @@ Public Class Editor
     Private Sub Editor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Text = appName + " - Untitled"
         InitialSetups()
+
+
+
+
     End Sub
 
     Private Sub ToolStripMenuItem6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DayNightMenuItem.Click
@@ -328,16 +333,72 @@ Public Class Editor
 
     End Sub
 
+    Private Sub prepairAppearenceForDragEnter()
+        CodeBox.SendToBack()
+        CodeBox.Visible = False
+        CodeBox.Enabled = False
+        DropFilePanel.BringToFront()
+        CodeboxSepraterPanel.Visible = False
+        lineNumberBox.Visible = False
+        lineNumberAndSepraterContainer.Visible = False
+    End Sub
 
-    ' disable ctrl + mouse zoom 
-    Dim _isKeyDown As Boolean = False
+    Private Sub resetAppearanceAfterDragAction()
+        DropFilePanel.SendToBack()
+        CodeBox.BringToFront()
+        CodeBox.Visible = True
+        CodeBox.Enabled = True
+        CodeboxSepraterPanel.Visible = True
+        lineNumberBox.Visible = True
+        lineNumberAndSepraterContainer.Visible = True
+    End Sub
 
-    'Private Sub CodeBox_MouseWheel(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles CodeBox.MouseWheel
-    '    If (_isKeyDown = True) Then
-    '        (()) = True
-    '    End If
-    'End Sub
+    Private Sub Editor_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles Me.DragEnter
+        prepairAppearenceForDragEnter()
+    End Sub
 
+    Private Sub DropFilePanel_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles DropFilePanel.DragEnter
+     prepairAppearenceForDragEnter()
+
+        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
+            e.Effect = DragDropEffects.Copy
+        End If
+    End Sub
+
+    Private Sub DropFilePanel_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles DropFilePanel.DragDrop
+        resetAppearanceAfterDragAction()
+        Dim file() As String = CType(e.Data.GetData(DataFormats.FileDrop), String())
+        Dim fileExt As String = file(0).Substring(file(0).LastIndexOf("."))
+        Dim allowedExtenstion() As String = {".c", ".cpp", ".txt"}
+        If Array.IndexOf(allowedExtenstion, fileExt) > -1 Then
+            If codeChanged = True Then
+                Dim mr As MsgBoxResult = MsgBox("Do yo want to save Current file", MsgBoxStyle.YesNoCancel, appName)
+                If mr = MsgBoxResult.Yes Then
+                    If saver() <> True Then
+                        MsgBox("Unable to save", , appName)
+                    End If
+                ElseIf mr = MsgBoxResult.No Then
+                    setCodeBoxText(file(0))
+                    AddLineNumbers()
+                End If
+            Else
+                setCodeBoxText(file(0))
+                AddLineNumbers()
+            End If
+        Else
+            MsgBox("Only C,C++,Text file are allowed")
+        End If
+
+    End Sub
+
+    Private Sub DropFilePanel_DragLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles DropFilePanel.DragLeave
+         resetAppearanceAfterDragAction()
+    End Sub
+
+
+    Private Sub Editor_DragLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.DragLeave
+        resetAppearanceAfterDragAction()
+    End Sub
 
 
 End Class

@@ -23,6 +23,7 @@ Partial Class Editor
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim Label1 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Editor))
         Me.containerPanel = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -43,6 +44,7 @@ Partial Class Editor
         Me.lineNumberAndSepraterContainer = New System.Windows.Forms.Panel()
         Me.CodeboxSepraterPanel = New System.Windows.Forms.Panel()
         Me.lineNumberBox = New System.Windows.Forms.RichTextBox()
+        Me.DropFilePanel = New System.Windows.Forms.Panel()
         Me.DownStatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.numberOfWords = New System.Windows.Forms.ToolStripStatusLabel()
@@ -86,10 +88,12 @@ Partial Class Editor
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.codeBoxFontDialog = New System.Windows.Forms.FontDialog()
+        Label1 = New System.Windows.Forms.Label()
         Me.containerPanel.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.ContextMenuOfCodeBox.SuspendLayout()
         Me.lineNumberAndSepraterContainer.SuspendLayout()
+        Me.DropFilePanel.SuspendLayout()
         Me.DownStatusStrip.SuspendLayout()
         Me.mainMenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -106,7 +110,7 @@ Partial Class Editor
         Me.containerPanel.Margin = New System.Windows.Forms.Padding(6)
         Me.containerPanel.Name = "containerPanel"
         Me.containerPanel.Padding = New System.Windows.Forms.Padding(4)
-        Me.containerPanel.Size = New System.Drawing.Size(695, 378)
+        Me.containerPanel.Size = New System.Drawing.Size(900, 424)
         Me.containerPanel.TabIndex = 0
         '
         'Panel3
@@ -114,11 +118,12 @@ Partial Class Editor
         Me.Panel3.BackColor = System.Drawing.SystemColors.Info
         Me.Panel3.Controls.Add(Me.CodeBox)
         Me.Panel3.Controls.Add(Me.lineNumberAndSepraterContainer)
+        Me.Panel3.Controls.Add(Me.DropFilePanel)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(4, 35)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(687, 317)
+        Me.Panel3.Size = New System.Drawing.Size(892, 363)
         Me.Panel3.TabIndex = 6
         '
         'CodeBox
@@ -137,7 +142,7 @@ Partial Class Editor
         Me.CodeBox.Location = New System.Drawing.Point(50, 0)
         Me.CodeBox.Margin = New System.Windows.Forms.Padding(50, 35, 32, 43)
         Me.CodeBox.Name = "CodeBox"
-        Me.CodeBox.Size = New System.Drawing.Size(637, 317)
+        Me.CodeBox.Size = New System.Drawing.Size(842, 363)
         Me.CodeBox.TabIndex = 4
         Me.CodeBox.Text = "#include <stdio.h>" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "int main() {" & Global.Microsoft.VisualBasic.ChrW(10) & "  printf(""Hello world"");" & Global.Microsoft.VisualBasic.ChrW(10) & "  return 0;" & Global.Microsoft.VisualBasic.ChrW(10) & "}"
         Me.CodeBox.WordWrap = False
@@ -248,7 +253,7 @@ Partial Class Editor
         Me.lineNumberAndSepraterContainer.Dock = System.Windows.Forms.DockStyle.Left
         Me.lineNumberAndSepraterContainer.Location = New System.Drawing.Point(0, 0)
         Me.lineNumberAndSepraterContainer.Name = "lineNumberAndSepraterContainer"
-        Me.lineNumberAndSepraterContainer.Size = New System.Drawing.Size(50, 317)
+        Me.lineNumberAndSepraterContainer.Size = New System.Drawing.Size(50, 363)
         Me.lineNumberAndSepraterContainer.TabIndex = 7
         '
         'CodeboxSepraterPanel
@@ -257,7 +262,7 @@ Partial Class Editor
         Me.CodeboxSepraterPanel.Dock = System.Windows.Forms.DockStyle.Right
         Me.CodeboxSepraterPanel.Location = New System.Drawing.Point(37, 0)
         Me.CodeboxSepraterPanel.Name = "CodeboxSepraterPanel"
-        Me.CodeboxSepraterPanel.Size = New System.Drawing.Size(13, 317)
+        Me.CodeboxSepraterPanel.Size = New System.Drawing.Size(13, 363)
         Me.CodeboxSepraterPanel.TabIndex = 6
         '
         'lineNumberBox
@@ -271,18 +276,42 @@ Partial Class Editor
         Me.lineNumberBox.Name = "lineNumberBox"
         Me.lineNumberBox.ReadOnly = True
         Me.lineNumberBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
-        Me.lineNumberBox.Size = New System.Drawing.Size(50, 317)
+        Me.lineNumberBox.Size = New System.Drawing.Size(50, 363)
         Me.lineNumberBox.TabIndex = 5
         Me.lineNumberBox.Text = ""
+        '
+        'DropFilePanel
+        '
+        Me.DropFilePanel.AllowDrop = True
+        Me.DropFilePanel.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.DropFilePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.DropFilePanel.Controls.Add(Label1)
+        Me.DropFilePanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DropFilePanel.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.DropFilePanel.Location = New System.Drawing.Point(0, 0)
+        Me.DropFilePanel.Name = "DropFilePanel"
+        Me.DropFilePanel.Size = New System.Drawing.Size(892, 363)
+        Me.DropFilePanel.TabIndex = 8
+        '
+        'Label1
+        '
+        Label1.AutoSize = True
+        Label1.BackColor = System.Drawing.Color.Transparent
+        Label1.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label1.Location = New System.Drawing.Point(347, 162)
+        Label1.Name = "Label1"
+        Label1.Size = New System.Drawing.Size(244, 35)
+        Label1.TabIndex = 0
+        Label1.Text = "Drop To Open File"
         '
         'DownStatusStrip
         '
         Me.DownStatusStrip.BackColor = System.Drawing.Color.DimGray
         Me.DownStatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.numberOfWords, Me.ToolStripStatusLabel2, Me.Status_NumberOfLine, Me.ToolStripStatusLabel4})
-        Me.DownStatusStrip.Location = New System.Drawing.Point(4, 352)
+        Me.DownStatusStrip.Location = New System.Drawing.Point(4, 398)
         Me.DownStatusStrip.Name = "DownStatusStrip"
         Me.DownStatusStrip.Padding = New System.Windows.Forms.Padding(1, 0, 10, 0)
-        Me.DownStatusStrip.Size = New System.Drawing.Size(687, 22)
+        Me.DownStatusStrip.Size = New System.Drawing.Size(892, 22)
         Me.DownStatusStrip.TabIndex = 4
         Me.DownStatusStrip.Text = "StatusStrip1"
         '
@@ -326,7 +355,7 @@ Partial Class Editor
         Me.mainMenuStrip.Location = New System.Drawing.Point(4, 4)
         Me.mainMenuStrip.Name = "mainMenuStrip"
         Me.mainMenuStrip.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
-        Me.mainMenuStrip.Size = New System.Drawing.Size(687, 31)
+        Me.mainMenuStrip.Size = New System.Drawing.Size(892, 31)
         Me.mainMenuStrip.TabIndex = 0
         '
         'FileToolStripMenuItem
@@ -614,10 +643,11 @@ Partial Class Editor
         'Editor
         '
         Me.AccessibleName = "EditorForm"
+        Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DimGray
-        Me.ClientSize = New System.Drawing.Size(695, 378)
+        Me.ClientSize = New System.Drawing.Size(900, 424)
         Me.Controls.Add(Me.containerPanel)
         Me.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -630,6 +660,8 @@ Partial Class Editor
         Me.Panel3.ResumeLayout(False)
         Me.ContextMenuOfCodeBox.ResumeLayout(False)
         Me.lineNumberAndSepraterContainer.ResumeLayout(False)
+        Me.DropFilePanel.ResumeLayout(False)
+        Me.DropFilePanel.PerformLayout()
         Me.DownStatusStrip.ResumeLayout(False)
         Me.DownStatusStrip.PerformLayout()
         Me.mainMenuStrip.ResumeLayout(False)
@@ -699,5 +731,6 @@ Partial Class Editor
     Friend WithEvents lineNumberAndSepraterContainer As System.Windows.Forms.Panel
     Friend WithEvents lineNumberBox As System.Windows.Forms.RichTextBox
     Friend WithEvents ResetZoomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DropFilePanel As System.Windows.Forms.Panel
 
 End Class

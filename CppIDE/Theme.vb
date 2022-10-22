@@ -21,6 +21,9 @@
             Editor.DownStatusStrip.BackColor = Color.White
             Editor.containerPanel.BackColor = Color.White
 
+            Editor.DropFilePanel.BackColor = Color.YellowGreen
+            Editor.DropFilePanel.ForeColor = Color.GreenYellow
+
             For i = 0 To 5
                 Editor.MainMenuStrip.Items(i).ForeColor = Color.Black
             Next
@@ -54,6 +57,9 @@
             Editor.CodeBox.BackColor = Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
             Editor.CodeboxSepraterPanel.BackColor = Editor.CodeBox.BackColor
             Editor.CodeBox.ForeColor = Color.Aqua
+
+            Editor.DropFilePanel.BackColor = Color.Gray
+            Editor.DropFilePanel.ForeColor = Color.DarkGray
 
 
             For i = 0 To 5

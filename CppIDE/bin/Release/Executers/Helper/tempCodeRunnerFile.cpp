@@ -1,6 +1,53 @@
-﻿#include <stdio.h>
+﻿ftp://192.168.234.140:2121/
 
-int main() {
-  printf("Hello world");
-  return 0;
-}
+http://officecdn.microsoft.com.edgesuite.net/db/39168D7E
+-077B-
+48E7
+-
+872C-
+B232C3E72675
+/
+media
+/en-
+US/
+HomeStudentRetail.
+imgftp://192.168.234.140:2121/
+
+http://officecdn.microsoft.com.edgesuite.net/db/39168D7E
+-077B-
+48E7
+-
+872C-
+B232C3E72675
+/
+media
+/en-
+US/
+HomeStudentRetail.
+imgftp://192.168.234.140:2121/
+
+http://officecdn.microsoft.com.edgesuite.net/db/39168D7E
+-077B-
+48E7
+-
+872C-
+B232C3E72675
+/
+media
+/en-
+US/
+HomeStudentRetail.
+imgftp://192.168.234.140:2121/
+
+http://officecdn.microsoft.com.edgesuite.net/db/39168D7E
+-077B-
+48E7
+-
+872C-
+B232C3E72675
+/
+media
+/en-
+US/
+HomeStudentRetail.
+img
