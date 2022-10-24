@@ -1,4 +1,4 @@
-# JCX-C-CPPIDE
+# Alpha C/C++ IDE
 ### A simple and easy to use rich feature Basic C/C++ IDE Development project with VB.NET
 
  ![ide_Light](https://user-images.githubusercontent.com/70005117/197515152-c52d48c2-8fdd-4c0b-bdc8-225a54ce2ebd.jpg)
