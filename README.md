@@ -5,3 +5,4 @@
 * Option to beautify your code with a single click.
 * Night mode and Light mode Theme Availible
 * Customize your editor text using change font option.
+* Drag and Drop to Open a file.
