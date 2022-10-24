@@ -98,6 +98,17 @@ Partial Class Editor
         Me.mainMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
+        'Label1
+        '
+        Label1.AutoSize = True
+        Label1.BackColor = System.Drawing.Color.Transparent
+        Label1.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label1.Location = New System.Drawing.Point(347, 162)
+        Label1.Name = "Label1"
+        Label1.Size = New System.Drawing.Size(244, 35)
+        Label1.TabIndex = 0
+        Label1.Text = "Drop To Open File"
+        '
         'containerPanel
         '
         Me.containerPanel.BackColor = System.Drawing.Color.DimGray
@@ -134,10 +145,10 @@ Partial Class Editor
         Me.CodeBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CodeBox.ContextMenuStrip = Me.ContextMenuOfCodeBox
         Me.CodeBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CodeBox.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.CodeEditor.My.MySettings.Default, "codeBoxFont", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CodeBox.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.Alpha_C_CPP_IDE.My.MySettings.Default, "codeBoxFont", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.CodeBox.DetectUrls = False
         Me.CodeBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CodeBox.Font = Global.CodeEditor.My.MySettings.Default.codeBoxFont
+        Me.CodeBox.Font = Global.Alpha_C_CPP_IDE.My.MySettings.Default.codeBoxFont
         Me.CodeBox.ForeColor = System.Drawing.Color.Aqua
         Me.CodeBox.Location = New System.Drawing.Point(50, 0)
         Me.CodeBox.Margin = New System.Windows.Forms.Padding(50, 35, 32, 43)
@@ -292,17 +303,6 @@ Partial Class Editor
         Me.DropFilePanel.Name = "DropFilePanel"
         Me.DropFilePanel.Size = New System.Drawing.Size(892, 363)
         Me.DropFilePanel.TabIndex = 8
-        '
-        'Label1
-        '
-        Label1.AutoSize = True
-        Label1.BackColor = System.Drawing.Color.Transparent
-        Label1.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label1.Location = New System.Drawing.Point(347, 162)
-        Label1.Name = "Label1"
-        Label1.Size = New System.Drawing.Size(244, 35)
-        Label1.TabIndex = 0
-        Label1.Text = "Drop To Open File"
         '
         'DownStatusStrip
         '
@@ -638,7 +638,7 @@ Partial Class Editor
         '
         'codeBoxFontDialog
         '
-        Me.codeBoxFontDialog.Font = Global.CodeEditor.My.MySettings.Default.codeBoxFont
+        Me.codeBoxFontDialog.Font = Global.Alpha_C_CPP_IDE.My.MySettings.Default.codeBoxFont
         '
         'Editor
         '
@@ -653,7 +653,7 @@ Partial Class Editor
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Editor"
-        Me.Text = "Code Editor Alpha"
+        Me.Text = "Alpha C/C++ IDE"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.containerPanel.ResumeLayout(False)
         Me.containerPanel.PerformLayout()

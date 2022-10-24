@@ -8,9 +8,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9626AAF2-9C38-47D3-99C0-BDCE445EE388}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>CodeEditor.My.MyApplication</StartupObject>
-    <RootNamespace>CodeEditor</RootNamespace>
-    <AssemblyName>Code Editor</AssemblyName>
+    <StartupObject>Alpha_C_CPP_IDE.My.MyApplication</StartupObject>
+    <RootNamespace>Alpha_C_CPP_IDE</RootNamespace>
+    <AssemblyName>Alpha-C_CPP_IDE</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -26,7 +26,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ProductName>C and C++ IDE</ProductName>
+    <SupportUrl>https://github.com/Jitendra1mp4/JCX-C-CPPIDE</SupportUrl>
+    <ErrorReportUrl>https://github.com/Jitendra1mp4/JCX-C-CPPIDE</ErrorReportUrl>
+    <ProductName>Alpha C-C++ IDE</ProductName>
     <PublisherName>Jitendra Kumar</PublisherName>
     <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>2.2.4.%2a</ApplicationVersion>
@@ -42,7 +44,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Code Editor.xml</DocumentationFile>
+    <DocumentationFile>Alpha-C_CPP_IDE.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
@@ -55,7 +57,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Code Editor.xml</DocumentationFile>
+    <DocumentationFile>Alpha-C_CPP_IDE.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
@@ -78,7 +80,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x64\Debug\</OutputPath>
-    <DocumentationFile>Code Editor.xml</DocumentationFile>
+    <DocumentationFile>Alpha-C_CPP_IDE.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <DebugType>full</DebugType>
@@ -91,7 +93,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x64\Release\</OutputPath>
-    <DocumentationFile>Code Editor.xml</DocumentationFile>
+    <DocumentationFile>Alpha-C_CPP_IDE.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <NoWarn>
     </NoWarn>

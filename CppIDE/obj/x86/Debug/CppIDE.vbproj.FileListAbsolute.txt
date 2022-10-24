@@ -35,3 +35,7 @@ E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\Code Editor.application
 E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\Code Editor.exe
 E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\Code Editor.xml
 E:\SoftProj\ideProject\CppIDE\obj\x86\Debug\Code Editor.pdb
+D:\SoftwareProjects\ideProject\CppIDE\bin\Debug\Code Editor.exe.config
+D:\SoftwareProjects\ideProject\CppIDE\obj\x86\Debug\Code Editor.exe
+D:\SoftwareProjects\ideProject\CppIDE\obj\x86\Debug\Code Editor.xml
+D:\SoftwareProjects\ideProject\CppIDE\obj\x86\Debug\Code Editor.pdb

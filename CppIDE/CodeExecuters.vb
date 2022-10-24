@@ -34,25 +34,25 @@
 
         'Editor.butifyCode() 'user may not able to undo code 
 
-        CodeEditor.fileManipulation.saveFile(CodeEditor.fileManipulation.tempFilePath)
+        Alpha_C_CPP_IDE.fileManipulation.saveFile(Alpha_C_CPP_IDE.fileManipulation.tempFilePath)
         Dim inputPath As String
 
         'Setting input path
         If fileManipulation.filePath <> "\0" Then
             fileManipulation.saver()
-            inputPath = CodeEditor.fileManipulation.filePath
+            inputPath = Alpha_C_CPP_IDE.fileManipulation.filePath
         Else
-            inputPath = CodeEditor.fileManipulation.tempFilePath
+            inputPath = Alpha_C_CPP_IDE.fileManipulation.tempFilePath
         End If
         'setting output path
-        If CodeEditor.fileManipulation.Saved Then
-            outputPath = CodeEditor.fileManipulation.setFileExtension(CodeEditor.fileManipulation.filePath, "exe")
+        If Alpha_C_CPP_IDE.fileManipulation.Saved Then
+            outputPath = Alpha_C_CPP_IDE.fileManipulation.setFileExtension(Alpha_C_CPP_IDE.fileManipulation.filePath, "exe")
         Else
-            outputPath = CodeEditor.fileManipulation.setFileExtension(CodeEditor.fileManipulation.tempFilePath, "exe")
+            outputPath = Alpha_C_CPP_IDE.fileManipulation.setFileExtension(Alpha_C_CPP_IDE.fileManipulation.tempFilePath, "exe")
         End If
 
-        inputPath = CodeEditor.fileManipulation.putInsideDoubleQuouts(inputPath)
-        outputPath = CodeEditor.fileManipulation.putInsideDoubleQuouts(outputPath)
+        inputPath = Alpha_C_CPP_IDE.fileManipulation.putInsideDoubleQuouts(inputPath)
+        outputPath = Alpha_C_CPP_IDE.fileManipulation.putInsideDoubleQuouts(outputPath)
 
         'calling code runner function
         codeRunner(inputPath, outputPath, compileOnly)

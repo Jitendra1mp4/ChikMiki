@@ -148,9 +148,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.CodeEditor.My.MySettings
+        Friend ReadOnly Property Settings() As Global.Alpha_C_CPP_IDE.My.MySettings
             Get
-                Return Global.CodeEditor.My.MySettings.Default
+                Return Global.Alpha_C_CPP_IDE.My.MySettings.Default
             End Get
         End Property
     End Module

@@ -1,11 +1,11 @@
 ﻿Imports System
-Imports CodeEditor.fileManipulation
-Imports CodeEditor.CodeExecuters
-Imports CodeEditor.EditMenu
-Imports CodeEditor.MyUtilities
-Imports CodeEditor.Theme
+Imports Alpha_C_CPP_IDE.fileManipulation
+Imports Alpha_C_CPP_IDE.CodeExecuters
+Imports Alpha_C_CPP_IDE.EditMenu
+Imports Alpha_C_CPP_IDE.MyUtilities
+Imports Alpha_C_CPP_IDE.Theme
 Public Class Editor
-    Public Const appName As String = "Code Editor Alpha"
+    Public Const appName As String = "Alpha C/C++ IDE"
     Public Shared programArgs As String = ""
     Private Sub WorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WorToolStripMenuItem.Click
         If CodeBox.WordWrap Then

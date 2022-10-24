@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("C/C++ IDE")> 
+<Assembly: AssemblyTitle("Alpha C/C++ IDE")> 
 <Assembly: AssemblyDescription("Create, Edit, Open, Compile, Execute  C and C++ files.")> 
 <Assembly: AssemblyCompany("JK OpenSoft")> 
-<Assembly: AssemblyProduct("CppIDE")> 
+<Assembly: AssemblyProduct("Alpha C/C++ IDE")> 
 <Assembly: AssemblyCopyright("Copyright ©  2022")> 
 <Assembly: AssemblyTrademark("")> 
 
