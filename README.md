@@ -8,6 +8,7 @@
 * Minimal __MinGW compiler already exist__.
 * No need to install MinGW C/C++ compiler,It automatically installs. 
 * Just __install and start, No need to add to Enviroment variable__.
+* __Boiler Plate Code__ availible on start.
 * Option to __beautify your code__ with a single click.
 * __Night mode and Light mode__ Theme Availible
 
