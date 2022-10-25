@@ -30,7 +30,7 @@
     End Function
 
     Shared Sub callSaveAs()
-        Editor.SaveFileDialog1.Filter = "Cpp files (*.cpp)|*.cpp|C files (*.c)|*.c |All files (*.*)|*.*"
+        Editor.SaveFileDialog1.Filter = "C source files (*.c)|*.c|C++ source files (*.cpp)|*.cpp|All files (*.*)|*.*"
         If Editor.SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK _
             Then
             filePath = Editor.SaveFileDialog1.FileName
@@ -43,7 +43,7 @@
 
     Shared Function saver() As Boolean
         If (filePath = "\0") Then 'if file path is not set then open save file dailog
-            Editor.SaveFileDialog1.Filter = "Cpp files (*.cpp)|*.cpp|C files (*.c)|*.c |All files (*.*)|*.*"
+            Editor.SaveFileDialog1.Filter = "C source files (*.c)|*.c|C++ source files (*.cpp)|*.cpp|All files (*.*)|*.*"
             If Editor.SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK _
                 Then
                 filePath = Editor.SaveFileDialog1.FileName
@@ -83,7 +83,7 @@
     End Function
 
     Shared Function openFile() As Boolean
-        Editor.OpenFileDialog1.Filter = "Cpp files (*.cpp)|*.cpp|C files (*.c)|*.c |All files (*.*)|*.*"
+        Editor.OpenFileDialog1.Filter = "C source files (*.c)|*.c|C++ source files (*.cpp)|*.cpp|All files (*.*)|*.*"
 
         If Editor.OpenFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK _
             Then

@@ -30,7 +30,7 @@
     <ErrorReportUrl>https://github.com/Jitendra1mp4/JCX-C-CPPIDE</ErrorReportUrl>
     <ProductName>Alpha C-C++ IDE</ProductName>
     <PublisherName>Jitendra Kumar</PublisherName>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>2.2.4.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -164,6 +164,12 @@
     <Compile Include="AboutSoftwareBox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AlphaSplash.Designer.vb">
+      <DependentUpon>AlphaSplash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AlphaSplash.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CodeExecuters.vb" />
     <Compile Include="EditMenu.vb" />
     <Compile Include="Editor.vb">
@@ -191,17 +197,14 @@
     </Compile>
     <Compile Include="MyUtilities.vb" />
     <Compile Include="Settings.vb" />
-    <Compile Include="SplashScreen1.Designer.vb">
-      <DependentUpon>SplashScreen1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SplashScreen1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Theme.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutSoftwareBox.resx">
       <DependentUpon>AboutSoftwareBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlphaSplash.resx">
+      <DependentUpon>AlphaSplash.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -211,9 +214,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor.resx">
       <DependentUpon>Editor.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SplashScreen1.resx">
-      <DependentUpon>SplashScreen1.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -37,7 +37,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateSplashScreen()
-            Me.SplashScreen = Global.Alpha_C_CPP_IDE.SplashScreen1
+            Me.SplashScreen = Global.Alpha_C_CPP_IDE.AlphaSplash
         End Sub
     End Class
 End Namespace
