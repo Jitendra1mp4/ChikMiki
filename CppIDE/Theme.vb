@@ -83,8 +83,8 @@
 
         End If
 
-        fileManipulation.saveFile(fileManipulation.tempFilePath)
-        fileManipulation.codeChanged = False
+        fileManipulator.saveFile(fileManipulator.tempFilePath)
+        fileManipulator.codeChanged = False
 
     End Sub
 

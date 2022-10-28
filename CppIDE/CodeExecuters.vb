@@ -3,15 +3,24 @@
     Const compilerLoaction As String = "MinGW\bin\"
     Const runnerCommand = "Executers\codeRunner.bat"
     Const compilerCommand = "Executers\codeCompiler.bat"
+
+    Const tempFileLocation As String = "Executers\Helper\"
+    Const tempFileName As String = "tempCodeRunnerFile.cpp"
+    Const tempFilePath As String = tempFileLocation + tempFileName
+
     Const codeFormater As String = "codeFormater\codeFormater.bat"
-    Public Const formatedOutputLocation As String = "codeFormater\"
-    Public Const formatedOutputFileName As String = "formatedCode.out"
-    Public Const FormatedOutputPath As String = formatedOutputLocation + formatedOutputFileName
+    Const formatedOutputLocation As String = "codeFormater\"
+    Const formatedOutputFileName As String = "formatedCode.out"
+    Const FormatedOutputPath As String = formatedOutputLocation + formatedOutputFileName
+
+    Private inputPath As String = "\0"
 
     'Shared alreadyRemoved As Boolean = False
+    Public Sub CodeExecuters(ByVal input As String)
+        inputPath = input
+    End Sub
 
-
-    Shared Sub codeRunner(ByVal inputPath As String, ByVal outputPath As String, ByVal compileOnly As Boolean)
+    Private Sub codeRunner(ByVal outputPath As String, ByVal compileOnly As Boolean)
         Dim arguments As String
         arguments = compilerLoaction + " " + inputPath + " " + outputPath
         If compileOnly Then
@@ -24,8 +33,8 @@
 
     End Sub
 
-    Shared Sub callCodeRunner(ByVal compileOnly As Boolean)
-         Dim outputPath As String
+    Public Sub callCodeRunner(ByVal compileOnly As Boolean)
+        Dim outputPath As String
 
         If ((Editor.CodeBox.Text.IndexOf("clrscr")) > -1 And (Editor.CodeBox.Text.IndexOf("// clrscr") = -1)) Then
             Editor.CodeBox.Text = Editor.CodeBox.Text.Replace("clrscr", "// clrscr")
@@ -34,37 +43,35 @@
 
         'Editor.butifyCode() 'user may not able to undo code 
 
-        Alpha_C_CPP_IDE.fileManipulation.saveFile(Alpha_C_CPP_IDE.fileManipulation.tempFilePath)
+        saveFile()
         Dim inputPath As String
 
         'Setting input path
-        If fileManipulation.filePath <> "\0" Then
-            fileManipulation.saver()
-            inputPath = Alpha_C_CPP_IDE.fileManipulation.filePath
+        If inputPath <> "\0" Then
+            fileManipulator.saver()
+            inputPath = inputPath
         Else
-            inputPath = Alpha_C_CPP_IDE.fileManipulation.tempFilePath
+            inputPath = tempFilePath
         End If
         'setting output path
-        If Alpha_C_CPP_IDE.fileManipulation.Saved Then
-            outputPath = Alpha_C_CPP_IDE.fileManipulation.setFileExtension(Alpha_C_CPP_IDE.fileManipulation.filePath, "exe")
+        If Alpha_C_CPP_IDE.fileManipulator.Saved Then
+            outputPath = Alpha_C_CPP_IDE.fileManipulator.setFileExtension(Alpha_C_CPP_IDE.fileManipulator.filePath, "exe")
         Else
-            outputPath = Alpha_C_CPP_IDE.fileManipulation.setFileExtension(Alpha_C_CPP_IDE.fileManipulation.tempFilePath, "exe")
+            outputPath = Alpha_C_CPP_IDE.fileManipulator.setFileExtension(Alpha_C_CPP_IDE.fileManipulator.tempFilePath, "exe")
         End If
 
-        inputPath = Alpha_C_CPP_IDE.fileManipulation.putInsideDoubleQuouts(inputPath)
-        outputPath = Alpha_C_CPP_IDE.fileManipulation.putInsideDoubleQuouts(outputPath)
+        inputPath = Alpha_C_CPP_IDE.fileManipulator.putInsideDoubleQuouts(inputPath)
+        outputPath = Alpha_C_CPP_IDE.fileManipulator.putInsideDoubleQuouts(outputPath)
 
         'calling code runner function
-        codeRunner(inputPath, outputPath, compileOnly)
+        codeRunner(outputPath, compileOnly)
         'Editor.CodeBox.Text = inputPath & Environment.NewLine & outputPath
     End Sub
 
-
-    Shared Sub formateCode(ByVal filePath As String)
-        Const comd As String = codeFormater
-        Dim arguments As String = filePath + " " + FormatedOutputPath
-        'Editor.CodeBox.Text = comd + arguments
-        MyUtilities.RunCommandCom(comd, arguments, False)
-    End Sub
+    Private Function saveFile() As Boolean
+        My.Computer.FileSystem.WriteAllText _
+            (tempFilePath, Editor.CodeBox.Text, False)
+        saveFile = True
+    End Function
 
 End Class

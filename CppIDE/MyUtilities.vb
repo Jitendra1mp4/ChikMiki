@@ -10,4 +10,17 @@ Public Class MyUtilities
         p.Start()
     End Sub
 
+    Shared Sub formateCode(ByVal filePath As String)
+        Const comd As String = codeFormater
+        Dim arguments As String = filePath + " " + FormatedOutputPath
+        'Editor.CodeBox.Text = comd + arguments
+        MyUtilities.RunCommandCom(comd, arguments, False)
+    End Sub
+
+    Shared Function putInsideDoubleQuouts(ByVal str As String) As String
+        Return """" & str & """"
+    End Function
+
+
+
 End Class

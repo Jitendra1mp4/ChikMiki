@@ -1,49 +1,43 @@
-﻿Public Class fileManipulation
+﻿Public Class fileManipulator
 
-    Public Shared Saved As Boolean = False
-    Public Shared codeChanged As Boolean = False
-    Public Shared filePath As String = My.MySettings.Default.lastOpenedFileName
+    Public Saved As Boolean = False
+    Public codeChanged As Boolean = False
+    Public filePath As String = My.MySettings.Default.lastOpenedFileName
+    Public fileName As String
+    Public savingPath As String
+    Private Const fileListFilter As String = "C source files (*.c)|*.c|C++ source files (*.cpp)|*.cpp|All files (*.*)|*.*"
 
-    Public Shared fileName As String
-    Const tempFileLocation As String = "Executers\Helper\"
-    Const tempFileName As String = "tempCodeRunnerFile.cpp"
-
-    Public Const tempFilePath As String = tempFileLocation + tempFileName
-
-    Public Shared Function getFileName(ByVal filePath As String) As String
+    Public Function getFileName() As String
         Return filePath.Substring(filePath.LastIndexOf("\") + 1)
     End Function
 
-    Public Shared Function putInsideDoubleQuouts(ByVal str As String) As String
-        Return """" & str & """"
-    End Function
 
-    Public Shared Function setFileExtension(ByVal fileName As String, ByVal extension As String) As String
+    Public Function setFileExtension(ByVal extension As String) As String
         Return fileName.Substring(0, fileName.LastIndexOf(".") + 1) & extension
     End Function
 
-    Shared Function saveFile(ByVal savingPath As String) As Boolean
-
+    Private Function saveFile() As Boolean
         My.Computer.FileSystem.WriteAllText _
             (savingPath, Editor.CodeBox.Text, False)
         saveFile = True
     End Function
 
-    Shared Sub callSaveAs()
-        Editor.SaveFileDialog1.Filter = "C source files (*.c)|*.c|C++ source files (*.cpp)|*.cpp|All files (*.*)|*.*"
+
+
+    Public Sub callSaveAs()
+        Editor.SaveFileDialog1.Filter = fileListFilter
         If Editor.SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK _
             Then
             filePath = Editor.SaveFileDialog1.FileName
         End If
-        saveFile(tempFilePath)
-        Saved = saveFile(filePath)
+        Saved = saveFile()
         My.MySettings.Default.lastOpenedFileName = filePath
-        Editor.Text = Editor.appName + " - " + CStr(getFileName(filePath))
+        Editor.Text = Editor.appName + " - " + CStr(getFileName())
     End Sub
 
-    Shared Function saver() As Boolean
+    Public Function saver() As Boolean
         If (filePath = "\0") Then 'if file path is not set then open save file dailog
-            Editor.SaveFileDialog1.Filter = "C source files (*.c)|*.c|C++ source files (*.cpp)|*.cpp|All files (*.*)|*.*"
+            Editor.SaveFileDialog1.Filter = fileListFilter
             If Editor.SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK _
                 Then
                 filePath = Editor.SaveFileDialog1.FileName
@@ -51,39 +45,36 @@
                 Return False
             End If
         End If
-
-        saveFile(tempFilePath)
-        Saved = saveFile(filePath)
+        Saved = saveFile()
         If (Saved) Then
             codeChanged = False
             Editor.SAVEToolStripMenuItem1.Text = "SAVE"
-            fileName = CStr(getFileName(filePath))
+            fileName = CStr(getFileName())
             Editor.Text = Editor.appName + " - " + fileName
             My.MySettings.Default.lastOpenedFileName = filePath
         End If
         Return True
     End Function
 
-    Shared Function setCodeBoxText(ByVal path As String) As Boolean
+    Private Function setCodeBoxText(ByVal path As String) As Boolean
 
         If (My.Computer.FileSystem.FileExists(path)) Then
             Editor.CodeBox.Text = My.Computer.FileSystem.ReadAllText(path) 'copy text to codeBox
             filePath = path
             Saved = True                        'set saved = true
             codeChanged = False
-            fileName = CStr(getFileName(path))    'set file name
+            fileName = CStr(getFileName())    'set file name
             Editor.Text = Editor.appName + " - " + fileName
             My.MySettings.Default.lastOpenedFileName = path 'save file path for next time
             setCodeBoxText = True
         Else
             filePath = "\0"
         End If
-
         setCodeBoxText = False
     End Function
 
-    Shared Function openFile() As Boolean
-        Editor.OpenFileDialog1.Filter = "C source files (*.c)|*.c|C++ source files (*.cpp)|*.cpp|All files (*.*)|*.*"
+    Public Function openFile() As Boolean
+        Editor.OpenFileDialog1.Filter = fileListFilter
 
         If Editor.OpenFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK _
             Then

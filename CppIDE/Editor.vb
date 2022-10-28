@@ -1,9 +1,10 @@
 ﻿Imports System
-Imports Alpha_C_CPP_IDE.fileManipulation
+Imports Alpha_C_CPP_IDE.fileManipulator
 Imports Alpha_C_CPP_IDE.CodeExecuters
 Imports Alpha_C_CPP_IDE.EditMenu
 Imports Alpha_C_CPP_IDE.MyUtilities
 Imports Alpha_C_CPP_IDE.Theme
+
 Public Class Editor
     Public Const appName As String = "Alpha C/C++ IDE"
     Public Shared programArgs As String = ""
@@ -16,7 +17,7 @@ Public Class Editor
     End Sub
 
     Shared Sub butifyCode()
-        fileManipulation.saveFile(tempFilePath) 'saving file to tempPath
+        fileManipulator.saveFile(tempFilePath) 'saving file to tempPath
         CodeExecuters.formateCode(tempFilePath) 'formating code
         'adding formated code to codeBox
         Threading.Thread.Sleep(800) 'Wait for code to get formate / wait execution of external command
@@ -358,7 +359,7 @@ Public Class Editor
     End Sub
 
     Private Sub DropFilePanel_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles DropFilePanel.DragEnter
-     prepairAppearenceForDragEnter()
+        prepairAppearenceForDragEnter()
 
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
             e.Effect = DragDropEffects.Copy
@@ -392,7 +393,7 @@ Public Class Editor
     End Sub
 
     Private Sub DropFilePanel_DragLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles DropFilePanel.DragLeave
-         resetAppearanceAfterDragAction()
+        resetAppearanceAfterDragAction()
     End Sub
 
 
