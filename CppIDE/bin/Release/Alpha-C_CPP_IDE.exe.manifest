@@ -48,14 +48,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Alpha-C_CPP_IDE.exe" size="126976">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Alpha-C_CPP_IDE.exe" size="128000">
       <assemblyIdentity name="Alpha-C_CPP_IDE" version="2.2.4.8" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GDsJ5RREwGqzFA4cqrzGGdI83h4=</dsig:DigestValue>
+        <dsig:DigestValue>gPJAvGchBcJVX62aPznFxPeXTFQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

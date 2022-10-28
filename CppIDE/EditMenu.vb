@@ -1,33 +1,39 @@
 ﻿Public Class EditMenu
 
+    Private _editor As Editor
+
+    Sub New(ByRef editor As Editor)
+        ' TODO: Complete member initialization 
+        _editor = editor
+    End Sub
 
     Public Sub cutText()
-        If Editor.CodeBox.SelectedText <> "" Then
-            Clipboard.SetText(Editor.CodeBox.SelectedText)
-            Editor.CodeBox.SelectedText = ""
+        If _editor.CodeBox.SelectedText <> "" Then
+            Clipboard.SetText(_editor.CodeBox.SelectedText)
+            _editor.CodeBox.SelectedText = ""
         End If
     End Sub
 
     Public Sub copyText()
-        If Editor.CodeBox.SelectedText <> "" Then
-            Clipboard.SetText(Editor.CodeBox.SelectedText)
+        If _editor.CodeBox.SelectedText <> "" Then
+            Clipboard.SetText(_editor.CodeBox.SelectedText)
         End If
     End Sub
 
     Public Sub pasteText()
-        Editor.CodeBox.SelectedText = Clipboard.GetText
+        _editor.CodeBox.SelectedText = Clipboard.GetText
     End Sub
 
     Public Sub undoText()
-        If Editor.CodeBox.CanUndo Then
-            Editor.CodeBox.Undo()
+        If _editor.CodeBox.CanUndo Then
+            _editor.CodeBox.Undo()
         End If
 
     End Sub
 
     Public Sub RedoText()
-        If Editor.CodeBox.CanRedo Then
-            Editor.CodeBox.Redo()
+        If _editor.CodeBox.CanRedo Then
+            _editor.CodeBox.Redo()
         End If
     End Sub
 

@@ -27,6 +27,7 @@ Partial Class Editor
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Editor))
         Me.containerPanel = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.CodeBox = New System.Windows.Forms.RichTextBox()
         Me.ContextMenuOfCodeBox = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.contex_Cut = New System.Windows.Forms.ToolStripMenuItem()
         Me.contex_Copy = New System.Windows.Forms.ToolStripMenuItem()
@@ -86,8 +87,8 @@ Partial Class Editor
         Me.SAVEToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.CodeBox = New System.Windows.Forms.RichTextBox()
         Me.codeBoxFontDialog = New System.Windows.Forms.FontDialog()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Label1 = New System.Windows.Forms.Label()
         Me.containerPanel.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -136,6 +137,27 @@ Partial Class Editor
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(892, 363)
         Me.Panel3.TabIndex = 6
+        '
+        'CodeBox
+        '
+        Me.CodeBox.AcceptsTab = True
+        Me.CodeBox.AutoWordSelection = True
+        Me.CodeBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.CodeBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.CodeBox.ContextMenuStrip = Me.ContextMenuOfCodeBox
+        Me.CodeBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.CodeBox.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.Alpha_C_CPP_IDE.My.MySettings.Default, "codeBoxFont", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CodeBox.DetectUrls = False
+        Me.CodeBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CodeBox.Font = Global.Alpha_C_CPP_IDE.My.MySettings.Default.codeBoxFont
+        Me.CodeBox.ForeColor = System.Drawing.Color.Aqua
+        Me.CodeBox.Location = New System.Drawing.Point(50, 0)
+        Me.CodeBox.Margin = New System.Windows.Forms.Padding(50, 35, 32, 43)
+        Me.CodeBox.Name = "CodeBox"
+        Me.CodeBox.Size = New System.Drawing.Size(842, 363)
+        Me.CodeBox.TabIndex = 4
+        Me.CodeBox.Text = "#include <stdio.h>" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "int main() {" & Global.Microsoft.VisualBasic.ChrW(10) & "  printf(""Hello world"");" & Global.Microsoft.VisualBasic.ChrW(10) & "  return 0;" & Global.Microsoft.VisualBasic.ChrW(10) & "}"
+        Me.CodeBox.WordWrap = False
         '
         'ContextMenuOfCodeBox
         '
@@ -286,7 +308,7 @@ Partial Class Editor
         'DownStatusStrip
         '
         Me.DownStatusStrip.BackColor = System.Drawing.Color.DimGray
-        Me.DownStatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.numberOfWords, Me.ToolStripStatusLabel2, Me.Status_NumberOfLine, Me.ToolStripStatusLabel4})
+        Me.DownStatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.numberOfWords, Me.ToolStripStatusLabel2, Me.Status_NumberOfLine, Me.ToolStripStatusLabel4, Me.ToolStripStatusLabel3})
         Me.DownStatusStrip.Location = New System.Drawing.Point(4, 398)
         Me.DownStatusStrip.Name = "DownStatusStrip"
         Me.DownStatusStrip.Padding = New System.Windows.Forms.Padding(1, 0, 10, 0)
@@ -615,30 +637,18 @@ Partial Class Editor
         Me.SAVEToolStripMenuItem1.Size = New System.Drawing.Size(60, 27)
         Me.SAVEToolStripMenuItem1.Text = "SAVE"
         '
-        'CodeBox
-        '
-        Me.CodeBox.AcceptsTab = True
-        Me.CodeBox.AutoWordSelection = True
-        Me.CodeBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.CodeBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.CodeBox.ContextMenuStrip = Me.ContextMenuOfCodeBox
-        Me.CodeBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CodeBox.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.Alpha_C_CPP_IDE.My.MySettings.Default, "codeBoxFont", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.CodeBox.DetectUrls = False
-        Me.CodeBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CodeBox.Font = Global.Alpha_C_CPP_IDE.My.MySettings.Default.codeBoxFont
-        Me.CodeBox.ForeColor = System.Drawing.Color.Aqua
-        Me.CodeBox.Location = New System.Drawing.Point(50, 0)
-        Me.CodeBox.Margin = New System.Windows.Forms.Padding(50, 35, 32, 43)
-        Me.CodeBox.Name = "CodeBox"
-        Me.CodeBox.Size = New System.Drawing.Size(842, 363)
-        Me.CodeBox.TabIndex = 4
-        Me.CodeBox.Text = "#include <stdio.h>" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "int main() {" & Global.Microsoft.VisualBasic.ChrW(10) & "  printf(""Hello world"");" & Global.Microsoft.VisualBasic.ChrW(10) & "  return 0;" & Global.Microsoft.VisualBasic.ChrW(10) & "}"
-        Me.CodeBox.WordWrap = False
-        '
         'codeBoxFontDialog
         '
         Me.codeBoxFontDialog.Font = Global.Alpha_C_CPP_IDE.My.MySettings.Default.codeBoxFont
+        '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.BackColor = System.Drawing.Color.Silver
+        Me.ToolStripStatusLabel3.ForeColor = System.Drawing.Color.Chocolate
+        Me.ToolStripStatusLabel3.Margin = New System.Windows.Forms.Padding(300, 3, 1, 2)
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(39, 17)
+        Me.ToolStripStatusLabel3.Text = "Status"
         '
         'Editor
         '
@@ -732,5 +742,6 @@ Partial Class Editor
     Friend WithEvents lineNumberBox As System.Windows.Forms.RichTextBox
     Friend WithEvents ResetZoomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DropFilePanel As System.Windows.Forms.Panel
+    Friend WithEvents ToolStripStatusLabel3 As System.Windows.Forms.ToolStripStatusLabel
 
 End Class

@@ -6,8 +6,29 @@ Imports Alpha_C_CPP_IDE.MyUtilities
 Imports Alpha_C_CPP_IDE.Theme
 
 Public Class Editor
+
     Public Const appName As String = "Alpha C/C++ IDE"
-    Public Shared programArgs As String = ""
+
+
+    Dim themer As New Theme(Me)
+    Dim Mfile As New fileManipulator(Me)
+    Dim edtMenu As New EditMenu(Me)
+    Dim Executer As New CodeExecuters(Me, Mfile.filePath)
+
+
+    Public Sub callCodeRunner(ByVal compileOnly As Boolean)
+        If ((CodeBox.Text.IndexOf("clrscr")) > -1 And (CodeBox.Text.IndexOf("// clrscr") = -1)) Then
+            CodeBox.Text = CodeBox.Text.Replace("clrscr", "// clrscr")
+        End If
+        '_editor.butifyCode() 'user may not able to undo code 
+        If Mfile.filePath <> "\0" Then
+            Mfile.saver()
+        End If
+        Executer.codeRunner(Mfile.Saved, compileOnly)
+    End Sub
+
+    '**************************Auto-created functions***********************************'
+
     Private Sub WorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WorToolStripMenuItem.Click
         If CodeBox.WordWrap Then
             CodeBox.WordWrap = False
@@ -16,19 +37,13 @@ Public Class Editor
         End If
     End Sub
 
-    Shared Sub butifyCode()
-        fileManipulator.saveFile(tempFilePath) 'saving file to tempPath
-        CodeExecuters.formateCode(tempFilePath) 'formating code
-        'adding formated code to codeBox
-        Threading.Thread.Sleep(800) 'Wait for code to get formate / wait execution of external command
-        Editor.CodeBox.Text = My.Computer.FileSystem.ReadAllText(FormatedOutputPath)
-    End Sub
 
     Private Sub CodeBox_FontChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CodeBox.FontChanged
         '****************For line number
         lineNumberBox.Font = CodeBox.Font
 
     End Sub
+
 
     Private Sub CodeBox_SelectionChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CodeBox.SelectionChanged
         Dim pt As Point = CodeBox.GetPositionFromCharIndex(CodeBox.SelectionStart)
@@ -38,12 +53,6 @@ Public Class Editor
     End Sub
 
 
-
-    '**************************Auto-created functions***********************************'
-
-
-
-
     Private Sub CodeBox_TextChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CodeBox.TextChanged
         numberOfWords.Text = CStr(CodeBox.Text.Length)
         Status_NumberOfLine.Text = CStr(CodeBox.Lines.Length)
@@ -51,24 +60,23 @@ Public Class Editor
         If CodeBox.Text = "" Then
             AddLineNumbers()
         End If
-        Saved = False
-        codeChanged = True
-
+        Mfile.Saved = False
     End Sub
 
 
     Private Sub SAVEToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SAVEToolStripMenuItem1.Click
-        Saved = saver()
+        Mfile.saver()
     End Sub
 
     Private Sub CutToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Cut.Click
-        cutText()
+        edtMenu.cutText()
     End Sub
 
+
+
+
     Private Sub RunCodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_RunCode.Click
-
         callCodeRunner(False)
-
     End Sub
 
     Private Sub RUNToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RUNToolStripMenuItem.Click
@@ -80,7 +88,7 @@ Public Class Editor
     End Sub
 
     Private Sub ToolStripMenuItem5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem5.Click
-        programArgs = putInsideDoubleQuouts(InputBox("Enter Arguments", "Cpp IDE", ""))
+        Executer.programArgs = putInsideDoubleQuouts(InputBox("Enter Arguments", "Cpp IDE", ""))
         'CodeBox.Text = programArgs
         callCodeRunner(False)
 
@@ -110,30 +118,30 @@ Public Class Editor
     End Sub
 
     Private Sub PasteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasteMenuItem.Click
-        pasteText()
+        edtMenu.pasteText()
     End Sub
 
     Private Sub CopyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyMenuItem.Click
-        copyText()
+        edtMenu.copyText()
 
     End Sub
 
     Private Sub CutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CutMenuItem.Click
-        cutText()
+        edtMenu.cutText()
 
     End Sub
 
     Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveAsToolStripMenuItem.Click
-        callSaveAs()
+        Mfile.callSaveAs()
 
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
-        Saved = saver()
+        Mfile.saver()
     End Sub
 
     Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
-        openFile()
+        Mfile.openFile()
         AddLineNumbers()
     End Sub
 
@@ -145,11 +153,12 @@ Public Class Editor
 
     Private Sub Editor_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         My.MySettings.Default.Save()
-        If codeChanged = True Then
+        If Mfile.Saved = False Then
             Dim mr As Integer
             mr = MsgBox("Do you want to Save File..?", CType(3, MsgBoxStyle), "Editor")
             If mr = DialogResult.Yes Then
-                If saver() <> True Then
+                Mfile.saver()
+                If Mfile.Saved <> True Then
                     e.Cancel = True
                 End If
             ElseIf mr = DialogResult.Cancel Then
@@ -162,12 +171,12 @@ Public Class Editor
     Sub InitialSetups()
 
         'Setting last theme
-        SetTheme(My.MySettings.Default.Theme)
+        themer.SetTheme(My.MySettings.Default.Theme)
 
         'opening last opened file (if any)
         If (Not (My.MySettings.Default.lastOpenedFileName.Contains("\0"))) Then
             'CodeBox.Text = My.MySettings.Default.lastOpenedFileName
-            setCodeBoxText(My.MySettings.Default.lastOpenedFileName)
+            Mfile.setCodeBoxText(My.MySettings.Default.lastOpenedFileName)
         End If
 
         'Updating status strip
@@ -185,32 +194,27 @@ Public Class Editor
     Private Sub Editor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Text = appName + " - Untitled"
         InitialSetups()
-
-
-
-
     End Sub
 
     Private Sub ToolStripMenuItem6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DayNightMenuItem.Click
-        manageTheme()
+        themer.manageTheme()
     End Sub
 
     Private Sub FormateCodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FormateCodeToolStripMenuItem.Click
-        butifyCode()
-
+        Executer.butifyCode()
     End Sub
 
     Private Sub ToolStripMenuItem6_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Butify.Click
-        butifyCode()
+        Executer.butifyCode()
     End Sub
 
     Private Sub CopyOption_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Copy.Click
-        copyText()
+        edtMenu.copyText()
 
     End Sub
 
     Private Sub PastPast_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Past.Click
-        pasteText()
+        edtMenu.pasteText()
     End Sub
 
     Private Sub AboutDeveloperToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutDeveloperToolStripMenuItem.Click
@@ -218,30 +222,31 @@ Public Class Editor
     End Sub
 
     Private Sub Edit_Undo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Edit_Undo.Click
-        undoText()
+        edtMenu.undoText()
     End Sub
 
     Private Sub Edit_Redo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Edit_Redo.Click
-        RedoText()
+        edtMenu.RedoText()
 
     End Sub
 
 
     Sub resetCodeEditor()
-        filePath = "\0"
-        My.MySettings.Default.lastOpenedFileName = filePath
+        Mfile.filePath = "\0"
+        My.MySettings.Default.lastOpenedFileName = Mfile.filePath
         Me.Text = appName + " - Untitled"
         CodeBox.Text = My.MySettings.Default.preAvalibleCode
-        codeChanged = False
-        'Saved = True
+        'codeChanged = False
+        Mfile.Saved = True
     End Sub
 
     Private Sub createNewForm()
-        If codeChanged = True Then
+        If Not Mfile.Saved Then
             Dim mr As MsgBoxResult
             mr = MsgBox("Do yo want to save file", MsgBoxStyle.YesNoCancel, appName)
             If mr = MsgBoxResult.Yes Then
-                If saver() <> True Then
+                Mfile.saver()
+                If Mfile.Saved <> True Then
                     MsgBox("Unable to save", , appName)
                 End If
             ElseIf mr = MsgBoxResult.No Then
@@ -368,22 +373,22 @@ Public Class Editor
 
     Private Sub DropFilePanel_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles DropFilePanel.DragDrop
         resetAppearanceAfterDragAction()
-        Dim file() As String = CType(e.Data.GetData(DataFormats.FileDrop), String())
+        Dim file() As String = CType(e.Data.GetData(DataFormats.FileDrop), String()) 'Returns path
         Dim fileExt As String = file(0).Substring(file(0).LastIndexOf("."))
         Dim allowedExtenstion() As String = {".c", ".cpp", ".txt"}
         If Array.IndexOf(allowedExtenstion, fileExt) > -1 Then
-            If codeChanged = True Then
+            If Not Mfile.Saved Then
                 Dim mr As MsgBoxResult = MsgBox("Do yo want to save Current file", MsgBoxStyle.YesNoCancel, appName)
                 If mr = MsgBoxResult.Yes Then
-                    If saver() <> True Then
+                    If Mfile.saver() <> True Then
                         MsgBox("Unable to save", , appName)
                     End If
                 ElseIf mr = MsgBoxResult.No Then
-                    setCodeBoxText(file(0))
+                    Mfile.setCodeBoxText(file(0))
                     AddLineNumbers()
                 End If
             Else
-                setCodeBoxText(file(0))
+                Mfile.setCodeBoxText(file(0))
                 AddLineNumbers()
             End If
         Else
