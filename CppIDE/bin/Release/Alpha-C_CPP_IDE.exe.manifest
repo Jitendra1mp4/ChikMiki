@@ -48,24 +48,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Alpha-C_CPP_IDE.exe" size="128000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Alpha-C_CPP_IDE.exe" size="129536">
       <assemblyIdentity name="Alpha-C_CPP_IDE" version="2.2.4.8" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>gPJAvGchBcJVX62aPznFxPeXTFQ=</dsig:DigestValue>
+        <dsig:DigestValue>9FlvBTUlTPmYHz3PqvRfCJT8n5c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Alpha-C_CPP_IDE.exe.config" size="2516">
+  <file name="Alpha-C_CPP_IDE.exe.config" size="2504">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>b2FB2eWVASZWyzoMQAK56MqBN7Q=</dsig:DigestValue>
+      <dsig:DigestValue>CNMVYiSqRWuwKUtEJ4Yq26XhdRI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="codeFormater\clang-format.exe" size="2519440">

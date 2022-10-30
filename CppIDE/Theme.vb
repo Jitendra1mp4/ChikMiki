@@ -31,6 +31,8 @@
             _editor.DropFilePanel.BackColor = Color.YellowGreen
             _editor.DropFilePanel.ForeColor = Color.GreenYellow
 
+            _editor.EventMessage.ForeColor = Color.Black
+
             For i = 0 To 5
                 _editor.mainMenuStrip.Items(i).ForeColor = Color.Black
             Next
@@ -49,6 +51,7 @@
             _editor.DayNightMenuItem.ForeColor = Color.Honeydew
 
             _editor.DayNightMenuItem.Text = "Night"
+            _editor.EventMessage.Text = "Light Mode Activated"
 
         Else
 
@@ -63,11 +66,12 @@
 
             _editor.CodeBox.BackColor = Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
             _editor.CodeboxSepraterPanel.BackColor = _editor.CodeBox.BackColor
-            _editor.CodeBox.ForeColor = Color.Aqua
+            _editor.CodeBox.ForeColor = Color.Coral
 
             _editor.DropFilePanel.BackColor = Color.Gray
             _editor.DropFilePanel.ForeColor = Color.DarkGray
 
+            _editor.EventMessage.ForeColor = Color.Honeydew
 
             For i = 0 To 5
                 _editor.mainMenuStrip.Items(i).ForeColor = Color.WhiteSmoke
@@ -87,11 +91,12 @@
             _editor.DayNightMenuItem.ForeColor = Color.Black
 
             _editor.DayNightMenuItem.Text = "Light"
+            _editor.EventMessage.Text = "Night Mode Activated"
 
         End If
 
-        '   fileManipulator.saveFile(fileManipulator.tempFilePath)
-        '  fileManipulator.codeChanged = False
+        'fileManipulator.saveFile(fileManipulator.tempFilePath)
+        _editor.codeChanged = False
 
     End Sub
 

@@ -5,15 +5,16 @@ Imports Alpha_C_CPP_IDE.EditMenu
 Imports Alpha_C_CPP_IDE.MyUtilities
 Imports Alpha_C_CPP_IDE.Theme
 
+
 Public Class Editor
 
     Public Const appName As String = "Alpha C/C++ IDE"
-
+    Public codeChanged As Boolean = False
 
     Dim themer As New Theme(Me)
     Dim Mfile As New fileManipulator(Me)
     Dim edtMenu As New EditMenu(Me)
-    Dim Executer As New CodeExecuters(Me, Mfile.filePath)
+    Dim Executer As New CodeExecuters(Me)
 
 
     Public Sub callCodeRunner(ByVal compileOnly As Boolean)
@@ -24,7 +25,7 @@ Public Class Editor
         If Mfile.filePath <> "\0" Then
             Mfile.saver()
         End If
-        Executer.codeRunner(Mfile.Saved, compileOnly)
+        Executer.codeRunner(Mfile.filePath, compileOnly)
     End Sub
 
     '**************************Auto-created functions***********************************'
@@ -32,8 +33,10 @@ Public Class Editor
     Private Sub WorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WorToolStripMenuItem.Click
         If CodeBox.WordWrap Then
             CodeBox.WordWrap = False
+            EventMessage.Text = "Word Wrap Disabled"
         Else
             CodeBox.WordWrap = True
+            EventMessage.Text = "Word Wrap Enabled"
         End If
     End Sub
 
@@ -56,11 +59,10 @@ Public Class Editor
     Private Sub CodeBox_TextChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CodeBox.TextChanged
         numberOfWords.Text = CStr(CodeBox.Text.Length)
         Status_NumberOfLine.Text = CStr(CodeBox.Lines.Length)
-        SAVEToolStripMenuItem1.Text = "^SAVE"
+        updateSaveStatus()
         If CodeBox.Text = "" Then
             AddLineNumbers()
         End If
-        Mfile.Saved = False
     End Sub
 
 
@@ -103,8 +105,10 @@ Public Class Editor
     End Sub
 
     Private Sub FontToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FontToolStripMenuItem.Click
+
         If codeBoxFontDialog.ShowDialog <> DialogResult.Cancel Then
-            CodeBox.Font = codeBoxFontDialog.Font
+            Me.CodeBox.Font = codeBoxFontDialog.Font
+            EventMessage.Text = "Font Changed to " + CodeBox.Font.Name
         End If
 
     End Sub
@@ -198,6 +202,7 @@ Public Class Editor
 
     Private Sub ToolStripMenuItem6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DayNightMenuItem.Click
         themer.manageTheme()
+
     End Sub
 
     Private Sub FormateCodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FormateCodeToolStripMenuItem.Click
@@ -238,6 +243,8 @@ Public Class Editor
         CodeBox.Text = My.MySettings.Default.preAvalibleCode
         'codeChanged = False
         Mfile.Saved = True
+        SAVEToolStripMenuItem1.Text = "SAVE"
+        EventMessage.Text = "New Editor is ready!"
     End Sub
 
     Private Sub createNewForm()
@@ -406,5 +413,17 @@ Public Class Editor
         resetAppearanceAfterDragAction()
     End Sub
 
+
+    Private Sub NewWindowToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewWindowToolStripMenuItem.Click
+        Dim ed As New Editor
+        ed.Show()
+    End Sub
+
+    Private Sub updateSaveStatus()
+        Mfile.Saved = False
+        codeChanged = True
+        SAVEToolStripMenuItem1.Text = "*SAVE"
+        EventMessage.Text = ""
+    End Sub
 
 End Class

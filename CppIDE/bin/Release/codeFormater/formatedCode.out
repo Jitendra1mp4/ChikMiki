@@ -1,42 +1,6 @@
 ﻿#include <stdio.h>
-void printArray(int arr[], int n);
-void insertAtRightPosition(int arr[], int e, int n) {
-  int start = 0, end = n;
-  while (start < end) {
-    int mid = (start + end) / 2;
-    if (mid > 0 && arr[mid - 1] < e && arr[mid] > e) {
-
-      int j = n;
-      while (j >= mid) {
-        arr[j] = arr[j - 1];
-        j--;
-      }
-      arr[mid] = e;
-      break;
-    } else if (arr[mid] < e) {
-      start = mid;
-    } else {
-      end = mid;
-    }
-  }
-}
 
 int main() {
-  int n = 10;
-  int arr[n + 1] = {0, 3, 4, 5, 7, 8, 10, 12, 13, 15};
-  int e = 9;
-  printArray(arr, n - 1);
-  insertAtRightPosition(arr, e, n + 1);
-  printf("After insertion\n");
-  printArray(arr, n);
-  int element = 6;
+  printf("Sir world");
   return 0;
-}
-
-void printArray(int arr[], int n) {
-  for (int i = 0; i <= n; i++) {
-    printf("%d ", arr[i]);
-  }
-  printf("\n");
-  return;
 }

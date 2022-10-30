@@ -51,12 +51,14 @@ Partial Class Editor
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Status_NumberOfLine = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.EventMessage = New System.Windows.Forms.ToolStripStatusLabel()
         Me.mainMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NewWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CutMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CopyMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -88,7 +90,6 @@ Partial Class Editor
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.codeBoxFontDialog = New System.Windows.Forms.FontDialog()
-        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Label1 = New System.Windows.Forms.Label()
         Me.containerPanel.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -150,12 +151,12 @@ Partial Class Editor
         Me.CodeBox.DetectUrls = False
         Me.CodeBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CodeBox.Font = Global.Alpha_C_CPP_IDE.My.MySettings.Default.codeBoxFont
-        Me.CodeBox.ForeColor = System.Drawing.Color.Aqua
+        Me.CodeBox.ForeColor = System.Drawing.Color.Coral
         Me.CodeBox.Location = New System.Drawing.Point(50, 0)
         Me.CodeBox.Margin = New System.Windows.Forms.Padding(50, 35, 32, 43)
         Me.CodeBox.Name = "CodeBox"
         Me.CodeBox.Size = New System.Drawing.Size(842, 363)
-        Me.CodeBox.TabIndex = 4
+        Me.CodeBox.TabIndex = 2
         Me.CodeBox.Text = "#include <stdio.h>" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "int main() {" & Global.Microsoft.VisualBasic.ChrW(10) & "  printf(""Hello world"");" & Global.Microsoft.VisualBasic.ChrW(10) & "  return 0;" & Global.Microsoft.VisualBasic.ChrW(10) & "}"
         Me.CodeBox.WordWrap = False
         '
@@ -227,7 +228,7 @@ Partial Class Editor
         Me.contex_Butify.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.contex_Butify.Name = "contex_Butify"
         Me.contex_Butify.Size = New System.Drawing.Size(150, 22)
-        Me.contex_Butify.Text = "^Butify Code"
+        Me.contex_Butify.Text = "*Butify Code"
         '
         'ToolStripSeparator3
         '
@@ -308,7 +309,7 @@ Partial Class Editor
         'DownStatusStrip
         '
         Me.DownStatusStrip.BackColor = System.Drawing.Color.DimGray
-        Me.DownStatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.numberOfWords, Me.ToolStripStatusLabel2, Me.Status_NumberOfLine, Me.ToolStripStatusLabel4, Me.ToolStripStatusLabel3})
+        Me.DownStatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.numberOfWords, Me.ToolStripStatusLabel2, Me.Status_NumberOfLine, Me.ToolStripStatusLabel4, Me.EventMessage})
         Me.DownStatusStrip.Location = New System.Drawing.Point(4, 398)
         Me.DownStatusStrip.Name = "DownStatusStrip"
         Me.DownStatusStrip.Padding = New System.Windows.Forms.Padding(1, 0, 10, 0)
@@ -348,6 +349,17 @@ Partial Class Editor
         Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(140, 17)
         Me.ToolStripStatusLabel4.Text = "            |                   C/C++"
         '
+        'EventMessage
+        '
+        Me.EventMessage.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.EventMessage.BackColor = System.Drawing.Color.Transparent
+        Me.EventMessage.Font = New System.Drawing.Font("Georgia", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EventMessage.ForeColor = System.Drawing.Color.SeaShell
+        Me.EventMessage.Margin = New System.Windows.Forms.Padding(10, 3, 1, 2)
+        Me.EventMessage.Name = "EventMessage"
+        Me.EventMessage.Size = New System.Drawing.Size(48, 17)
+        Me.EventMessage.Text = "Status"
+        '
         'mainMenuStrip
         '
         Me.mainMenuStrip.BackColor = System.Drawing.Color.DimGray
@@ -362,7 +374,7 @@ Partial Class Editor
         'FileToolStripMenuItem
         '
         Me.FileToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.OpenToolStripMenuItem, Me.SaveToolStripMenuItem, Me.SaveAsToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.OpenToolStripMenuItem, Me.SaveToolStripMenuItem, Me.SaveAsToolStripMenuItem, Me.NewWindowToolStripMenuItem})
         Me.FileToolStripMenuItem.Font = New System.Drawing.Font("Sitka Small", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
@@ -374,7 +386,7 @@ Partial Class Editor
         Me.NewToolStripMenuItem.Font = New System.Drawing.Font("Sitka Small", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
         Me.NewToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(185, 28)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(291, 28)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'OpenToolStripMenuItem
@@ -382,7 +394,7 @@ Partial Class Editor
         Me.OpenToolStripMenuItem.Font = New System.Drawing.Font("Sitka Small", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
         Me.OpenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(185, 28)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(291, 28)
         Me.OpenToolStripMenuItem.Text = "Open"
         '
         'SaveToolStripMenuItem
@@ -390,7 +402,7 @@ Partial Class Editor
         Me.SaveToolStripMenuItem.Font = New System.Drawing.Font("Sitka Small", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
         Me.SaveToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(185, 28)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(291, 28)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'SaveAsToolStripMenuItem
@@ -398,8 +410,16 @@ Partial Class Editor
         Me.SaveAsToolStripMenuItem.Font = New System.Drawing.Font("Sitka Small", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem"
         Me.SaveAsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12
-        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(185, 28)
+        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(291, 28)
         Me.SaveAsToolStripMenuItem.Text = "Save As.."
+        '
+        'NewWindowToolStripMenuItem
+        '
+        Me.NewWindowToolStripMenuItem.Name = "NewWindowToolStripMenuItem"
+        Me.NewWindowToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+                    Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.NewWindowToolStripMenuItem.Size = New System.Drawing.Size(291, 28)
+        Me.NewWindowToolStripMenuItem.Text = "New Window"
         '
         'EditToolStripMenuItem
         '
@@ -524,7 +544,7 @@ Partial Class Editor
         Me.WorToolStripMenuItem.Font = New System.Drawing.Font("Sitka Small", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WorToolStripMenuItem.Name = "WorToolStripMenuItem"
         Me.WorToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
-        Me.WorToolStripMenuItem.Size = New System.Drawing.Size(277, 28)
+        Me.WorToolStripMenuItem.Size = New System.Drawing.Size(275, 28)
         Me.WorToolStripMenuItem.Text = "Word Wrap"
         '
         'FontToolStripMenuItem
@@ -533,7 +553,7 @@ Partial Class Editor
         Me.FontToolStripMenuItem.Name = "FontToolStripMenuItem"
         Me.FontToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
                     Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.FontToolStripMenuItem.Size = New System.Drawing.Size(277, 28)
+        Me.FontToolStripMenuItem.Size = New System.Drawing.Size(275, 28)
         Me.FontToolStripMenuItem.Text = "Font"
         '
         'FormateCodeToolStripMenuItem
@@ -541,8 +561,8 @@ Partial Class Editor
         Me.FormateCodeToolStripMenuItem.Name = "FormateCodeToolStripMenuItem"
         Me.FormateCodeToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Shift) _
                     Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.FormateCodeToolStripMenuItem.Size = New System.Drawing.Size(277, 28)
-        Me.FormateCodeToolStripMenuItem.Text = "^Butify Code"
+        Me.FormateCodeToolStripMenuItem.Size = New System.Drawing.Size(275, 28)
+        Me.FormateCodeToolStripMenuItem.Text = "*Butify Code"
         '
         'HelpToolStripMenuItem
         '
@@ -641,15 +661,6 @@ Partial Class Editor
         '
         Me.codeBoxFontDialog.Font = Global.Alpha_C_CPP_IDE.My.MySettings.Default.codeBoxFont
         '
-        'ToolStripStatusLabel3
-        '
-        Me.ToolStripStatusLabel3.BackColor = System.Drawing.Color.Silver
-        Me.ToolStripStatusLabel3.ForeColor = System.Drawing.Color.Chocolate
-        Me.ToolStripStatusLabel3.Margin = New System.Windows.Forms.Padding(300, 3, 1, 2)
-        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(39, 17)
-        Me.ToolStripStatusLabel3.Text = "Status"
-        '
         'Editor
         '
         Me.AccessibleName = "EditorForm"
@@ -742,6 +753,7 @@ Partial Class Editor
     Friend WithEvents lineNumberBox As System.Windows.Forms.RichTextBox
     Friend WithEvents ResetZoomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DropFilePanel As System.Windows.Forms.Panel
-    Friend WithEvents ToolStripStatusLabel3 As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents EventMessage As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents NewWindowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

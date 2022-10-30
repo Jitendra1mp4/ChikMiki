@@ -32,6 +32,10 @@
         Saved = saveFile()
         My.MySettings.Default.lastOpenedFileName = filePath
         _editor.Text = _editor.appName + " - " + CStr(getFileName())
+
+        _editor.SAVEToolStripMenuItem1.Text = "SAVE"
+        _editor.EventMessage.Text = "Saved as " + CStr(getFileName())
+
     End Sub
 
     Public Function saver() As Boolean
@@ -47,12 +51,15 @@
         End If
         Saved = saveFile()
         If (Saved) Then
-            _editor.SAVEToolStripMenuItem1.Text = "SAVE"
             fileName = CStr(getFileName())
             _editor.Text = _editor.appName + " - " + fileName
             My.MySettings.Default.lastOpenedFileName = filePath
+
+            _editor.SAVEToolStripMenuItem1.Text = "SAVE"
+            _editor.EventMessage.Text = fileName + " Saved!"
+            Return True
         End If
-        Return True
+        Return False
     End Function
 
     Public Function setCodeBoxText(ByVal path As String) As Boolean
@@ -63,12 +70,16 @@
             Saved = True                        'set saved = true
             fileName = CStr(getFileName())    'set file name
             _editor.Text = _editor.appName + " - " + fileName
+            _editor.SAVEToolStripMenuItem1.Text = "SAVE"
+            _editor.EventMessage.Text = "Sucessfully Opened file " + fileName
             My.MySettings.Default.lastOpenedFileName = path 'save file path for next time
             setCodeBoxText = True
         Else
-            filePath = "\0"
+            'filePath = "\0"
+            _editor.EventMessage.Text = "Failed to Opene file"
+            setCodeBoxText = False
         End If
-        setCodeBoxText = False
+
     End Function
 
     Public Function openFile() As Boolean

@@ -11,17 +11,20 @@
         If _editor.CodeBox.SelectedText <> "" Then
             Clipboard.SetText(_editor.CodeBox.SelectedText)
             _editor.CodeBox.SelectedText = ""
+            _editor.EventMessage.Text = "Cut success..."
         End If
     End Sub
 
     Public Sub copyText()
         If _editor.CodeBox.SelectedText <> "" Then
             Clipboard.SetText(_editor.CodeBox.SelectedText)
+            _editor.EventMessage.Text = " Text Copied"
         End If
     End Sub
 
     Public Sub pasteText()
         _editor.CodeBox.SelectedText = Clipboard.GetText
+        _editor.EventMessage.Text = "Text Pasted..."
     End Sub
 
     Public Sub undoText()

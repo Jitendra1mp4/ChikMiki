@@ -9,18 +9,16 @@
     Const tempFilePath As String = tempFileLocation + tempFileName
 
     Public programArgs As String = ""
-    Private inputPath As String
     Private _editor As Editor
 
-    Sub New(ByRef edtr As Editor, ByVal filePath As String)
+    Sub New(ByRef edtr As Editor)
         ' TODO: Complete member initialization 
-        inputPath = filePath
         _editor = edtr
     End Sub
 
-    Public Sub codeRunner(ByVal Saved As Boolean, ByVal compileOnly As Boolean)
+    Public Sub codeRunner(ByVal inputPath As String, ByVal compileOnly As Boolean)
         Dim outputPath As String = inputPath
-        If (Not Saved) Then
+        If (inputPath = "\0") Then
             saveFile()
             inputPath = tempFilePath
             outputPath = tempFilePath
@@ -50,6 +48,7 @@
         saveFile() 'saving file to tempPath
         'adding formated code to codeBox
         _editor.CodeBox.Text = MyUtilities.formateCode(tempFilePath) 'formating code
+        _editor.EventMessage.Text = "Code Beautified..."
     End Sub
 
 
