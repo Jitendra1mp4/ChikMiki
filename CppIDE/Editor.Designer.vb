@@ -32,12 +32,9 @@ Partial Class Editor
         Me.contex_Cut = New System.Windows.Forms.ToolStripMenuItem()
         Me.contex_Copy = New System.Windows.Forms.ToolStripMenuItem()
         Me.contex_Past = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.CompileCodeOption = New System.Windows.Forms.ToolStripMenuItem()
         Me.contex_RunCode = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.contex_Butify = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.contex_Undo = New System.Windows.Forms.ToolStripMenuItem()
         Me.contex_Redo = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResetZoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -143,7 +140,7 @@ Partial Class Editor
         '
         Me.CodeBox.AcceptsTab = True
         Me.CodeBox.AutoWordSelection = True
-        Me.CodeBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.CodeBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.CodeBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CodeBox.ContextMenuStrip = Me.ContextMenuOfCodeBox
         Me.CodeBox.Cursor = System.Windows.Forms.Cursors.IBeam
@@ -151,7 +148,7 @@ Partial Class Editor
         Me.CodeBox.DetectUrls = False
         Me.CodeBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CodeBox.Font = Global.Alpha_C_CPP_IDE.My.MySettings.Default.codeBoxFont
-        Me.CodeBox.ForeColor = System.Drawing.Color.Coral
+        Me.CodeBox.ForeColor = System.Drawing.Color.LightBlue
         Me.CodeBox.Location = New System.Drawing.Point(50, 0)
         Me.CodeBox.Margin = New System.Windows.Forms.Padding(50, 35, 32, 43)
         Me.CodeBox.Name = "CodeBox"
@@ -163,17 +160,18 @@ Partial Class Editor
         'ContextMenuOfCodeBox
         '
         Me.ContextMenuOfCodeBox.BackColor = System.Drawing.Color.DimGray
-        Me.ContextMenuOfCodeBox.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.contex_Cut, Me.contex_Copy, Me.contex_Past, Me.ToolStripSeparator1, Me.CompileCodeOption, Me.contex_RunCode, Me.ToolStripSeparator2, Me.contex_Butify, Me.ToolStripSeparator3, Me.contex_Undo, Me.contex_Redo, Me.ResetZoomToolStripMenuItem})
+        Me.ContextMenuOfCodeBox.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.contex_Cut, Me.contex_Copy, Me.contex_Past, Me.CompileCodeOption, Me.contex_RunCode, Me.contex_Butify, Me.contex_Undo, Me.contex_Redo, Me.ResetZoomToolStripMenuItem})
         Me.ContextMenuOfCodeBox.Margin = New System.Windows.Forms.Padding(5)
         Me.ContextMenuOfCodeBox.Name = "ContextMenuStrip1"
-        Me.ContextMenuOfCodeBox.Size = New System.Drawing.Size(151, 220)
+        Me.ContextMenuOfCodeBox.Size = New System.Drawing.Size(225, 202)
         '
         'contex_Cut
         '
         Me.contex_Cut.BackColor = System.Drawing.Color.DimGray
         Me.contex_Cut.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.contex_Cut.Name = "contex_Cut"
-        Me.contex_Cut.Size = New System.Drawing.Size(150, 22)
+        Me.contex_Cut.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
+        Me.contex_Cut.Size = New System.Drawing.Size(224, 22)
         Me.contex_Cut.Text = "Cut"
         '
         'contex_Copy
@@ -181,7 +179,8 @@ Partial Class Editor
         Me.contex_Copy.BackColor = System.Drawing.Color.DimGray
         Me.contex_Copy.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.contex_Copy.Name = "contex_Copy"
-        Me.contex_Copy.Size = New System.Drawing.Size(150, 22)
+        Me.contex_Copy.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.contex_Copy.Size = New System.Drawing.Size(224, 22)
         Me.contex_Copy.Text = "Copy"
         '
         'contex_Past
@@ -189,22 +188,18 @@ Partial Class Editor
         Me.contex_Past.BackColor = System.Drawing.Color.DimGray
         Me.contex_Past.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.contex_Past.Name = "contex_Past"
-        Me.contex_Past.Size = New System.Drawing.Size(150, 22)
+        Me.contex_Past.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
+        Me.contex_Past.Size = New System.Drawing.Size(224, 22)
         Me.contex_Past.Text = "Past"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripSeparator1.ForeColor = System.Drawing.Color.Transparent
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(147, 6)
         '
         'CompileCodeOption
         '
         Me.CompileCodeOption.BackColor = System.Drawing.Color.DimGray
         Me.CompileCodeOption.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.CompileCodeOption.Name = "CompileCodeOption"
-        Me.CompileCodeOption.Size = New System.Drawing.Size(150, 22)
+        Me.CompileCodeOption.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+                    Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.CompileCodeOption.Size = New System.Drawing.Size(224, 22)
         Me.CompileCodeOption.Text = "Compile Code"
         '
         'contex_RunCode
@@ -212,50 +207,41 @@ Partial Class Editor
         Me.contex_RunCode.BackColor = System.Drawing.Color.DimGray
         Me.contex_RunCode.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.contex_RunCode.Name = "contex_RunCode"
-        Me.contex_RunCode.Size = New System.Drawing.Size(150, 22)
+        Me.contex_RunCode.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
+        Me.contex_RunCode.Size = New System.Drawing.Size(224, 22)
         Me.contex_RunCode.Text = "Run Code"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripSeparator2.ForeColor = System.Drawing.Color.Transparent
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(147, 6)
         '
         'contex_Butify
         '
         Me.contex_Butify.BackColor = System.Drawing.Color.DimGray
         Me.contex_Butify.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.contex_Butify.Name = "contex_Butify"
-        Me.contex_Butify.Size = New System.Drawing.Size(150, 22)
-        Me.contex_Butify.Text = "*Butify Code"
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(147, 6)
-        Me.ToolStripSeparator3.Visible = False
+        Me.contex_Butify.ShortcutKeys = CType(((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Shift) _
+                    Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
+        Me.contex_Butify.Size = New System.Drawing.Size(224, 22)
+        Me.contex_Butify.Text = "Butify Code**"
         '
         'contex_Undo
         '
         Me.contex_Undo.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.contex_Undo.Name = "contex_Undo"
-        Me.contex_Undo.Size = New System.Drawing.Size(150, 22)
+        Me.contex_Undo.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
+        Me.contex_Undo.Size = New System.Drawing.Size(224, 22)
         Me.contex_Undo.Text = "Undo"
-        Me.contex_Undo.Visible = False
         '
         'contex_Redo
         '
         Me.contex_Redo.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.contex_Redo.Name = "contex_Redo"
-        Me.contex_Redo.Size = New System.Drawing.Size(150, 22)
+        Me.contex_Redo.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Y), System.Windows.Forms.Keys)
+        Me.contex_Redo.Size = New System.Drawing.Size(224, 22)
         Me.contex_Redo.Text = "Redo"
-        Me.contex_Redo.Visible = False
         '
         'ResetZoomToolStripMenuItem
         '
+        Me.ResetZoomToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
         Me.ResetZoomToolStripMenuItem.Name = "ResetZoomToolStripMenuItem"
-        Me.ResetZoomToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.ResetZoomToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.ResetZoomToolStripMenuItem.Text = "Reset Zoom"
         '
         'lineNumberAndSepraterContainer
@@ -467,16 +453,16 @@ Partial Class Editor
         'Edit_Undo
         '
         Me.Edit_Undo.Name = "Edit_Undo"
+        Me.Edit_Undo.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
         Me.Edit_Undo.Size = New System.Drawing.Size(180, 28)
         Me.Edit_Undo.Text = "Undo"
-        Me.Edit_Undo.Visible = False
         '
         'Edit_Redo
         '
         Me.Edit_Redo.Name = "Edit_Redo"
+        Me.Edit_Redo.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Y), System.Windows.Forms.Keys)
         Me.Edit_Redo.Size = New System.Drawing.Size(180, 28)
         Me.Edit_Redo.Text = "Redo"
-        Me.Edit_Redo.Visible = False
         '
         'SearchToolStripMenuItem
         '
@@ -544,7 +530,7 @@ Partial Class Editor
         Me.WorToolStripMenuItem.Font = New System.Drawing.Font("Sitka Small", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WorToolStripMenuItem.Name = "WorToolStripMenuItem"
         Me.WorToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
-        Me.WorToolStripMenuItem.Size = New System.Drawing.Size(275, 28)
+        Me.WorToolStripMenuItem.Size = New System.Drawing.Size(284, 28)
         Me.WorToolStripMenuItem.Text = "Word Wrap"
         '
         'FontToolStripMenuItem
@@ -553,7 +539,7 @@ Partial Class Editor
         Me.FontToolStripMenuItem.Name = "FontToolStripMenuItem"
         Me.FontToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
                     Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.FontToolStripMenuItem.Size = New System.Drawing.Size(275, 28)
+        Me.FontToolStripMenuItem.Size = New System.Drawing.Size(284, 28)
         Me.FontToolStripMenuItem.Text = "Font"
         '
         'FormateCodeToolStripMenuItem
@@ -561,8 +547,8 @@ Partial Class Editor
         Me.FormateCodeToolStripMenuItem.Name = "FormateCodeToolStripMenuItem"
         Me.FormateCodeToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Shift) _
                     Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.FormateCodeToolStripMenuItem.Size = New System.Drawing.Size(275, 28)
-        Me.FormateCodeToolStripMenuItem.Text = "*Butify Code"
+        Me.FormateCodeToolStripMenuItem.Size = New System.Drawing.Size(284, 28)
+        Me.FormateCodeToolStripMenuItem.Text = "Butify Code**"
         '
         'HelpToolStripMenuItem
         '
@@ -740,10 +726,7 @@ Partial Class Editor
     Friend WithEvents ToolStripStatusLabel4 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents DayNightMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FormateCodeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents contex_Butify As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents contex_Undo As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents contex_Redo As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Edit_Undo As System.Windows.Forms.ToolStripMenuItem

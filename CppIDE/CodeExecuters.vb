@@ -46,7 +46,6 @@
 
     Public Sub butifyCode()
         saveFile() 'saving file to tempPath
-        'adding formated code to codeBox
         _editor.CodeBox.Text = MyUtilities.formateCode(tempFilePath) 'formating code
         _editor.EventMessage.Text = "Code Beautified..."
     End Sub

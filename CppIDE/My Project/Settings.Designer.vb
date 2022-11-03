@@ -116,7 +116,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Consolas, 14.25pt")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Consolas, 15.75pt")>  _
         Public Property codeBoxFont() As Global.System.Drawing.Font
             Get
                 Return CType(Me("codeBoxFont"),Global.System.Drawing.Font)

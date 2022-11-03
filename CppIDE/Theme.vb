@@ -42,7 +42,6 @@
                 _editor.ContextMenuOfCodeBox.Items(i).BackColor = Color.Honeydew
             Next
 
-
             For i = 0 To _editor.DownStatusStrip.Items.Count - 1
                 _editor.DownStatusStrip.Items(i).ForeColor = Color.Gray
             Next
@@ -64,9 +63,9 @@
             _editor.lineNumberBox.BackColor = Color.DimGray
             _editor.lineNumberBox.ForeColor = Color.PaleGreen
 
-            _editor.CodeBox.BackColor = Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+            _editor.CodeBox.BackColor = Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+            _editor.CodeBox.ForeColor = Color.LightBlue
             _editor.CodeboxSepraterPanel.BackColor = _editor.CodeBox.BackColor
-            _editor.CodeBox.ForeColor = Color.Coral
 
             _editor.DropFilePanel.BackColor = Color.Gray
             _editor.DropFilePanel.ForeColor = Color.DarkGray

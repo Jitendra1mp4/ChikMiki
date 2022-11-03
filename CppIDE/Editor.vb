@@ -10,10 +10,13 @@ Public Class Editor
 
     Public Const appName As String = "Alpha C/C++ IDE"
     Public codeChanged As Boolean = False
+    Dim tempCode As String
+    Dim codeBeautified As Boolean = False
+    Dim tempCodeBueatified As String
 
     Dim themer As New Theme(Me)
     Dim Mfile As New fileManipulator(Me)
-    Dim edtMenu As New EditMenu(Me)
+
     Dim Executer As New CodeExecuters(Me)
 
 
@@ -57,12 +60,14 @@ Public Class Editor
 
 
     Private Sub CodeBox_TextChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CodeBox.TextChanged
-        numberOfWords.Text = CStr(CodeBox.Text.Length)
-        Status_NumberOfLine.Text = CStr(CodeBox.Lines.Length)
-        updateSaveStatus()
         If CodeBox.Text = "" Then
             AddLineNumbers()
         End If
+        numberOfWords.Text = CStr(CodeBox.Text.Length)
+        Status_NumberOfLine.Text = CStr(CodeBox.Lines.Length)
+        updateSaveStatus()
+        codeBeautified = False
+        tempCodeBueatified = CodeBox.Text
     End Sub
 
 
@@ -199,18 +204,28 @@ Public Class Editor
         Me.Text = appName + " - Untitled"
         InitialSetups()
     End Sub
-
+    '*********************
+    Dim edtMenu As New EditMenu(Me)
+    '*******************
     Private Sub ToolStripMenuItem6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DayNightMenuItem.Click
         themer.manageTheme()
 
     End Sub
 
-    Private Sub FormateCodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FormateCodeToolStripMenuItem.Click
+    Private Sub CodeBeatifier()
+        tempCode = CodeBox.Text
         Executer.butifyCode()
+        tempCodeBueatified = CodeBox.Text
+        codeBeautified = True
+    End Sub
+
+
+    Private Sub FormateCodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FormateCodeToolStripMenuItem.Click
+        CodeBeatifier()
     End Sub
 
     Private Sub ToolStripMenuItem6_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Butify.Click
-        Executer.butifyCode()
+        CodeBeatifier()
     End Sub
 
     Private Sub CopyOption_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Copy.Click
@@ -227,12 +242,16 @@ Public Class Editor
     End Sub
 
     Private Sub Edit_Undo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Edit_Undo.Click
-        edtMenu.undoText()
+        If codeBeautified Then
+            CodeBox.Text = tempCode
+            codeBeautified = False
+        Else
+            CodeBox.Undo()
+        End If
     End Sub
 
     Private Sub Edit_Redo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Edit_Redo.Click
-        edtMenu.RedoText()
-
+        CodeBox.Redo()
     End Sub
 
 
@@ -340,10 +359,6 @@ Public Class Editor
 
     Private Sub ResetZoomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ResetZoomToolStripMenuItem.Click
         CodeBox.ZoomFactor = 1
-        'lineNumberBox.ZoomFactor = 1
-        'CodeBox.Font = codeBoxFontDialog.Font
-        'lineNumberAndSepraterContainer.Width = lineNumberBox.ZoomFactor * getWidth()
-
     End Sub
 
     Private Sub prepairAppearenceForDragEnter()
@@ -422,8 +437,24 @@ Public Class Editor
     Private Sub updateSaveStatus()
         Mfile.Saved = False
         codeChanged = True
-        SAVEToolStripMenuItem1.Text = "*SAVE"
+        If (codeBeautified = False) Then
+            SAVEToolStripMenuItem1.Text = "*SAVE"
+        End If
+
         EventMessage.Text = ""
     End Sub
 
+    Private Sub contex_Undo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Undo.Click
+        If codeBeautified Then
+            CodeBox.Text = tempCode
+            codeBeautified = False
+        Else
+            CodeBox.Undo()
+        End If
+
+    End Sub
+
+    Private Sub contex_Redo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Redo.Click
+        CodeBox.Redo()
+    End Sub
 End Class
