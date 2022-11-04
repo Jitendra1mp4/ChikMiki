@@ -5189,3 +5189,7 @@ D:\SoftwareProjects\ideProject\CppIDE\obj\x86\Release\CppIDE.vbproj.GenerateReso
 D:\SoftwareProjects\ideProject\CppIDE\obj\x86\Release\Alpha-C_CPP_IDE.TrustInfo.xml
 D:\SoftwareProjects\ideProject\CppIDE\obj\x86\Release\Alpha-C_CPP_IDE.exe.manifest
 D:\SoftwareProjects\ideProject\CppIDE\obj\x86\Release\Alpha-C_CPP_IDE.application
+E:\SoftwareProjects\ideProject\CppIDE\bin\Release\Alpha-C_CPP_IDE.exe.config
+E:\SoftwareProjects\ideProject\CppIDE\obj\x86\Release\Alpha-C_CPP_IDE.exe
+E:\SoftwareProjects\ideProject\CppIDE\obj\x86\Release\Alpha-C_CPP_IDE.xml
+E:\SoftwareProjects\ideProject\CppIDE\obj\x86\Release\Alpha-C_CPP_IDE.pdb
