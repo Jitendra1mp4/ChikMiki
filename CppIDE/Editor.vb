@@ -150,8 +150,21 @@ Public Class Editor
     End Sub
 
     Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
-        Mfile.openFile()
-        AddLineNumbers()
+        If codeChanged Then
+            Dim mr As MsgBoxResult
+            mr = MsgBox("Do yo want to save current file", MsgBoxStyle.YesNoCancel, appName)
+            If mr = MsgBoxResult.Yes Then
+                Mfile.saver()
+                If Mfile.Saved <> True Then
+                    MsgBox("Unable to save", , appName)
+                End If
+            ElseIf mr = MsgBoxResult.No Then
+                Mfile.openFile()
+            End If
+        Else
+            Mfile.openFile()
+            AddLineNumbers()
+        End If
     End Sub
 
     Private Sub NewToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewToolStripMenuItem.Click
