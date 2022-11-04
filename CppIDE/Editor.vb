@@ -162,7 +162,8 @@ Public Class Editor
 
     Private Sub Editor_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         My.MySettings.Default.Save()
-        If Mfile.Saved = False Then
+        'If Mfile.Saved = False Then
+        If (codeChanged) Then
             Dim mr As Integer
             mr = MsgBox("Do you want to Save File..?", CType(3, MsgBoxStyle), "Editor")
             If mr = DialogResult.Yes Then
@@ -260,14 +261,15 @@ Public Class Editor
         My.MySettings.Default.lastOpenedFileName = Mfile.filePath
         Me.Text = appName + " - Untitled"
         CodeBox.Text = My.MySettings.Default.preAvalibleCode
-        'codeChanged = False
+        codeChanged = False
         Mfile.Saved = True
         SAVEToolStripMenuItem1.Text = "SAVE"
         EventMessage.Text = "New Editor is ready!"
     End Sub
 
     Private Sub createNewForm()
-        If Not Mfile.Saved Then
+        'If Not Mfile.Saved Then
+        If codeChanged Then
             Dim mr As MsgBoxResult
             mr = MsgBox("Do yo want to save file", MsgBoxStyle.YesNoCancel, appName)
             If mr = MsgBoxResult.Yes Then
@@ -399,7 +401,8 @@ Public Class Editor
         Dim fileExt As String = file(0).Substring(file(0).LastIndexOf("."))
         Dim allowedExtenstion() As String = {".c", ".cpp", ".txt"}
         If Array.IndexOf(allowedExtenstion, fileExt) > -1 Then
-            If Not Mfile.Saved Then
+            'If Not Mfile.Saved Then
+            If codeChanged Then
                 Dim mr As MsgBoxResult = MsgBox("Do yo want to save Current file", MsgBoxStyle.YesNoCancel, appName)
                 If mr = MsgBoxResult.Yes Then
                     If Mfile.saver() <> True Then

@@ -57,6 +57,7 @@
 
             _editor.SAVEToolStripMenuItem1.Text = "SAVE"
             _editor.EventMessage.Text = fileName + " Saved!"
+            _editor.codeChanged = False
             Return True
         End If
         Return False
@@ -73,6 +74,7 @@
             _editor.SAVEToolStripMenuItem1.Text = "SAVE"
             _editor.EventMessage.Text = "Sucessfully Opened file " + fileName
             My.MySettings.Default.lastOpenedFileName = path 'save file path for next time
+            _editor.codeChanged = False
             setCodeBoxText = True
         Else
             'filePath = "\0"

@@ -61,7 +61,7 @@
             _editor.containerPanel.BackColor = Color.Gray
 
             _editor.lineNumberBox.BackColor = Color.DimGray
-            _editor.lineNumberBox.ForeColor = Color.PaleGreen
+            _editor.lineNumberBox.ForeColor = Color.LightBlue
 
             _editor.CodeBox.BackColor = Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
             _editor.CodeBox.ForeColor = Color.LightBlue
