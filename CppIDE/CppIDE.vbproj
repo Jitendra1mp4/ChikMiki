@@ -30,8 +30,8 @@
     <ErrorReportUrl>https://github.com/Jitendra1mp4/JCX-C-CPPIDE</ErrorReportUrl>
     <ProductName>Alpha C-C++ IDE</ProductName>
     <PublisherName>Jitendra Kumar</PublisherName>
-    <ApplicationRevision>10</ApplicationRevision>
-    <ApplicationVersion>2.2.4.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>2.2.5.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
