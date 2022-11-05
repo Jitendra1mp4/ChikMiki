@@ -12,12 +12,14 @@
 * Option to __beautify your code__ with a single click.
 * __Night mode and Light mode__ Theme Availible
 
-![ide_night](https://user-images.githubusercontent.com/70005117/197686694-c6d1b4d9-a138-4928-ae17-8524a9c638d8.jpg)
-
+![drkMod](https://user-images.githubusercontent.com/70005117/200111802-8338c44d-31af-464b-9446-dabeeea120f5.png)
 
 * Simple and Plane View.
 * Customize your editor text using __change font__ option.
 * __Drag and Drop__ to Open a file.
+
+![dropToOpen](https://user-images.githubusercontent.com/70005117/200111792-d12c6774-1b3f-4798-be74-a34cd45ff971.png)
+
 * __Portable.__
 * Can __Peserve last opened File, Theme, Font__ etc.
 * Seprate CMD output prompt able to take user inputs.
