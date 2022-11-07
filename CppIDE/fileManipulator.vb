@@ -73,14 +73,14 @@
             _editor.Text = _editor.appName + " - " + fileName
             _editor.SAVEToolStripMenuItem1.Text = "SAVE"
             _editor.EventMessage.Text = "Sucessfully Opened file " + fileName
-            My.MySettings.Default.lastOpenedFileName = path 'save file path for next time
             _editor.codeChanged = False
             setCodeBoxText = True
         Else
-            'filePath = "\0"
-            _editor.EventMessage.Text = "Failed to Opene file"
+            filePath = "\0"
+            _editor.EventMessage.Text = "Failed to open last opened file"
             setCodeBoxText = False
         End If
+        My.MySettings.Default.lastOpenedFileName = path 'save file path for next time
 
     End Function
 
