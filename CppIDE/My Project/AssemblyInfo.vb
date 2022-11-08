@@ -11,7 +11,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("ChikMiki")> 
 <Assembly: AssemblyDescription("Create, Edit, Open, Compile, Execute  C and C++ files.")> 
 <Assembly: AssemblyCompany("JK OpenSoft")> 
-<Assembly: AssemblyProduct("ChikMiki C/C++ IDE")> 
+<Assembly: AssemblyProduct("ChikMiki")> 
 <Assembly: AssemblyCopyright("Copyright ©  2022")> 
 <Assembly: AssemblyTrademark("")> 
 
