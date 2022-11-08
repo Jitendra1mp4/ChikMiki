@@ -32,4 +32,7 @@
         Copyright.Text = My.Application.Info.Copyright
     End Sub
 
+    Private Sub Version_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Version.Click
+
+    End Sub
 End Class

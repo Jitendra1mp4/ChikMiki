@@ -1,14 +1,13 @@
 ﻿Imports System
-Imports Alpha_C_CPP_IDE.fileManipulator
-Imports Alpha_C_CPP_IDE.CodeExecuters
-Imports Alpha_C_CPP_IDE.EditMenu
-Imports Alpha_C_CPP_IDE.MyUtilities
-Imports Alpha_C_CPP_IDE.Theme
-
+Imports ChikMiki.fileManipulator
+Imports ChikMiki.CodeExecuters
+Imports ChikMiki.EditMenu
+Imports ChikMiki.MyUtilities
+Imports ChikMiki.Theme
 
 Public Class Editor
 
-    Public Const appName As String = "Alpha C/C++ IDE"
+    Public Const appName As String = "ChikMiki"
     Public codeChanged As Boolean = False
     Dim tempCode As String
     Dim codeBeautified As Boolean = False

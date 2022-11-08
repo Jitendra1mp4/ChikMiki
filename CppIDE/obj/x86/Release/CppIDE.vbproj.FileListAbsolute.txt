@@ -5193,3 +5193,4 @@ E:\SoftwareProjects\ideProject\CppIDE\bin\Release\Alpha-C_CPP_IDE.exe.config
 E:\SoftwareProjects\ideProject\CppIDE\obj\x86\Release\Alpha-C_CPP_IDE.exe
 E:\SoftwareProjects\ideProject\CppIDE\obj\x86\Release\Alpha-C_CPP_IDE.xml
 E:\SoftwareProjects\ideProject\CppIDE\obj\x86\Release\Alpha-C_CPP_IDE.pdb
+D:\SoftwareProjects\ideProject\CppIDE\bin\Release\ChikMiki.exe.config

@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Alpha C/C++ IDE")> 
+<Assembly: AssemblyTitle("ChikMiki")> 
 <Assembly: AssemblyDescription("Create, Edit, Open, Compile, Execute  C and C++ files.")> 
 <Assembly: AssemblyCompany("JK OpenSoft")> 
-<Assembly: AssemblyProduct("Alpha C/C++ IDE")> 
+<Assembly: AssemblyProduct("ChikMiki C/C++ IDE")> 
 <Assembly: AssemblyCopyright("Copyright ©  2022")> 
 <Assembly: AssemblyTrademark("")> 
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2.2.5.0")> 
-<Assembly: AssemblyFileVersion("2.2.5.0")> 
+<Assembly: AssemblyVersion("2.2.5.1")> 
+<Assembly: AssemblyFileVersion("2.2.5.1")> 

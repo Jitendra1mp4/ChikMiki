@@ -32,12 +32,12 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Alpha_C_CPP_IDE.Editor
+            Me.MainForm = Global.ChikMiki.Editor
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateSplashScreen()
-            Me.SplashScreen = Global.Alpha_C_CPP_IDE.AlphaSplash
+            Me.SplashScreen = Global.ChikMiki.AlphaSplash
         End Sub
     End Class
 End Namespace

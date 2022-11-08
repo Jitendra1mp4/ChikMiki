@@ -144,10 +144,10 @@ Partial Class Editor
         Me.CodeBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CodeBox.ContextMenuStrip = Me.ContextMenuOfCodeBox
         Me.CodeBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CodeBox.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.Alpha_C_CPP_IDE.My.MySettings.Default, "codeBoxFont", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CodeBox.DataBindings.Add(New System.Windows.Forms.Binding("Font", Global.ChikMiki.My.MySettings.Default, "codeBoxFont", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.CodeBox.DetectUrls = False
         Me.CodeBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CodeBox.Font = Global.Alpha_C_CPP_IDE.My.MySettings.Default.codeBoxFont
+        Me.CodeBox.Font = Global.ChikMiki.My.MySettings.Default.codeBoxFont
         Me.CodeBox.ForeColor = System.Drawing.Color.LightBlue
         Me.CodeBox.Location = New System.Drawing.Point(50, 0)
         Me.CodeBox.Margin = New System.Windows.Forms.Padding(50, 35, 32, 43)
@@ -645,7 +645,7 @@ Partial Class Editor
         '
         'codeBoxFontDialog
         '
-        Me.codeBoxFontDialog.Font = Global.Alpha_C_CPP_IDE.My.MySettings.Default.codeBoxFont
+        Me.codeBoxFontDialog.Font = Global.ChikMiki.My.MySettings.Default.codeBoxFont
         '
         'Editor
         '
