@@ -16,12 +16,9 @@
     End Function
 
     Private Function saveFile() As Boolean
-        My.Computer.FileSystem.WriteAllText _
-            (filePath, _editor.CodeBox.Text, False)
+        _editor.CodeBox.SaveFile(filePath, RichTextBoxStreamType.PlainText)
         saveFile = True
     End Function
-
-
 
     Public Sub callSaveAs()
         _editor.SaveFileDialog1.Filter = fileListFilter
@@ -64,11 +61,10 @@
     End Function
 
     Public Function setCodeBoxText(ByVal path As String) As Boolean
-
         If (My.Computer.FileSystem.FileExists(path)) Then
-            _editor.CodeBox.Text = My.Computer.FileSystem.ReadAllText(path) 'copy text to codeBox
+            _editor.CodeBox.LoadFile(path, RichTextBoxStreamType.PlainText) 'Load text to codeBox
             filePath = path
-            Saved = True                        'set saved = true
+            Saved = True                       'set saved = true
             fileName = CStr(getFileName())    'set file name
             _editor.Text = _editor.appName + " - " + fileName
             _editor.SAVEToolStripMenuItem1.Text = "SAVE"
@@ -81,12 +77,10 @@
             setCodeBoxText = False
         End If
         My.MySettings.Default.lastOpenedFileName = path 'save file path for next time
-
     End Function
 
     Public Function openFile() As Boolean
         _editor.OpenFileDialog1.Filter = fileListFilter
-
         If _editor.OpenFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK _
             Then
             filePath = _editor.OpenFileDialog1.FileName 'get file path
@@ -94,7 +88,6 @@
         Else
             Return False
         End If
-
     End Function
 
 End Class

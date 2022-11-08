@@ -39,8 +39,7 @@
     End Sub
 
     Private Function saveFile() As Boolean
-        My.Computer.FileSystem.WriteAllText _
-            (tempFilePath, _editor.CodeBox.Text, False)
+        _editor.CodeBox.SaveFile(tempFilePath,RichTextBoxStreamType.PlainText)
         saveFile = True
     End Function
 

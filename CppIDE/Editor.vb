@@ -68,6 +68,7 @@ Public Class Editor
         updateSaveStatus()
         codeBeautified = False
         tempCodeBueatified = CodeBox.Text
+
     End Sub
 
 
@@ -78,9 +79,6 @@ Public Class Editor
     Private Sub CutToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Cut.Click
         edtMenu.cutText()
     End Sub
-
-
-
 
     Private Sub RunCodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_RunCode.Click
         callCodeRunner(False)
@@ -98,7 +96,6 @@ Public Class Editor
         Executer.programArgs = putInsideDoubleQuouts(InputBox("Enter Arguments", "Cpp IDE", ""))
         'CodeBox.Text = programArgs
         callCodeRunner(False)
-
     End Sub
 
     Private Sub ToolStripMenuItem4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem4.Click
@@ -198,7 +195,6 @@ Public Class Editor
 
         'opening last opened file (if any)
         If (Not (My.MySettings.Default.lastOpenedFileName.Contains("\0"))) Then
-            'CodeBox.Text = My.MySettings.Default.lastOpenedFileName
             Mfile.setCodeBoxText(My.MySettings.Default.lastOpenedFileName)
         End If
 
@@ -473,4 +469,5 @@ Public Class Editor
     Private Sub contex_Redo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Redo.Click
         CodeBox.Redo()
     End Sub
+
 End Class
