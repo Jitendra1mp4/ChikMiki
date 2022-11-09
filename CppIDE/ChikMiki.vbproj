@@ -3979,9 +3979,6 @@
     <Content Include="Executers\codeRunner.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="codeFormater\formatedCode.out">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="MinGW\libexec\gcc\mingw32\6.3.0\install-tools\fixinc.sh">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

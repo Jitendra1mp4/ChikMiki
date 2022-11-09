@@ -1,4 +1,3 @@
 @echo off
 set tempFilePath=%1
-set outputPath=%2
-codeFormater\clang-format.exe %tempFilePath% > %outputPath%
+codeFormater\clang-format.exe -i --style="{BasedOnStyle: microsoft,IndentWidth: 4}" %tempFilePath%

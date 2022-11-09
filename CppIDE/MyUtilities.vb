@@ -5,8 +5,6 @@ Public Class MyUtilities
     Const codeFormater As String = "codeFormater\codeFormater.bat"
     Const formatedOutputLocation As String = "codeFormater\"
     Const formatedOutputFileName As String = "formatedCode.out"
-    Const FormatedOutputPath As String = formatedOutputLocation + formatedOutputFileName
-
 
     Shared Sub RunCommandCom(ByVal command As String, ByVal arguments As String, ByVal permanent As Boolean)
         Dim p As Process = New Process()
@@ -17,14 +15,13 @@ Public Class MyUtilities
         p.Start()
     End Sub
 
-    Shared Function formateCode(ByVal filePath As String) As String
+    Shared Sub formateCode(ByVal filePath As String)
         Const comd As String = codeFormater
-        Dim arguments As String = filePath + " " + FormatedOutputPath
-        'Editor.CodeBox.Text = comd + arguments
+        Dim arguments As String = filePath
         MyUtilities.RunCommandCom(comd, arguments, False)
-        Threading.Thread.Sleep(800) 'Wait for code to get formate / wait execution of external command
-        Return My.Computer.FileSystem.ReadAllText(FormatedOutputPath)
-    End Function
+        Threading.Thread.Sleep(700) 'Wait for code to get formate / wait execution of external command
+        Return
+    End Sub
 
     Shared Function putInsideDoubleQuouts(ByVal str As String) As String
         Return """" & str & """"
