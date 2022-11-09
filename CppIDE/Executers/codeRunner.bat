@@ -10,7 +10,7 @@ echo working on it...
 @rem compiling
 g++ %tempFilePath% -o %outputPath%
 @rem checking for error and executting
-if errorLevel 1 (ECHO Error && pause ) else (%outputPath% %arguments% && echo: && echo Successfully Executed && pause)
+if errorLevel 1 (ECHO Error && pause ) else (CLS && %outputPath% %arguments% && echo: && echo Successfully Executed && pause)
 
  
   
