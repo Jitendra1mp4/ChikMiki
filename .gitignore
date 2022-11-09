@@ -1,6 +1,9 @@
 CppIDE/bin/MinGW/*
 CppIDE/bin/MinGW.zip
+CppIDE/bin/Release/*/*/*
+CppIDE/bin/Release/*/*
 CppIDE/bin/Release/*
 CppIDE/obj/x86/Release/*
+CppIDE/obj/x86/Release/*/*
 CppIDE/m1/*
 CppIDE/*vhost*
