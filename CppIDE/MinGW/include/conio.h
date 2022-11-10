@@ -40,7 +40,7 @@ _CRTIMP int __cdecl __MINGW_NOTHROW	getche (void);
 _CRTIMP int __cdecl __MINGW_NOTHROW	kbhit (void);
 _CRTIMP int __cdecl __MINGW_NOTHROW	putch (int);
 _CRTIMP int __cdecl __MINGW_NOTHROW	ungetch (int);
-
+void clrscr(){} // added by jitendra
 #endif	/* Not _NO_OLDNAMES */
 
 

@@ -154,7 +154,7 @@ Partial Class Editor
         Me.CodeBox.Name = "CodeBox"
         Me.CodeBox.Size = New System.Drawing.Size(842, 363)
         Me.CodeBox.TabIndex = 2
-        Me.CodeBox.Text = "#include <stdio.h>" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "int main() {" & Global.Microsoft.VisualBasic.ChrW(10) & "  printf(""Hello world"");" & Global.Microsoft.VisualBasic.ChrW(10) & "  return 0;" & Global.Microsoft.VisualBasic.ChrW(10) & "}"
+        Me.CodeBox.Text = "#include <stdio.h>" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "int main()" & Global.Microsoft.VisualBasic.ChrW(10) & "{" & Global.Microsoft.VisualBasic.ChrW(10) & "    printf(""Hello world"");" & Global.Microsoft.VisualBasic.ChrW(10) & "    return 0;" & Global.Microsoft.VisualBasic.ChrW(10) & "}"
         Me.CodeBox.WordWrap = False
         '
         'ContextMenuOfCodeBox

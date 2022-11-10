@@ -20,9 +20,10 @@ Public Class Editor
 
 
     Public Sub callCodeRunner(ByVal compileOnly As Boolean)
-        If ((CodeBox.Text.IndexOf("clrscr")) > -1 And (CodeBox.Text.IndexOf("// clrscr") = -1)) Then
-            CodeBox.Text = CodeBox.Text.Replace("clrscr", "// clrscr")
-        End If
+        'If ((CodeBox.Text.IndexOf("clrscr")) > -1 And (CodeBox.Text.IndexOf("// clrscr") = -1)) Then
+        'CodeBox.Text = CodeBox.Text.Replace("clrscr", "// clrscr")
+        'End If
+
         '_editor.butifyCode() 'user may not able to undo code 
         If Mfile.filePath <> "\0" Then
             Mfile.saver()

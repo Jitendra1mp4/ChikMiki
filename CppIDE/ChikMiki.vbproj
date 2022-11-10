@@ -30,7 +30,7 @@
     <ErrorReportUrl>https://github.com/Jitendra1mp4/ChikMiki</ErrorReportUrl>
     <ProductName>ChikMiki</ProductName>
     <PublisherName>Jitendra Kumar</PublisherName>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>2.2.5.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -2909,6 +2909,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="MinGW\lib\gcc\mingw32\6.3.0\include\c++\fenv.h">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MinGW\lib\gcc\mingw32\6.3.0\include\c++\iostream.h">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="MinGW\lib\gcc\mingw32\6.3.0\include\c++\math.h">
