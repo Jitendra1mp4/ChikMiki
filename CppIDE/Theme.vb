@@ -18,13 +18,13 @@
             _editor.lineNumberBox.BackColor = Color.White
             _editor.lineNumberBox.ForeColor = Color.Gray
 
-
+            'Setting Colors for CodeBox
             _editor.CodeBox.BackColor = Color.WhiteSmoke
+            _editor.CodeBox.ForeColor = Color.Maroon
             _editor.CodeboxSepraterPanel.BackColor = _editor.CodeBox.BackColor
-            _editor.CodeBox.ForeColor = Color.DarkCyan
+
 
             _editor.mainMenuStrip.BackColor = Color.White
-            '_editor.LeftPanel.BackColor = Color.White
             _editor.DownStatusStrip.BackColor = Color.White
             _editor.containerPanel.BackColor = Color.White
 
