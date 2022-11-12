@@ -16,12 +16,15 @@
 * __Portable.__
 * Can __Peserve last opened File, Theme, Font__ etc.
 * Seprate CMD output prompt able to take user inputs.
+
+
 ## Galary
-# Night Mode
+
+* ### Night Mode
 ![Night_LightE](https://user-images.githubusercontent.com/70005117/201478542-a0d785dd-e005-48fd-a8a4-6b230fccb6b0.png)
 
-# Drag and Drop to Open file
+* ### Drag and Drop to Open file
 ![DragAndDrop](https://user-images.githubusercontent.com/70005117/201478675-230146ce-96eb-41d6-a7e4-0453a2f35300.png)
 
-#Seprate output Window
+* ### Seprate output Window
 ![output](https://user-images.githubusercontent.com/70005117/201478584-311e5dbb-20b2-48c6-98df-705d76d19f88.jpg)
