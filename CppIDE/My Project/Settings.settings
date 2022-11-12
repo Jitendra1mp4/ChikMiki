@@ -17,9 +17,8 @@
     <Setting Name="lastOpenedFileName" Type="System.String" Scope="User">
       <Value Profile="(Default)">\0</Value>
     </Setting>
-    <Setting Name="preAvalibleCode" Type="System.String" Scope="Application">
+    <Setting Name="preAvalibleCCode" Type="System.String" Scope="Application">
       <Value Profile="(Default)">#include &lt;stdio.h&gt;
-
 int main()
 {
     printf("Hello world");
@@ -27,10 +26,19 @@ int main()
 }</Value>
     </Setting>
     <Setting Name="codeBoxFont" Type="System.Drawing.Font" Scope="User">
-      <Value Profile="(Default)">Consolas, 15.75pt</Value>
+      <Value Profile="(Default)">Consolas, 15.75pt, style=Bold</Value>
     </Setting>
-    <Setting Name="EditorFont" Type="System.String" Scope="User">
+    <Setting Name="EditorFont" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="preAvalibleCppCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">#include &lt;iostream.h&gt;
+using namespace std ;
+int main()
+{
+    printf("Hello world");
+    return 0;
+}</Value>
     </Setting>
   </Settings>
 </SettingsFile>

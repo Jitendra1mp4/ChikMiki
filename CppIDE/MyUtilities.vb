@@ -19,7 +19,7 @@ Public Class MyUtilities
         Const comd As String = codeFormater
         Dim arguments As String = filePath
         MyUtilities.RunCommandCom(comd, arguments, False)
-        Threading.Thread.Sleep(700) 'Wait for code to get formate / wait execution of external command
+        Threading.Thread.Sleep(900) 'Wait for code to get formate / wait execution of external command
         Return
     End Sub
 

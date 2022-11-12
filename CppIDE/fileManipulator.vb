@@ -15,6 +15,10 @@
         Return filePath.Substring(filePath.LastIndexOf("\") + 1)
     End Function
 
+    Public Function getFileExtention() As String
+        Return filePath.Substring(filePath.LastIndexOf(".") + 1)
+    End Function
+
     Private Function saveFile() As Boolean
         _editor.CodeBox.SaveFile(filePath, RichTextBoxStreamType.PlainText)
         saveFile = True
@@ -71,6 +75,12 @@
             _editor.EventMessage.Text = "Sucessfully Opened file " + fileName
             _editor.codeChanged = False
             setCodeBoxText = True
+            If getFileExtention() = "c" Or getFileExtention() = "C" Then
+                _editor.Executer.languageMD = CodeExecuters.languageMode.C
+            Else
+                _editor.Executer.languageMD = CodeExecuters.languageMode.Cpp
+            End If
+
         Else
             filePath = "\0"
             _editor.EventMessage.Text = "Failed to open last opened file"

@@ -1,14 +1,26 @@
 ﻿Public Class CodeExecuters
 
     Const compilerLoaction As String = "MinGW\bin\"
-    Const runnerCommand = "Executers\codeRunner.bat"
-    Const compilerCommand = "Executers\codeCompiler.bat"
+
+    Enum languageMode
+        C
+        Cpp
+    End Enum
+
+    Const CRnrCmd As String = "Executers\cCodeRunner.bat"
+    Const CcompilerCmd As String = "Executers\cCodeCompiler.bat"
+
+    Const CppRnrCmd As String = "Executers\cppCodeRunner.bat"
+    Const CppcompilerCmd As String = "Executers\cppCodeCompiler.bat"
 
     Const tempFileLocation As String = "Executers\Helper\"
     Const tempFileName As String = "tempCodeRunnerFile.cpp"
     Const tempFilePath As String = tempFileLocation + tempFileName
 
     Public programArgs As String = ""
+
+    Public languageMD As languageMode = languageMode.C
+
     Private _editor As Editor
 
     Sub New(ByRef edtr As Editor)
@@ -17,6 +29,18 @@
     End Sub
 
     Public Sub codeRunner(ByVal inputPath As String, ByVal compileOnly As Boolean)
+
+        Dim runnerCommand As String
+        Dim compilerCommand As String
+
+        If languageMD = languageMode.C Then
+            runnerCommand = CRnrCmd
+            compilerCommand = CcompilerCmd
+        Else
+            runnerCommand = CppRnrCmd
+            compilerCommand = CppcompilerCmd
+        End If
+
         Dim outputPath As String = inputPath
         If (inputPath = "\0") Then
             saveFile()

@@ -4,6 +4,7 @@ Imports ChikMiki.CodeExecuters
 Imports ChikMiki.EditMenu
 Imports ChikMiki.MyUtilities
 Imports ChikMiki.Theme
+Imports ChikMiki.selectLangDialog
 
 Public Class Editor
 
@@ -16,15 +17,10 @@ Public Class Editor
     Dim themer As New Theme(Me)
     Dim Mfile As New fileManipulator(Me)
 
-    Dim Executer As New CodeExecuters(Me)
-
+    Public Executer As New CodeExecuters(Me)
+    Dim LangDialog As selectLangDialog()
 
     Public Sub callCodeRunner(ByVal compileOnly As Boolean)
-        'If ((CodeBox.Text.IndexOf("clrscr")) > -1 And (CodeBox.Text.IndexOf("// clrscr") = -1)) Then
-        'CodeBox.Text = CodeBox.Text.Replace("clrscr", "// clrscr")
-        'End If
-
-        '_editor.butifyCode() 'user may not able to undo code 
         If Mfile.filePath <> "\0" Then
             Mfile.saver()
         End If
@@ -196,6 +192,8 @@ Public Class Editor
         'opening last opened file (if any)
         If (Not (My.MySettings.Default.lastOpenedFileName.Contains("\0"))) Then
             Mfile.setCodeBoxText(My.MySettings.Default.lastOpenedFileName)
+        Else
+            setLangMode()
         End If
 
         'Updating status strip
@@ -269,11 +267,14 @@ Public Class Editor
         Mfile.filePath = "\0"
         My.MySettings.Default.lastOpenedFileName = Mfile.filePath
         Me.Text = appName + " - Untitled"
-        CodeBox.Text = My.MySettings.Default.preAvalibleCode
+        CodeBox.Text = My.MySettings.Default.preAvalibleCCode
         codeChanged = False
         Mfile.Saved = True
+        Executer.languageMD = languageMode.C
+        StatusLanguageMode.Text = Executer.languageMD.ToString
         SAVEToolStripMenuItem1.Text = "SAVE"
         EventMessage.Text = "New Editor is ready!"
+        setLangMode()
     End Sub
 
     Private Sub createNewForm()
@@ -408,7 +409,7 @@ Public Class Editor
         resetAppearanceAfterDragAction()
         Dim file() As String = CType(e.Data.GetData(DataFormats.FileDrop), String()) 'Returns path
         Dim fileExt As String = file(0).Substring(file(0).LastIndexOf("."))
-        Dim allowedExtenstion() As String = {".c", ".cpp", ".txt"}
+        Dim allowedExtenstion() As String = {".c", ".C", ".cpp", ".CPP", ".txt"}
         If Array.IndexOf(allowedExtenstion, fileExt) > -1 Then
             'If Not Mfile.Saved Then
             If codeChanged Then
@@ -426,7 +427,7 @@ Public Class Editor
                 AddLineNumbers()
             End If
         Else
-            MsgBox("Only C,C++,Text file are allowed")
+            MsgBox("Only C, C++ and Text file are allowed")
         End If
 
     End Sub
@@ -468,6 +469,34 @@ Public Class Editor
 
     Private Sub contex_Redo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles contex_Redo.Click
         CodeBox.Redo()
+    End Sub
+
+    Private Sub LanguageModeMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LanguageModeMenuItem2.Click
+        Dim lm As DialogResult = selectLangDialog.ShowDialog()
+        If lm = DialogResult.OK Then
+            Executer.languageMD = languageMode.C
+            Executer.languageMD = languageMode.C
+            StatusLanguageMode.Text = "C"
+        Else
+            Executer.languageMD = languageMode.Cpp
+            Executer.languageMD = languageMode.Cpp
+            StatusLanguageMode.Text = "Cpp"
+        End If
+    End Sub
+
+    Private Sub setLangMode()
+        Dim lm As DialogResult = selectLangDialog.ShowDialog()
+        If lm = DialogResult.OK Then
+            Executer.languageMD = languageMode.C
+            Executer.languageMD = languageMode.C
+            StatusLanguageMode.Text = "C"
+            CodeBox.Text = My.MySettings.Default.preAvalibleCCode
+        Else
+            Executer.languageMD = languageMode.Cpp
+            Executer.languageMD = languageMode.Cpp
+            StatusLanguageMode.Text = "C++"
+            CodeBox.Text = My.MySettings.Default.preAvalibleCppCode
+        End If
     End Sub
 
 End Class

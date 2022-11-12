@@ -107,17 +107,16 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("#include <stdio.h>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"int main()"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"{"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    printf(""Hello world"");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    return 0;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"}"& _ 
-            "")>  _
-        Public ReadOnly Property preAvalibleCode() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("#include <stdio.h>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"int main()"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"{"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    printf(""Hello world"");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    return 0;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"}")>  _
+        Public ReadOnly Property preAvalibleCCode() As String
             Get
-                Return CType(Me("preAvalibleCode"),String)
+                Return CType(Me("preAvalibleCCode"),String)
             End Get
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Consolas, 15.75pt")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Consolas, 15.75pt, style=Bold")>  _
         Public Property codeBoxFont() As Global.System.Drawing.Font
             Get
                 Return CType(Me("codeBoxFont"),Global.System.Drawing.Font)
@@ -128,15 +127,24 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property EditorFont() As String
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property EditorFont() As Global.System.Drawing.Font
             Get
-                Return CType(Me("EditorFont"),String)
+                Return CType(Me("EditorFont"),Global.System.Drawing.Font)
             End Get
             Set
                 Me("EditorFont") = value
             End Set
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("#include <iostream.h>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"using namespace std ;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"int main()"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"{"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    printf(""Hello wo"& _ 
+            "rld"");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    return 0;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"}")>  _
+        Public ReadOnly Property preAvalibleCppCode() As String
+            Get
+                Return CType(Me("preAvalibleCppCode"),String)
+            End Get
         End Property
     End Class
 End Namespace
