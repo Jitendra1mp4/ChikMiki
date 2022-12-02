@@ -1,0 +1,13 @@
+CppIDE/bin/MinGW/*
+CppIDE/bin/MinGW.zip
+CppIDE/bin/Release/*
+CppIDE/bin/Release
+CppIDE/obj/x86/Release
+CppIDE/obj/x86/Release/*
+CppIDE/obj/x86/Release/*/*
+CppIDE/m1/*
+CppIDE/*vhost*
+CppIDE/bin/Release/Executers/Helper/tempCodeRunnerFile.cpp
+CppIDE/bin/Release/Executers/Helper/tempCodeRunnerFile.exe
+CppIDE/bin/Release/codeFormater/codeFormater.bat
+CppIDE/obj
