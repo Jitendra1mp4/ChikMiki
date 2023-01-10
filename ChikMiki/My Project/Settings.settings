@@ -1,0 +1,47 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="compilerCommand" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Executers\codeCompiler.bat</Value>
+    </Setting>
+    <Setting Name="runnerCommand" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Executers\codeRunner.bat</Value>
+    </Setting>
+    <Setting Name="compilerLoaction" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MinGW\bin\</Value>
+    </Setting>
+    <Setting Name="Theme" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="lastOpenedFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\0</Value>
+    </Setting>
+    <Setting Name="preAvalibleCCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">#include &lt;stdio.h&gt;
+int main()
+{
+    printf("Hello world");
+    return 0;
+}</Value>
+    </Setting>
+    <Setting Name="codeBoxFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Consolas, 15.75pt, style=Bold</Value>
+    </Setting>
+    <Setting Name="EditorFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="preAvalibleCppCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+    cout &lt;&lt; "Hello World" &lt;&lt; endl;
+    return 0;
+}</Value>
+    </Setting>
+    <Setting Name="codeBoxForeColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">LimeGreen</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
